@@ -1,0 +1,160 @@
+h1 {
+    z-index: 999;
+    position: relative;
+    top: 30px;
+
+}
+
+h2 {
+    z-index: 999;
+    position: relative;
+    top: 150px;
+
+}
+
+#login-body {
+    z-index: 999;
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    border: 2px solid #e1e1e1;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+}
+
+#background {
+    z-index: 15;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#close {
+    z-index: 999;
+    font-size: 25px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#user {
+    z-index: 999;
+    font-size: 80px;
+    position: absolute;
+    top: 30px;
+    left: 210px;
+
+}
+
+#form {
+    z-index: 999;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+
+}
+
+#submit {
+    z-index: 999;
+    margin: auto;
+    width: 200px;
+}
+
+#submit-yes {
+    z-index: 999;
+    width: 80px;
+    margin: auto;
+    text-align: center;
+}
+
+#rem {
+
+    width: 100px;
+    z-index: 999;
+    position: absolute;
+    bottom: 5px;
+    left: 150px;
+
+}
+
+#register-body {
+    z-index: 999;
+    width: 800px;
+    height: 650px;
+    margin: 100px auto;
+    border: 2px solid #e1e1e1;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+}
+
+#background1 {
+    z-index: 999;
+    text-align: center;
+    z-index: 15;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+
+}
+
+#close1 {
+    z-index: 999;
+    font-size: 25px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#text {
+    z-index: 999;
+    font-size: 25px;
+    position: absolute;
+    top: 300px;
+    right: 25px;
+
+}
+
+#form1 {
+    z-index: 999;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+
+
+}
+
+#submit1 {
+    z-index: 999;
+    margin: auto;
+    width: 200px;
+}
+
+#submit-yes1 {
+    width: 80px;
+    z-index: 999;
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+}
+
+#submit-no {
+    width: 80px;
+    z-index: 999;
+    position: absolute;
+    bottom: 5px;
+    left: 110px;
+
+}
+
+#search-bar-text{
+    z-index: 998;
+    margin-left: -115px;!important;
+    width: 100%;
+    font-size: 20px;
+    height: 80px;
+    background-color:black;
+    color: white;
+    border: none;
+}
