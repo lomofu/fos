@@ -37,6 +37,13 @@ h2 {
     top: 10px;
     right: 10px;
 }
+#front{
+    z-index: 999;
+    font-size: 25px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 
 #user {
     z-index: 999;
@@ -110,9 +117,9 @@ h2 {
 #text {
     z-index: 999;
     font-size: 25px;
-    position: absolute;
-    top: 300px;
-    right: 25px;
+    position: relative;
+    top: 90px;
+    left: 15px;
 
 }
 
@@ -121,7 +128,8 @@ h2 {
     width: 400px;
     height: 400px;
     text-align: center;
-
+    position: relative;
+    top: -16px;
 
 }
 
@@ -134,17 +142,17 @@ h2 {
 #submit-yes1 {
     width: 80px;
     z-index: 999;
-    position: absolute;
-    bottom: 5px;
-    left: 0px;
+    position: relative;
+    bottom: -98px;
+    left: 450px;
 }
 
 #submit-no {
     width: 80px;
     z-index: 999;
-    position: absolute;
-    bottom: 5px;
-    left: 110px;
+    position: relative;
+    bottom: -43px;
+    left: -160px;
 
 }
 
@@ -157,4 +165,34 @@ h2 {
     background-color:black;
     color: white;
     border: none;
+}
+
+#progress-bar{
+    position: relative;
+    top: 50px;
+
+}
+
+#text1{
+    z-index: 999;
+    font-size: 15px;
+    position: relative;
+    top: 208px;
+    left: 210px;
+
+
+}
+
+#secondinfo{
+    position: absolute;
+    top: 131px;
+
+
+}
+#text2{
+    z-index: 999;
+    font-size: 15px;
+    position: relative;
+    top: 208px;
+    left: 210px;
 }
