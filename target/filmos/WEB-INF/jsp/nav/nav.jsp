@@ -36,7 +36,8 @@
         <button id="register" class="hvr-pulse-grow layui-btn layui-btn-radius layui-btn-warm ">注册</button>
     </li>
     <li class="layui-nav-item" style="position:absolute;right:100px">
-        <div id="search" class="layui-icon layui-icon-search hvr-pulse-grow" style="cursor: pointer;font-size:25px"></div>
+        <div id="search" class="layui-icon layui-icon-search hvr-pulse-grow"
+             style="cursor: pointer;font-size:25px"></div>
     </li>
 </ul>
 <div id="search-bar" style="display: none;z-index: 998">
@@ -90,7 +91,7 @@
         <div id="close1" class="hvr-buzz-out layui-icon layui-icon-close" style="cursor: pointer"></div>
         <h1>注册</h1>
         <div id="progress-bar" class="layui-progress">
-            <div id="progress-bar-inside" class="layui-progress-bar" lay-percent="1/2" ></div>
+            <div id="progress-bar-inside" class="layui-progress-bar" lay-percent="1/2"></div>
         </div>
         <div id="front" class="layui-icon layui-icon-left hvr-backward" style="display: none;cursor: pointer"></div>
         <div id="text" style="color:grey;"><h4>欢迎加入，Assessment社区！</h4></div>

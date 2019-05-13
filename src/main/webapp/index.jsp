@@ -20,7 +20,7 @@
     <div class="layui-fluid">
         <div class="layui-carousel layui-anim layui-anim-fadein" id="headline">
             <div carousel-item>
-                <div><img src="resources/images/headline/1.jpg"></div>
+                <div><img src="resources/images/headline/1.jpg" style="width: 100%;height: 100%"></div>
                 <div><img src="resources/images/headline/2.jpg"></div>
                 <div><img src="resources/images/headline/3.jpg"></div>
                 <div><img src="resources/images/headline/4.jpg"></div>
