@@ -2,14 +2,17 @@ h1 {
     z-index: 999;
     position: relative;
     top: 30px;
-
 }
 
 h2 {
     z-index: 999;
     position: relative;
     top: 150px;
+}
 
+img {
+    width: 100%;
+    height: 100%;
 }
 
 #login-body {
@@ -37,6 +40,7 @@ h2 {
     top: 10px;
     right: 10px;
 }
+
 #front{
     z-index: 999;
     font-size: 25px;
@@ -76,13 +80,11 @@ h2 {
 }
 
 #rem {
-
     width: 100px;
     z-index: 999;
     position: absolute;
     bottom: 5px;
     left: 150px;
-
 }
 
 #register-body {
@@ -103,7 +105,6 @@ h2 {
     width: 100%;
     height: 200%;
     background: rgba(0, 0, 0, 0.8);
-
 }
 
 #close1 {
@@ -120,7 +121,6 @@ h2 {
     position: relative;
     top: 90px;
     left: 15px;
-
 }
 
 #form1 {
@@ -130,7 +130,6 @@ h2 {
     text-align: center;
     position: relative;
     top: -16px;
-
 }
 
 #submit1 {
@@ -153,7 +152,6 @@ h2 {
     position: relative;
     bottom: -43px;
     left: -160px;
-
 }
 
 #search-bar-text{
@@ -179,16 +177,13 @@ h2 {
     position: relative;
     top: 208px;
     left: 210px;
-
-
 }
 
 #secondinfo{
     position: absolute;
     top: 131px;
-
-
 }
+
 #text2{
     z-index: 999;
     font-size: 15px;

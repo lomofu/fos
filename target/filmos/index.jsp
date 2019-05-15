@@ -14,20 +14,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index/index.css">
     <html>
 <body>
-
+<!--加载导航栏-->
 <div id="nav"></div>
+
+<!--加载页面主题-->
 <div class="layui-container" id="container">
     <div class="layui-fluid">
         <div class="layui-carousel layui-anim layui-anim-fadein" id="headline">
             <div carousel-item>
-                <div><img src="resources/images/headline/1.jpg" style="width: 100%;height: 100%"></div>
-                <div><img src="resources/images/headline/2.jpg"></div>
-                <div><img src="resources/images/headline/3.jpg"></div>
-                <div><img src="resources/images/headline/4.jpg"></div>
+                <div><img src="resources/images/headline/1.jpg" ></div>
+                <div><img src="resources/images/headline/2.jpg" ></div>
+                <div><img src="resources/images/headline/3.jpg" ></div>
+                <div><img src="resources/images/headline/4.jpg" ></div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 <%--<script !src=""></script>--%>
@@ -47,6 +51,7 @@
         });
     });
 </script>
+
 <script type="text/javascript">
     $ = layui.$
     ;!function () {

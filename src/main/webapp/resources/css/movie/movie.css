@@ -1,0 +1,10 @@
+#nav {
+    z-index: 999;
+}
+
+#container {
+    display: table;
+    text-align: center;
+    margin: auto;
+    z-index: 10;
+}
