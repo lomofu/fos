@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-
 @Controller
 @RequestMapping(value = "/movietype")
+
 public class movieController {
 
     @Autowired
@@ -30,7 +30,7 @@ public class movieController {
         Layui layui = new Layui();
         List<MovieType> list = movieTypeService.getAllMovieType();
         try {
-            layui = Layui.success(list.size(), list);
+            layui = Layui.selectsuccess(list.size(), list);
         } catch (Exception e) {
             layui=Layui.fail(e);
         }

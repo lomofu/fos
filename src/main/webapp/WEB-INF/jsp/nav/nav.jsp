@@ -40,8 +40,9 @@
              style="cursor: pointer;font-size:25px"></div>
     </li>
 </ul>
+
 <div id="search-bar" style="display: none;z-index: 998">
-    <form class="layui-form layui-form-pane" action="">
+    <form class="layui-form layui-form-pane">
         <div class="layui-form-item">
             <div class="layui-input-block" style="background-color: black;left:0px">
                 <input id="search-bar-text" type="text" name="search" placeholder="搜索电影..." class="layui-input">
@@ -97,12 +98,12 @@
         <div id="text" style="color:grey;"><h4>欢迎加入，Assessment社区！</h4></div>
         <div id="text1" style="color:grey;display: block"><h6>首先你需要完善一些个人资料，<br/>填写完成后点击下一步哦!</h6></div>
         <div id="text2" style="color:grey;display: block"><h6>加油，<br/>还差一步!</h6></div>
-        <form id="form1" class="layui-form" action="" style="padding-top: 100px!important;">
+        <form id="form1" class="layui-form"style="padding-top: 100px!important;" method="post">
             <div id="firstinfo">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="title" required lay-verify="required" placeholder="请输入用户名"
+                        <input  id="user-name" type="text" name="userName" required lay-verify="required" placeholder="请输入用户名"
                                autocomplete="off" class="hvr-skew-forward layui-input">
                     </div>
                 </div>
@@ -110,16 +111,17 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">性别</label>
                     <div class="layui-input-block ">
-                        <select name="sex" lay-verify="required">
-                            <option value="男">男</option>
-                            <option value="女">女</option>
+                        <select id="sex" name="sex" lay-verify="required">
+                            <option id="none" value="0">未知</option>
+                            <option id="boy" value="1">男</option>
+                            <option id="girl" value="2">女</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">年龄</label>
                     <div class="layui-input-block">
-                        <input type="text" name="age" required lay-verify="required" placeholder="请输入年龄"
+                        <input id="age" type="text" name="age" required lay-verify="required|number|age" placeholder="请输入年龄"
                                autocomplete="off" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
@@ -127,14 +129,14 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">邮箱</label>
                     <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required" placeholder="请输入邮箱"
+                        <input id="email" type="text" name="email" required lay-verify="required|email" placeholder="请输入邮箱"
                                autocomplete="off" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">电话</label>
                     <div class="layui-input-block">
-                        <input type="text" name="phone" required lay-verify="required" placeholder="请输入电话号码"
+                        <input id="phone" type="text" name="phone" required lay-verify="required|phone" placeholder="请输入电话号码"
                                autocomplete="off" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
@@ -144,43 +146,41 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                        <input id="password" type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码"
                                autocomplete="off" class="hvr-skew-forward layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">确认密码</label>
                     <div class="layui-input-block">
-                        <input type="password" name="password" required lay-verify="required" placeholder="请再次输入密码"
+                        <input  id="repassword" type="password" name="repassword" required lay-verify="required|repass" placeholder="请再次输入密码"
                                autocomplete="off" class="hvr-skew-forward layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">上传头像</label>
                     <div class="layui-input-block">
-                        <input type="file" name="img" required lay-verify="required" placeholder="请再次输入密码"
-                               autocomplete="off" class="layui-input hvr-skew-forward">
+                        <input id="userImg" type="file" name="userImg" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
             </div>
 
 
-            <div class="layui-form-item" id="submit1">
+            <div  class="layui-form-item" id="submit1">
                 <div class="layui-input-block">
-                    <button class="layui-btn hvr-pulse-grow" id="submit-yes1">下一步
+                    <button class="layui-btn hvr-pulse-grow" lay-submit id="submit-yes1" style="display: none">提交
                     </button>
                     <br><br>
                     <button type="reset" class="layui-btn layui-btn-danger hvr-wobble-skew" id="submit-no">重置</button>
                 </div>
             </div>
+            <div id="next" class="layui-btn" style="display: block">下一步</div>
         </form>
+
     </div>
 </div>
 
 
-<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"></script>
 <script type="text/javascript">
     ;!function () {
         //无需再执行layui.use()方法加载模块，直接使用即可
@@ -207,6 +207,36 @@
         })
     }();
 </script>
+<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"></script>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        form.verify({
+            pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+            ,repass: function(value) {
+            //获取密码
+                var pass = $("#password").val();
+                var repass=$("#repassword").val();
+                if(pass!=repass) {
+                    return '两次输入的密码不一致';
+                }
+            }
+        })
+        form.on('submit(*)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+
+    });
+</script>
+
 
 </body>
 

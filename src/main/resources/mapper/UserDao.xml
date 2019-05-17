@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--mapper文件用于Mybatis文件的dao操作 -->
+<mapper namespace="com.dao.UserDao">
+    <insert id="insertUser" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+        INSERT INTO tb_user
+        (user_id,user_name,password,sex,age,user_img,email,phone,create_time,state,user_type)
+        VALUES
+        (#{userId},#{userName},#{password},#{sex},#{age},#{userImg},#{email},#{phone},#{createTime},#{state},#{userType});
+    </insert>
+
+
+</mapper>
