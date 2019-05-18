@@ -73,38 +73,5 @@ $(function () {
         $("#progress-bar-inside").css("width","100%");
     })
 
-    $('#submit-yes1').click(function () {
-            var user = {};
-            user.userName = $('#user-name').val();
-            user.password = $('#password').val();
-            user.age=$('#age').val();
-            user.email=$('#email').val();
-            user.phone=$('#phone').val();
-            user.sex=$('#sex option:selected') .val();
-            /*获取的是上传图片的输入流*/
-            var userImg = $('#userImg')[0].files[0];
-            //在ajax中传递的参数
-            var formData = new FormData();
-            //参数的内容，分别是上面的user和userImg
-            formData.append('userImg', userImg);
-            formData.append('userString', JSON.stringify(user));
-            /*使用ajax提交到后台*/
-            $.ajax({
-                url: '/filmos/user/register',
-                type: 'post',
-                data: formData,
-                contentType: false,
-                processData: false,
-                cache: false,
-                success: function (data) {
-                    if (data.success) {
-                        $.toast('提交成功！');
-                    } else {
-                        $.toast('提交失败！' + data.errMsg);
-                    }
-                }
-            })
-
-    })
 
 });

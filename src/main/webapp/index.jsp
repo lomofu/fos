@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>开始使用layui</title>
+    <title>首页</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index/index.css">
@@ -34,7 +34,14 @@
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 
 <script>
-    layui.use('carousel', function () {
+         $ = layui.$
+        ;!function () {
+        $(function () {
+            //调用ajax实现页面的局部刷新,将iframe的页面加载出来
+            $("#nav").load("movietype/nav");
+        });
+        }();
+
         var carousel = layui.carousel;
         //建造实例
         carousel.render({
@@ -45,16 +52,7 @@
             , indicator: 'none'//指示器不显示
             , anim: 'fade' //切换动画方式
         });
-    });
 </script>
-<script type="text/javascript">
-    $ = layui.$
-    ;!function () {
-        $(function () {
-            //调用ajax实现页面的局部刷新,将iframe的页面加载出来
-            $("#nav").load("movietype/nav");
-        });
-    }();
-</script>
+
 </body>
 </html>

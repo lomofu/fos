@@ -1,14 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>layui</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>开始使用layui</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nav/nav.css">
@@ -103,7 +101,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名</label>
                     <div class="layui-input-block">
-                        <input  id="user-name" type="text" name="userName" required lay-verify="required" placeholder="请输入用户名"
+                        <input  id="user-name" type="text" name="userName"  lay-verify="required" placeholder="请输入用户名"
                                autocomplete="off" class="hvr-skew-forward layui-input">
                     </div>
                 </div>
@@ -121,7 +119,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">年龄</label>
                     <div class="layui-input-block">
-                        <input id="age" type="text" name="age" required lay-verify="required|number|age" placeholder="请输入年龄"
+                        <input id="age" type="text" name="age"  lay-verify="required|number" placeholder="请输入年龄"
                                autocomplete="off" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
@@ -129,14 +127,14 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">邮箱</label>
                     <div class="layui-input-block">
-                        <input id="email" type="text" name="email" required lay-verify="required|email" placeholder="请输入邮箱"
+                        <input id="email" type="text" name="email"  lay-verify="required" placeholder="请输入邮箱"
                                autocomplete="off" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">电话</label>
                     <div class="layui-input-block">
-                        <input id="phone" type="text" name="phone" required lay-verify="required|phone" placeholder="请输入电话号码"
+                        <input id="phone" type="text" name="phone"  lay-verify="required" placeholder="请输入电话号码"
                                autocomplete="off" class="layui-input hvr-skew-forward">
                     </div>
                 </div>
@@ -146,14 +144,14 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input id="password" type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码"
+                        <input id="password" type="password" name="password"  lay-verify="required" placeholder="请输入密码"
                                autocomplete="off" class="hvr-skew-forward layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">确认密码</label>
                     <div class="layui-input-block">
-                        <input  id="repassword" type="password" name="repassword" required lay-verify="required|repass" placeholder="请再次输入密码"
+                        <input  id="repassword" type="password" name="repassword"  lay-verify="required" placeholder="请再次输入密码"
                                autocomplete="off" class="hvr-skew-forward layui-input">
                     </div>
                 </div>
@@ -168,7 +166,7 @@
 
             <div  class="layui-form-item" id="submit1">
                 <div class="layui-input-block">
-                    <button class="layui-btn hvr-pulse-grow" lay-submit id="submit-yes1" style="display: none">提交
+                    <button class="layui-btn hvr-pulse-grow" lay-submit lay-filter="reg" id="submit-yes1" style="display: none">提交
                     </button>
                     <br><br>
                     <button type="reset" class="layui-btn layui-btn-danger hvr-wobble-skew" id="submit-no">重置</button>
@@ -180,7 +178,9 @@
     </div>
 </div>
 
-
+<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>--%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"></script>
 <script type="text/javascript">
     ;!function () {
         //无需再执行layui.use()方法加载模块，直接使用即可
@@ -189,7 +189,7 @@
         $ = layui.$
         var element = layui.element;
 
-
+        scrollbar: false;
         var html = ""
         $.ajax({
             url: "/filmos/movietype/getallmovietype",
@@ -206,35 +206,93 @@
             }
         })
     }();
+
 </script>
-<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"></script>
 <script>
-    layui.use('form', function(){
+    //# sourceURL=dynamicScript.js
         var form = layui.form;
-        form.verify({
-            pass: [
-                /^[\S]{6,12}$/
-                ,'密码必须6到12位，且不能出现空格'
-            ]
-            ,repass: function(value) {
-            //获取密码
-                var pass = $("#password").val();
-                var repass=$("#repassword").val();
-                if(pass!=repass) {
-                    return '两次输入的密码不一致';
-                }
+        form.on('submit(reg)', function(data){
+            var userName = $('#user-name').val();
+            var password = $('#password').val();
+            var repassword=$('#repassword').val();
+            var age=$('#age').val();
+            var email=$('#email').val();
+            var phone=$('#phone').val();
+            var sex=$('#sex option:selected') .val();
+            /*获取的是上传图片的输入流*/
+            var userImg = $('#userImg')[0].files[0];
+
+            //表单校验
+            if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(userName)){
+                layer.msg('用户名不能有特殊字符！', {icon: 2});
+                return false;
+
             }
-        })
-        form.on('submit(*)', function(data){
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
+
+            if(/(^\_)|(\__)|(\_+$)/.test(userName)){
+                layer.msg('用户名首尾不能出现下划线\'_\'！', {icon: 2});
+                return false;
+            }
+            if(/^\d+\d+\d$/.test(userName)){
+                layer.msg('用户名不能全为数字！', {icon: 2});
+                return false;
+            }
+            if (!/^[0-9]*[1-9][0-9]*$/.test(age)){
+                layer.msg('年龄输入不合法，不允许有小数！',{icon:2});
+                return false;
+            }
+            if(age<=0){
+                layer.msg('年龄必须大于0！', {icon: 2});
+                return false;
+            }
+            if(age>120){
+                layer.msg('年龄输入太大了！',{icon:2});
+                return false;
+            }
+            if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)){
+                layer.msg('请输入有效的邮箱!',{icon:2});
+                return false;
+            }
+            if(!/^1\d{10}$/.test(phone)){
+                layer.msg('请输入有效的手机号码!', {icon: 2});
+                return false;
+            }
+            if (!/^[\S]{6,12}$/.test(password)){
+                layer.msg('密码必须6到12位，且不能出现空格!', {icon: 2});
+                return false
+            }
+            if (password!=repassword){
+                layer.msg('您输入的两次密码不一致，请仔细检查！', {icon: 2});
+                return false;
+            }
+            var user = {};
+            user.userName = userName;
+            user.password = repassword;
+            user.age=age;
+            user.email=email;
+            user.phone=phone;
+            user.sex=sex;
+            var formData = new FormData();
+            //参数的内容，分别是上面的user和userImg
+            formData.append('userImg', userImg);
+            formData.append('userString', JSON.stringify(user));
+            $.ajax({
+                url: "/filmos/user/register",
+                type:"POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                        layer.msg('注册成功！', {icon: 1,time: 3000});
+                        index=false;
+                        location.href="index.jsp"
+                }
+
+            });
             return false;
         });
 
-    });
 </script>
 
 
