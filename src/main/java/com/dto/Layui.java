@@ -9,6 +9,31 @@ import java.util.List;
  */
 
 public class Layui  extends HashMap<String, Object> {
+    private  Integer code;
+    private  String msg;
+    private  boolean index;
+    private  Integer count;
+    private  List<?>data;
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public void setData(List<?> data) {
+        this.data = data;
+    }
+
+    public void setIndex(boolean index) {
+        this.index = index;
+    }
 
     //查询操作成功的模板
     public static Layui selectsuccess(Integer count, List<?> data){

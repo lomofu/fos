@@ -1,5 +1,22 @@
 //# sourceURL=dynamicScript.js
+$ = layui.$
 $(function () {
+
+    $.ajax({
+        url: "/filmos/movietype/getallmovietype",
+        type: "get",
+        dataType: "json",
+        data: {},
+        success: function (data) {
+            var list = data.data;
+            var tempHtml = '';
+            $.each(list, function (i, item) {
+                tempHtml += '<dd><a href="#" data-id="' + item.typeId + '">' + item.typeName + '</a></dd>';
+            });
+            $('.layui-nav-child').html(tempHtml);
+        }
+    })
+
     $('#login').click(function () {
         document.getElementById("background").className = 'layui-anim layui-anim-scaleSpring';
         document.getElementById("background").style.display = 'block';

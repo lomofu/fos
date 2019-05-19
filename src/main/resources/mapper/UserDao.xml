@@ -5,7 +5,7 @@
 
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.UserDao">
-    <insert id="insertUser" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+    <insert id="insertUser" parameterType="com.entity.User" useGeneratedKeys="true"  keyProperty="userId" keyColumn="user_id">
         INSERT INTO tb_user
         (user_id,user_name,password,sex,age,user_img,email,phone,create_time,state,user_type)
         VALUES

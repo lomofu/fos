@@ -96,7 +96,7 @@
         <div id="text" style="color:grey;"><h4>欢迎加入，Assessment社区！</h4></div>
         <div id="text1" style="color:grey;display: block"><h6>首先你需要完善一些个人资料，<br/>填写完成后点击下一步哦!</h6></div>
         <div id="text2" style="color:grey;display: block"><h6>加油，<br/>还差一步!</h6></div>
-        <form id="form1" class="layui-form"style="padding-top: 100px!important;" method="post">
+        <form id="form1" class="layui-form"style="padding-top: 100px!important;" method="post" onsubmit="return false" >
             <div id="firstinfo">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名</label>
@@ -162,8 +162,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div  class="layui-form-item" id="submit1">
                 <div class="layui-input-block">
                     <button class="layui-btn hvr-pulse-grow" lay-submit lay-filter="reg" id="submit-yes1" style="display: none">提交
@@ -175,42 +173,16 @@
             <div id="next" class="layui-btn" style="display: block">下一步</div>
         </form>
 
+
     </div>
 </div>
 
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-<%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>--%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"></script>
-<script type="text/javascript">
-    ;!function () {
-        //无需再执行layui.use()方法加载模块，直接使用即可
-        var form = layui.form
-        var layer = layui.layer;
-        $ = layui.$
-        var element = layui.element;
-
-        scrollbar: false;
-        var html = ""
-        $.ajax({
-            url: "/filmos/movietype/getallmovietype",
-            type: "get",
-            dataType: "json",
-            data: {},
-            success: function (data) {
-                var list = data.data;
-                var tempHtml = '';
-                $.each(list, function (i, item) {
-                    tempHtml += '<dd><a href="#" data-id="' + item.typeId + '">' + item.typeName + '</a></dd>';
-                });
-                $('.layui-nav-child').html(tempHtml);
-            }
-        })
-    }();
-
-</script>
 <script>
     //# sourceURL=dynamicScript.js
         var form = layui.form;
+
         form.on('submit(reg)', function(data){
             var userName = $('#user-name').val();
             var password = $('#password').val();
@@ -221,6 +193,7 @@
             var sex=$('#sex option:selected') .val();
             /*获取的是上传图片的输入流*/
             var userImg = $('#userImg')[0].files[0];
+            var user = {};
 
             //表单校验
             if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(userName)){
@@ -265,7 +238,6 @@
                 layer.msg('您输入的两次密码不一致，请仔细检查！', {icon: 2});
                 return false;
             }
-            var user = {};
             user.userName = userName;
             user.password = repassword;
             user.age=age;
@@ -277,21 +249,31 @@
             formData.append('userImg', userImg);
             formData.append('userString', JSON.stringify(user));
             $.ajax({
-                url: "/filmos/user/register",
                 type:"POST",
-                data: formData,
+                url:"/filmos/user/register",
+                data:formData,
+                dataType:"json",
                 contentType: false,
                 processData: false,
                 cache: false,
-                success: function (data) {
-                        layer.msg('注册成功！', {icon: 1,time: 3000});
-                        index=false;
-                        location.href="index.jsp"
-                }
-
+                beforeSend: function () {
+                    // 禁用按钮防止重复提交
+                    $("#submit-yes1").attr({ disabled: "disabled" });
+                    layer.load(2,6000);
+                },
+                success:function(data){
+                    if (data.code==200) {
+                        location.href = "/filmos/user/success"
+                    } else {
+                        layer.msg(data.msg, {icon: 2, time: 5000});
+                    }
+                },
             });
             return false;
         });
+
+
+
 
 </script>
 

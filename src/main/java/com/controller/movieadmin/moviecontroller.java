@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/movie")
-public class moviecontroller {
+public class movieController {
     @Autowired
     private MovieService movieService;
 

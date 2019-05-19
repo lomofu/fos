@@ -34,24 +34,24 @@
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 
 <script>
-         $ = layui.$
-        ;!function () {
+    $ = layui.$
+    ;!function () {
         $(function () {
             //调用ajax实现页面的局部刷新,将iframe的页面加载出来
             $("#nav").load("movietype/nav");
         });
-        }();
+    }();
 
-        var carousel = layui.carousel;
-        //建造实例
-        carousel.render({
-            elem: '#headline'
-            , width: '100%' //设置容器宽度
-            , height: '580px'//设置容器高度
-            , arrow: 'hover' //始终显示箭头
-            , indicator: 'none'//指示器不显示
-            , anim: 'fade' //切换动画方式
-        });
+    var carousel = layui.carousel;
+    //建造实例
+    carousel.render({
+        elem: '#headline'
+        , width: '100%' //设置容器宽度
+        , height: '580px'//设置容器高度
+        , arrow: 'hover' //始终显示箭头
+        , indicator: 'none'//指示器不显示
+        , anim: 'fade' //切换动画方式
+    });
 </script>
 
 </body>

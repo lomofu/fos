@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class userController {
     @Autowired
     private UserService userService;
 
@@ -35,33 +35,37 @@ public class UserController {
     private Layui addUser(HttpServletRequest request){
         Layui layui=new Layui();
         String userString= HttpServletRequestUtil.getString(request,"userString");
+        String index=HttpServletRequestUtil.getString(request,"index");
         ObjectMapper mapper=new ObjectMapper();
         User user=null;
-        try {
+
+            try {
             user=mapper.readValue(userString,User.class);
         } catch (Exception e) {
             return Layui.addfail(e);
         }
 
-        //接受图片，并解析为string
-        CommonsMultipartFile userImg=null;
-        CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver(request.getSession().getServletContext());
-        if (commonsMultipartResolver.isMultipart(request)){
-            MultipartHttpServletRequest multipartHttpServletRequest=(MultipartHttpServletRequest)request;
-            userImg=(CommonsMultipartFile)multipartHttpServletRequest.getFile("userImg");
+            //接受图片，并解析为string
+            CommonsMultipartFile userImg=null;
+            CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver(request.getSession().getServletContext());
+            if (commonsMultipartResolver.isMultipart(request)){
+                MultipartHttpServletRequest multipartHttpServletRequest=(MultipartHttpServletRequest)request;
+                userImg=(CommonsMultipartFile)multipartHttpServletRequest.getFile("userImg");
 
-        }else {
-            Exception e=new RuntimeException("图片为空");
-            Layui.addfail(e);
-        }
-
-        if (user!=null&&userImg!=null){
-            try {
-                layui=userService.addUser(user,userImg.getInputStream(),userImg.getOriginalFilename());
-            } catch (Exception e) {
+            }else {
+                Exception e=new RuntimeException("图片为空");
                 Layui.addfail(e);
             }
-        }
+
+            if (user!=null&&userImg!=null){
+                try {
+                    layui=userService.addUser(user,userImg.getInputStream(),userImg.getOriginalFilename());
+
+                } catch (Exception e) {
+                    Layui.addfail(e);
+                }
+            }
+
 
     return layui;
 
