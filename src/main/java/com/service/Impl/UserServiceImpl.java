@@ -32,16 +32,17 @@ public class UserServiceImpl implements UserService {
             user.setCreateTime(new Date());
             user.setState(1);
             user.setUserType(1);
+            int effectedNum = userDao.insertUser(user);
+            if (effectedNum <= 0) {
+                throw new RuntimeException("用户创建失败");
+            }
             if (userImgInputStream != null) {
                 try {
                     String userImg = insertUserImg(user, userImgInputStream, fileName);
                     user.setUserImg(userImg);
+                    int updateNum=userDao.updateUser(user);
                 } catch (Exception e) {
                     throw new RuntimeException("添加图片错误" + e.getMessage());
-                }
-                int effectednum = userDao.insertUser(user);
-                if (effectednum <= 0) {
-                    throw new RuntimeException("用户创建失败");
                 }
             } else {
                 Exception e = new Exception();

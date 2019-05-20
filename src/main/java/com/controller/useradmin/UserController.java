@@ -38,11 +38,10 @@ public class userController {
         String index=HttpServletRequestUtil.getString(request,"index");
         ObjectMapper mapper=new ObjectMapper();
         User user=null;
-
             try {
             user=mapper.readValue(userString,User.class);
         } catch (Exception e) {
-            return Layui.addfail(e);
+            Layui.addfail(e);
         }
 
             //接受图片，并解析为string
@@ -54,7 +53,8 @@ public class userController {
 
             }else {
                 Exception e=new RuntimeException("图片为空");
-                Layui.addfail(e);
+                layui.setMsg("图片为空");
+                return layui;
             }
 
             if (user!=null&&userImg!=null){
@@ -62,7 +62,8 @@ public class userController {
                     layui=userService.addUser(user,userImg.getInputStream(),userImg.getOriginalFilename());
 
                 } catch (Exception e) {
-                    Layui.addfail(e);
+                    layui.setMsg("注册失败");
+                    return layui;
                 }
             }
 
