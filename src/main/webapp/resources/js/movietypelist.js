@@ -1,6 +1,26 @@
 //# sourceURL=dynamicScript.js
 $ = layui.$
 $(function () {
+    $.ajax({
+        url: "/filmos/user/islogin",
+        type: "get",
+        dataType: "json",
+        data: {},
+        success: function (data) {
+            if (data.code==200){
+                $("#tourist").css('display','none');
+                $("#tourist1").css('display','none');
+                $("#customer").css('display', 'block');
+                $("#customer1").css('display','block');
+            }else {
+                $("#tourist").css('display','block');
+                $("#tourist1").css('display','block');
+                $("#customer").css('display', 'none');
+                $("#customer1").css('display','none');
+            }
+        }
+    });
+
 
     $.ajax({
         url: "/filmos/movietype/getallmovietype",
@@ -13,8 +33,32 @@ $(function () {
             $.each(list, function (i, item) {
                 tempHtml += '<dd><a href="#" data-id="' + item.typeId + '">' + item.typeName + '</a></dd>';
             });
-            $('.layui-nav-child').html(tempHtml);
+            $('#moivetype').html(tempHtml);
         }
+    })
+    $('#quit').click(function () {
+        $.ajax({
+            url: "/filmos/user/quit",
+            type: "get",
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                if (data.code==200){
+                    $("#tourist").css('display','block');
+                    $("#tourist1").css('display','block');
+                    $("#customer").css('display', 'none');
+                    $("#customer1").css('display','none');
+                    layer.msg('登出成功！', {icon: 0, time:5000});
+                    location.href = "index.jsp";
+                }else {
+
+                    $("#tourist").css('display','none');
+                    $("#tourist1").css('display','none');
+                    $("#customer").css('display', 'block');
+                    $("#customer1").css('display','block');
+                }
+            }
+        });
     })
 
     $('#login').click(function () {

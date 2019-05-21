@@ -29,10 +29,8 @@ public class movieTypeController {
     private Layui getAllMovieType() {
         Layui layui = new Layui();
         List<MovieType> list = movieTypeService.getAllMovieType();
-        try {
-            layui = Layui.selectsuccess(list.size(), list);
-        } catch (Exception e) {
-            layui=Layui.fail(e);
+        if(list.size()>0){
+            layui=Layui.selectAll(list.size(),list);
         }
         return layui;
     }

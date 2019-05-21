@@ -12,6 +12,18 @@ import static junit.framework.TestCase.assertEquals;
 public class UserDaoTest extends BaseTest {
     @Autowired
     private UserDao userDao;
+    @Test
+    public void selectUserTest(){
+        User user=new User();
+        User user2=new User();
+        user.setEmail("11@qq.com");
+        user2.setPhone("110");
+        User user1=userDao.selectUser(user);
+        User user3=userDao.selectUser(user2);
+        System.out.println(user1.getUserName());
+        System.out.println(user3.getUserName());
+
+    }
 
     @Test
     public void insertUserTest(){
@@ -31,5 +43,13 @@ public class UserDaoTest extends BaseTest {
         assertEquals(1,num);
 
 
+    }
+
+    @Test
+    public void updateUserTest(){
+        User user=new User();
+        user.setUserId(83);
+        user.setEmail("2357650152@qq.com");
+        int num=userDao.updateUser(user);
     }
 }

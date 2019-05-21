@@ -18,16 +18,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Override
+    public User login(User user) {
+        return userDao.selectUser(user);
+    }
+
 
     @Override
     @Transactional
-    public Layui addUser(User user, InputStream userImgInputStream, String fileName) {
+    public int addUser(User user, InputStream userImgInputStream, String fileName) {
         if (user.equals(null)) {
-
             throw new RuntimeException("用户不能为空");
-
         }
-
         try {
             user.setCreateTime(new Date());
             user.setState(1);
@@ -41,6 +43,7 @@ public class UserServiceImpl implements UserService {
                     String userImg = insertUserImg(user, userImgInputStream, fileName);
                     user.setUserImg(userImg);
                     int updateNum=userDao.updateUser(user);
+                    return updateNum;
                 } catch (Exception e) {
                     throw new RuntimeException("添加图片错误" + e.getMessage());
                 }
@@ -51,8 +54,10 @@ public class UserServiceImpl implements UserService {
         } catch (RuntimeException e) {
             throw new RuntimeException("添加用户错误" + e.getMessage());
         }
-        return Layui.addsuccess(1);
+
     }
+
+
 
     private String insertUserImg(User user, InputStream userImgInputStream, String fileName) {
         String dir = PathUtil.getUserImgPath(user.getUserId());

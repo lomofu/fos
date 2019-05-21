@@ -6,5 +6,7 @@ import com.entity.User;
 import java.io.InputStream;
 
 public interface UserService {
-    Layui addUser(User user, InputStream userImgInputStream,String fileName);
+    int addUser(User user, InputStream userImgInputStream,String fileName);
+
+    User login(User user);
 }

@@ -23,7 +23,7 @@ public class PathUtil {
             //部署再云服务器上
             basePath = "/home/fos-resources/img";
         }
-        basePath = basePath.replace("/", System.getProperty("file.separator"));
+        basePath = basePath.replace(System.getProperty("file.separator"),"/" );
         return basePath;
     }
 
@@ -33,7 +33,7 @@ public class PathUtil {
      */
     public static String getUserImgPath(Integer userId) {
         String imgPath = "/upload/item/user/" + userId + "/";
-        return imgPath.replace("/", System.getProperty("file.separator"));
+        return imgPath.replace(System.getProperty("file.separator"),"/");
 
     }
 }

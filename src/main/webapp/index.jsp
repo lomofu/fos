@@ -27,32 +27,62 @@
             </div>
         </div>
     </div>
-</div>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <div class="title">院线热映</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="layui-row layui-col-space15" style="background-color: #555555">
+        <div class="layui-col-lg6">
+            <div class="layui-card">
+                <div class="layui-card-header">卡片面板</div>
+                <div class="layui-card-body">
+                    卡片式面板面板通常用于非白色背景色的主体内<br>
+                    从而映衬出边框投影
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-lg6">
+            <div class="layui-card">
+                <div class="layui-card-header">卡片面板</div>
+                <div class="layui-card-body">
+                    结合 layui 的栅格系统<br>
+                    轻松实现响应式布局
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
-<%--<script !src=""></script>--%>
-<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
+    <%--<script !src=""></script>--%>
+    <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 
-<script>
-    $ = layui.$
-    ;!function () {
-        $(function () {
-            //调用ajax实现页面的局部刷新,将iframe的页面加载出来
-            $("#nav").load("movietype/nav");
+    <script>
+        $ = layui.$
+        ;!function () {
+            $(function () {
+                //调用ajax实现页面的局部刷新,将iframe的页面加载出来
+                $("#nav").load("movietype/nav");
+            });
+        }();
+
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#headline'
+            , width: '100%' //设置容器宽度
+            , height: '580px'//设置容器高度
+            , arrow: 'hover' //始终显示箭头
+            , indicator: 'none'//指示器不显示
+            , anim: 'fade' //切换动画方式
         });
-    }();
-
-    var carousel = layui.carousel;
-    //建造实例
-    carousel.render({
-        elem: '#headline'
-        , width: '100%' //设置容器宽度
-        , height: '580px'//设置容器高度
-        , arrow: 'hover' //始终显示箭头
-        , indicator: 'none'//指示器不显示
-        , anim: 'fade' //切换动画方式
-    });
-</script>
+    </script>
 
 </body>
 </html>

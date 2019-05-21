@@ -19,7 +19,7 @@ public class UserServiceTest extends BaseTest {
 
     @Test
     public void addUserTest() throws FileNotFoundException {
-        User user=new User();
+        User user = new User();
         user.setUserName("王五1");
         user.setPassword("admin");
         user.setAge(18);
@@ -29,13 +29,21 @@ public class UserServiceTest extends BaseTest {
         user.setCreateTime(new Date());
         user.setState(1);
         user.setUserType(1);
-        File file=new File("C:/Users/Public/Pictures/Sample Pictures/1.jpg");
-        InputStream inputStream =new FileInputStream(file);
-        Layui layui=userService.addUser(user,inputStream,file.getName());
-        System.out.println(layui.get("count"));
+        File file = new File("C:/Users/Public/Pictures/Sample Pictures/1.jpg");
+        InputStream inputStream = new FileInputStream(file);
+        int num = userService.addUser(user, inputStream, file.getName());
+        System.out.println(num);
 
-
-
+    }
+    @Test
+    public void selectUserTest(){
+        User user=new User();
+        user.setUserName("lomofulomofu");
+        user=userService.login(user);
+        System.out.println(user.getUserId());
+        System.out.println(user.getUserName());
+        System.out.println(user.getCreateTime());
+        System.out.println(user.getUserImg());
 
     }
 

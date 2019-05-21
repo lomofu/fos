@@ -1,4 +1,4 @@
-﻿/*
+/*
  Navicat MySQL Data Transfer
 
  Source Server         : localhost_3306
@@ -35,7 +35,7 @@ CREATE TABLE `tb_admin`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_comment`;
 CREATE TABLE `tb_comment`  (
-  `comment_id` int(15) NOT NULL  AUTO_INCREMENT COMMENT '评论ID',
+  `comment_id` int(15) NOT NULL DEFAULT 0 AUTO_INCREMENT COMMENT '评论ID',
   `movie_id` int(15) NOT NULL COMMENT '电影ID参看Movie表',
   `user_id` int(15) NOT NULL COMMENT '用户ID参考User表',
   `content` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '内容',
