@@ -1,4 +1,4 @@
-//# sourceURL=dynamicScript.js
+
 $ = layui.$
 $(function () {
     $.ajax({
@@ -23,7 +23,7 @@ $(function () {
 
 
     $.ajax({
-        url: "/filmos/movietype/getallmovietype",
+        url: "/filmos/movietype/allmovietype",
         type: "get",
         dataType: "json",
         data: {},

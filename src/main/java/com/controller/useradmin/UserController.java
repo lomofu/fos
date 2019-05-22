@@ -143,6 +143,7 @@ public class userController {
         if (user != null && userImg != null) {
             try {
                 userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
+                request.getSession().setAttribute("user", user);
                 return Layui.add(1);
             } catch (Exception e) {
                 return Layui.fail("注册失败！" + e.getMessage());

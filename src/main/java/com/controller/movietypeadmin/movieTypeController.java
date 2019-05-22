@@ -24,7 +24,7 @@ public class movieTypeController {
      *
      * @return
      */
-    @RequestMapping(value = "/getallmovietype", method = RequestMethod.GET)
+    @RequestMapping(value = "/allmovietype", method = RequestMethod.GET)
     @ResponseBody
     private Layui getAllMovieType() {
         Layui layui = new Layui();

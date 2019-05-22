@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/user",method = RequestMethod.GET)
-public class userOperation {
 
+public class userOperation {
     @RequestMapping(value = "/success")
     private String success(){return "register/success";}
+
+    @RequestMapping(value = "/centre",method = RequestMethod.GET)
+    private String centre(){return "usercentre/centre";}
 
 }

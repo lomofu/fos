@@ -15,7 +15,7 @@
 <body>
 
 <ul class="layui-nav">
-    <li class="layui-nav-item layui-this"><a href="">首页</a></li>
+    <li class="layui-nav-item layui-this"><a href="index.jsp">首页</a></li>
     <li class="layui-nav-item">
         <a href="javascript:;">分类</a>
         <dl id="moivetype" class="layui-nav-child">
@@ -48,9 +48,9 @@
             <span style="position: absolute;top: 7px;right: 80px">${user.userName}</span>
         </a>
         <dl class="layui-nav-child">
-            <dd><a href="">个人中心</a></dd>
+            <dd><a href="${pageContext.request.contextPath}/centre">个人中心</a></dd>
             <dd><a href="javascript:;">修改信息</a></dd>
-            <dd><a id="quit" href="javascript:;">退出登录</a></dd>
+            <dd><a id="quit" style="cursor: pointer">退出登录</a></dd>
         </dl>
     </li>
 
@@ -200,20 +200,22 @@
     </div>
 </div>
 
-<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"></script>
+<script src="${pageContext.request.contextPath}/resources/layui.all.js"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/md5.min.js"/>
 <script>
-
+    //# sourceURL=dynamicScript.js
     var form = layui.form;
     //登录表单监听
     form.on('submit(login1)', function (data) {
         var loginusername = $('#login-user').val();
         console.log(loginusername);
-        var loginpassword = $('#login-password').val();
-        console.log(loginpassword);
+        var loginpassword =$('#login-password').val();
+        var md5pas=md5(loginpassword);
+        console.log(md5pas);
         var user = {};
         user.userName = loginusername;
-        user.password = loginpassword;
+        user.password = md5pas;
         var formDatas = new FormData();
         formDatas.append('loginuser', JSON.stringify(user));
 
@@ -285,6 +287,7 @@
         var userName = $('#user-name').val();
         var password = $('#password').val();
         var repassword = $('#repassword').val();
+        var md5pas1=md5(repassword);
         var age = $('#age').val();
         var email = $('#email').val();
         var phone = $('#phone').val();
@@ -337,7 +340,7 @@
             return false;
         }
         user.userName = userName;
-        user.password = repassword;
+        user.password = md5pas1;
         user.age = age;
         user.email = email;
         user.phone = phone;
@@ -361,7 +364,7 @@
             },
             success: function (data) {
                 if (data.code == 200) {
-                    location.href = "/filmos/user/success"
+                    location.href = "/filmos/success"
                 } else {
                     layer.msg(data.msg, {icon: 2, time: 5000});
                     location.href = "index.jsp";
