@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>user</title>
+    <title>个人中心</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/usercentre/user.css">
 </head>
 
-<body bgcolor="#F6F6F6">
-<div id="nav1"></div>
+<body bgcolor="#f0f0f0">
+<div id="nav"></div>
 <div id="main" class="layui-anim layui-anim-upbit">
     <!-- 顶部 -->
     <div id="top">
@@ -26,10 +26,14 @@
             ${user.userName}
         </div>
         <div style="color: white">
-            <div id="follow" style="position: relative;left: 700px;color: white;font-size: 20px;top: -32px;">关注数</div>
-            <div id="write" style="position: relative;left: 900px;color: white;top:-58px;font-size: 20px">影评数</div>
-            <div style="position: relative;left: 813px;top: -73px;"><h1>0</h1></div>
-            <div style="position: relative;left: 922px;top: -105px;"><h1>0</h1></div>
+            <div id="follow" style="position: relative;left: 780px;color: white;font-size: 16px;top: -6px;width:50px">
+                关注数
+            </div>
+            <div id="write" style="position: relative;left: 941px;color: white;top:-28px;font-size: 17px;width: 53px">
+                影评数
+            </div>
+            <div style="position: relative;left: 796px;top: -23px;font-size: 30px;width: 20px">0</div>
+            <div style="position: relative;left: 956px;top: -58px;font-size: 31px;width: 20px">0</div>
         </div>
     </div>
     <!-- 左侧 -->
@@ -249,7 +253,7 @@
 <!-- 选项卡 -->
 <script>
     $ = layui.$
-    $("#nav1").load("${pageContext.request.contextPath}/movietype/nav");
+    $("#nav").load("/filmos/nav");
     var $ = layui.jquery, element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
     //触发事件
     var active = {

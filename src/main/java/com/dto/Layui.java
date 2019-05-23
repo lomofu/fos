@@ -43,6 +43,7 @@ public class Layui extends HashMap<String, Object> {
         r.put("count", count);
         return r;
     }
+
     public static Layui success(String msg,Integer count){
         Layui r=new Layui();
         r.put("code",200);

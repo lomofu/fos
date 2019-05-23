@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title>首页</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index/index.css">
     <html>
-<body>
+<body bgcolor="#f0f0f0">
 
 <div id="nav"></div>
 <div class="layui-container" id="container">
@@ -65,12 +65,9 @@
 
     <script>
         $ = layui.$
-        ;!function () {
-            $(function () {
-                //调用ajax实现页面的局部刷新,将iframe的页面加载出来
-                $("#nav").load("movietype/nav");
-            });
-        }();
+
+        //调用ajax实现页面的局部刷新,将iframe的页面加载出来
+        $("#nav").load("/filmos/nav");
 
         var carousel = layui.carousel;
         //建造实例

@@ -154,4 +154,59 @@ public class userController {
     }
 
 
+    @RequestMapping(value = "/updateuserinfo", method = RequestMethod.POST)
+    @ResponseBody
+    private Layui updateUser(HttpServletRequest request) {
+        Layui layui = new Layui();
+        String userString = HttpServletRequestUtil.getString(request, "userInfo");
+        ObjectMapper mapper = new ObjectMapper();
+        User user = null;
+        try {
+            user = mapper.readValue(userString, User.class);
+        } catch (Exception e) {
+            Layui.fail(e.getMessage());
+        }
+        if (user != null) {
+            try {
+                userService.updateUserInfo(user);
+                request.getSession().setAttribute("user", user);
+                return Layui.success("更新信息成功!", 1);
+            } catch (Exception e) {
+                return Layui.fail("更新失败！" + e.getMessage());
+            }
+        } else {
+            return Layui.fail("更新用户失败！");
+        }
+
+    }
+
+    @RequestMapping(value = "/updateuserimg", method = RequestMethod.POST)
+    @ResponseBody
+    private Layui updateUserImg(HttpServletRequest request, HttpSession session) {
+        Layui layui = new Layui();
+        User user = (User) session.getAttribute("user");
+        CommonsMultipartFile userImg = null;
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        if (commonsMultipartResolver.isMultipart(request)) {
+            MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+            userImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("userImg");
+
+        } else {
+            return Layui.fail("图片解析错误！");
+        }
+        if (userImg != null) {
+            try {
+                userService.updateUserImg(user, userImg.getInputStream(), userImg.getOriginalFilename());
+                request.getSession().setAttribute("user", user);
+                return Layui.add(1);
+            } catch (Exception e) {
+                return Layui.fail("上传失败！" + e.getMessage());
+            }
+        } else {
+            return Layui.fail("更换失败！");
+        }
+
+
+    }
+
 }

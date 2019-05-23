@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
                 try {
                     String userImg = insertUserImg(user, userImgInputStream, fileName);
                     user.setUserImg(userImg);
-                    int updateNum=userDao.updateUser(user);
+                    int updateNum = userDao.updateUser(user);
                     return updateNum;
                 } catch (Exception e) {
                     throw new RuntimeException("添加图片错误" + e.getMessage());
@@ -58,11 +58,46 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     private String insertUserImg(User user, InputStream userImgInputStream, String fileName) {
         String dir = PathUtil.getUserImgPath(user.getUserId());
         String userImgAddr = ImageUtil.generateThumbnail(userImgInputStream, fileName, dir);
         return userImgAddr;
     }
 
-}
+    @Override
+    @Transactional
+    public int updateUserInfo(User user) {
+        try {
+            if (user.equals(null)) {
+                throw new RuntimeException("用户不能为空");
+            }
+
+            int effectNum = userDao.insertUser(user);
+            if (effectNum <= 0) {
+                throw new RuntimeException("更新信息失败");
+            } else {
+                return effectNum;
+            }
+        } catch (RuntimeException e) {
+            throw new RuntimeException("更新信息失败" + e.getMessage());
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public int updateUserImg(User user, InputStream userImgInputStream, String fileName) {
+        if (userImgInputStream == null) {
+            throw new RuntimeException("图片获取失败！");
+        }
+            String userImg = insertUserImg(user, userImgInputStream, fileName);
+            user.setUserImg(userImg);
+            try {
+                int uNum = userDao.updateUser(user);
+                return uNum;
+            } catch (Exception e) {
+                throw new RuntimeException("添加图片错误" + e.getMessage());
+            }
+        }
+
+    }

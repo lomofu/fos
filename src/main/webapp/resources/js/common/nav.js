@@ -95,15 +95,15 @@ $(function () {
     $('#search').click(function () {
 
 
-       if($("#search-bar").hasClass("yijingdianjile")){
-           $("#search-bar").css("display","none");
-           $("#search-bar").removeClass("yijingdianjile");
-       }else {
-           document.getElementById("search-bar").className = 'animated flipInX';
-           $("#search-bar").css("display","block");
-           $("#search-bar").addClass("yijingdianjile");
+        if($("#search-bar").hasClass("yijingdianjile")){
+            $("#search-bar").css("display","none");
+            $("#search-bar").removeClass("yijingdianjile");
+        }else {
+            document.getElementById("search-bar").className = 'animated flipInX';
+            $("#search-bar").css("display","block");
+            $("#search-bar").addClass("yijingdianjile");
 
-       }
+        }
     });
     $('#front').click(function () {
         document.getElementById("text1").style.display = 'block';

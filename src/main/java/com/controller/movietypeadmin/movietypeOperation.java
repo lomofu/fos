@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/movietype")
 public class movieTypeOperation {
 
-    @RequestMapping(value = "/nav")
-    private String nav(){
-        return "nav/nav";
-    }
+
 
 }

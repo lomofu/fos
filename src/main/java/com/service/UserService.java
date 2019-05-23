@@ -9,4 +9,8 @@ public interface UserService {
     int addUser(User user, InputStream userImgInputStream,String fileName);
 
     User login(User user);
+
+    int updateUserInfo(User user);
+
+    int updateUserImg(User user,InputStream userImgInputStream,String fileName);
 }

@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nav/nav.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/hover-min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nav/nav.css">
 </head>
 <body>
 
@@ -42,14 +42,15 @@
         <div id="search" class="layui-icon layui-icon-search hvr-pulse-grow"
              style="cursor: pointer;font-size:25px"></div>
     </li>
-    <li class="layui-nav-item hvr-grow-shadow" id="customer1"
-        style="display: none;position: absolute;top: 0px;right: 200px">
+    <li class="layui-nav-item" id="customer1" style="display: block;position: absolute;top: -5px;right: 176px;">
+        <%--style="display: none;position: absolute!important;top: 0px!important;right: 200px!important;">--%>
         <a href=""><img src="/img/1.jpg" class="layui-nav-img">
-            <span style="position: absolute;top: 7px;right: 80px">${user.userName}</span>
+            <%--style="position: absolute!important;top: 7px!important;right: 80px!important;"--%>
+            <span style="position: absolute;top: 7px;right: 80px;font-size: 18px;">${user.userName}</span>
         </a>
         <dl class="layui-nav-child">
             <dd><a href="${pageContext.request.contextPath}/centre">个人中心</a></dd>
-            <dd><a href="javascript:;">修改信息</a></dd>
+            <dd><a href="${pageContext.request.contextPath}/info">修改信息</a></dd>
             <dd><a id="quit" style="cursor: pointer">退出登录</a></dd>
         </dl>
     </li>
@@ -201,7 +202,7 @@
 </div>
 
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/movietypelist.js"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/nav.js"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/md5.min.js"/>
 <script>
     //# sourceURL=dynamicScript.js
@@ -210,8 +211,8 @@
     form.on('submit(login1)', function (data) {
         var loginusername = $('#login-user').val();
         console.log(loginusername);
-        var loginpassword =$('#login-password').val();
-        var md5pas=md5(loginpassword);
+        var loginpassword = $('#login-password').val();
+        var md5pas = md5(loginpassword);
         console.log(md5pas);
         var user = {};
         user.userName = loginusername;
@@ -287,7 +288,7 @@
         var userName = $('#user-name').val();
         var password = $('#password').val();
         var repassword = $('#repassword').val();
-        var md5pas1=md5(repassword);
+        var md5pas1 = md5(repassword);
         var age = $('#age').val();
         var email = $('#email').val();
         var phone = $('#phone').val();
