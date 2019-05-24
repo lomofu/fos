@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.service.UserServiceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in com.service.UserServiceTest
+addUserTest(com.service.UserServiceTest)  Time elapsed: 0 s  <<< ERROR!
+java.io.FileNotFoundException: C:\Users\Public\Pictures\Sample Pictures\1.jpg (系统找不到指定的文件。)
+	at com.service.UserServiceTest.addUserTest(UserServiceTest.java:33)
+
+selectUserTest(com.service.UserServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.service.UserServiceTest.selectUserTest(UserServiceTest.java:43)
+

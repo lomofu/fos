@@ -1,5 +1,5 @@
 /*
- Navicat Premium Data Transfer
+ Navicat MySQL Data Transfer
 
  Source Server         : localhost_3306
  Source Server Type    : MySQL
@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 10/05/2019 12:58:16
+ Date: 15/05/2019 15:23:57
 */
 
 SET NAMES utf8mb4;
@@ -47,12 +47,7 @@ CREATE TABLE `tb_comment`  (
   INDEX `MID`(`movie_id`) USING BTREE,
   CONSTRAINT `MID` FOREIGN KEY (`movie_id`) REFERENCES `tb_movie` (`movie_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `UID` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '评论表' ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of tb_comment
--- ----------------------------
-INSERT INTO `tb_comment` VALUES (1, 1, 1, '还不错', '2019-05-10 12:57:15', 5, b'01');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '评论表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tb_info
@@ -60,7 +55,7 @@ INSERT INTO `tb_comment` VALUES (1, 1, 1, '还不错', '2019-05-10 12:57:15', 5,
 DROP TABLE IF EXISTS `tb_info`;
 CREATE TABLE `tb_info`  (
   `info_id` int(11) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime NULL,
+  `create_time` datetime NULL DEFAULT NULL,
   `title` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `info_content` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `admin_id` int(11) NOT NULL,
