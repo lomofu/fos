@@ -1,0 +1,5 @@
+com\BaseTest.class
+com\service\UserServiceTest.class
+com\dao\MovieTypeDaoTest.class
+com\dao\UserDaoTest.class
+com\service\MovieTypeServiceTest.class

@@ -50,7 +50,7 @@
         </a>
         <dl class="layui-nav-child">
             <dd><a href="${pageContext.request.contextPath}/centre">个人中心</a></dd>
-            <dd><a href="${pageContext.request.contextPath}/info">修改信息</a></dd>
+            <dd><a href="${pageContext.request.contextPath}/userinfo">修改信息</a></dd>
             <dd><a id="quit" style="cursor: pointer">退出登录</a></dd>
         </dl>
     </li>
@@ -70,7 +70,7 @@
 <div id="background" class="layui-anim" style="display: none">
     <div id="login-body" style="position: relative">
         <div id="close" class="hvr-buzz-out layui-icon layui-icon-close" style="cursor: pointer"></div>
-        <div id="user" class="layui-icon layui-icon-username"></div>
+        <div id="user" class="layui-icon layui-icon-username "></div>
         <h2>登录</h2>
         <br><br><br><br>
         <form id="form" class="layui-form" style="padding-top: 100px!important;" method="post">
@@ -78,14 +78,14 @@
                 <div class="layui-input-block">
                     <input id="login-user" type="text" name="login-user" required lay-verify="required"
                            placeholder="请输入用户名或邮箱或手机"
-                           autocomplete="off" class="hvr-skew-forward layui-input">
+                           autocomplete="off" class="hvr-glow layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <input id="login-password" type="password" name="login-password" required lay-verify="required"
                            placeholder="请输入密码"
-                           autocomplete="off" class="hvr-skew-forward layui-input">
+                           autocomplete="off" class="hvr-glow layui-input">
                 </div>
             </div>
             <br><br>
@@ -123,14 +123,14 @@
                     <label class="layui-form-label">用户名</label>
                     <div class="layui-input-block">
                         <input id="user-name" type="text" name="userName" lay-verify="required" placeholder="请输入用户名"
-                               autocomplete="off" class="hvr-skew-forward layui-input">
+                               autocomplete="off" class="hvr-glow layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item">
                     <label class="layui-form-label">性别</label>
                     <div class="layui-input-block ">
-                        <select id="sex" name="sex" lay-verify="required">
+                        <select id="sex" name="sex" lay-verify="required" class="hvr-glow">
                             <option id="none" value="0">未知</option>
                             <option id="boy" value="1">男</option>
                             <option id="girl" value="2">女</option>
@@ -141,7 +141,7 @@
                     <label class="layui-form-label">年龄</label>
                     <div class="layui-input-block">
                         <input id="age" type="text" name="age" lay-verify="required|number" placeholder="请输入年龄"
-                               autocomplete="off" class="layui-input hvr-skew-forward">
+                               autocomplete="off" class="layui-input hvr-glow">
                     </div>
                 </div>
 
@@ -149,14 +149,14 @@
                     <label class="layui-form-label">邮箱</label>
                     <div class="layui-input-block">
                         <input id="email" type="text" name="email" lay-verify="required" placeholder="请输入邮箱"
-                               autocomplete="off" class="layui-input hvr-skew-forward">
+                               autocomplete="off" class="layui-input hvr-glow">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">电话</label>
                     <div class="layui-input-block">
                         <input id="phone" type="text" name="phone" lay-verify="required" placeholder="请输入电话号码"
-                               autocomplete="off" class="layui-input hvr-skew-forward">
+                               autocomplete="off" class="layui-input hvr-glow">
                     </div>
                 </div>
             </div>
@@ -166,7 +166,7 @@
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
                         <input id="password" type="password" name="password" lay-verify="required" placeholder="请输入密码"
-                               autocomplete="off" class="hvr-skew-forward layui-input">
+                               autocomplete="off" class="hvr-glow layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -174,14 +174,14 @@
                     <div class="layui-input-block">
                         <input id="repassword" type="password" name="repassword" lay-verify="required"
                                placeholder="请再次输入密码"
-                               autocomplete="off" class="hvr-skew-forward layui-input">
+                               autocomplete="off" class="hvr-glow layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">上传头像</label>
                     <div class="layui-input-block">
                         <input id="userImg" type="file" name="userImg"
-                               class="layui-input hvr-skew-forward layui-icon layui-icon-upload">
+                               class="layui-input hvr-glow layui-icon layui-icon-upload" style="cursor: pointer">
                     </div>
                 </div>
             </div>

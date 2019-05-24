@@ -1,0 +1,25 @@
+#######idea64.exe.vmoptions的配置： ########### 
+
+-Xms512m 
+
+-Xmx1024m 
+
+-XX:ReservedCodeCacheSize=240m 
+
+-XX:+UseConcMarkSweepGC
+-ea 
+-XX:SoftRefLRUPolicyMSPerMB=50
+-Djava.net.preferIPv4Stack=true 
+-Dsun.io.useCanonCaches=false
+-XX:-OmitStackTraceInFastThrow 
+-XX:+HeapDumpOnOutOfMemoryError 
+
+##########tomcat的配置 :################ 
+
+-server -XX:PermSize=256M -XX:MaxPermSize=512m  
+
+###########电脑配置###################### 
+
+内存：8G 
+
+CPU：i7-5500U 

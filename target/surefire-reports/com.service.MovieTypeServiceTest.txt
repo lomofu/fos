@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.service.MovieTypeServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.046 s <<< FAILURE! - in com.service.MovieTypeServiceTest
+getAllMovieTypeTest(com.service.MovieTypeServiceTest)  Time elapsed: 1.046 s  <<< ERROR!
+org.mybatis.spring.MyBatisSystemException: 
+nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!
+### The error may exist in file [D:\fos\target\classes\mapper\MovieTypeDao.xml]
+### The error may involve com.dao.MovieTypeDao.queryAllMovieType
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.service.MovieTypeServiceTest.getAllMovieTypeTest(MovieTypeServiceTest.java:20)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!
+### The error may exist in file [D:\fos\target\classes\mapper\MovieTypeDao.xml]
+### The error may involve com.dao.MovieTypeDao.queryAllMovieType
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.service.MovieTypeServiceTest.getAllMovieTypeTest(MovieTypeServiceTest.java:20)
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.service.MovieTypeServiceTest.getAllMovieTypeTest(MovieTypeServiceTest.java:20)
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.service.MovieTypeServiceTest.getAllMovieTypeTest(MovieTypeServiceTest.java:20)
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.service.MovieTypeServiceTest.getAllMovieTypeTest(MovieTypeServiceTest.java:20)
+
