@@ -14,16 +14,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index/index.css">
     <html>
 <body bgcolor="#f0f0f0">
-
 <div id="nav"></div>
 <div class="layui-container" id="container">
     <div class="layui-fluid">
-        <div class="layui-carousel layui-anim layui-anim-fadein" id="headline">
-            <div>
+        <div class="layui-carousel" id="headline">
+            <div carousel-item>
                 <div><img src="resources/images/headline/1.jpg" style="width: 100%;height: 100%"></div>
-                <div><img src="resources/images/headline/2.jpg"></div>
-                <div><img src="resources/images/headline/3.jpg"></div>
-                <div><img src="resources/images/headline/4.jpg"></div>
+                <div><img src="resources/images/headline/2.jpg" ></div>
+                <div><img src="resources/images/headline/3.jpg" style="width: 100%;height: 100%"></div>
+                <div><img src="resources/images/headline/4.jpg" style="width: 100%;height: 100%"></div>
             </div>
         </div>
     </div>
@@ -58,28 +57,25 @@
         </div>
 
     </div>
+</div>
+<%--<script !src=""></script>--%>
+<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 
-
-    <%--<script !src=""></script>--%>
-    <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-
-    <script>
-        $ = layui.$
-
-        //调用ajax实现页面的局部刷新,将iframe的页面加载出来
-        $("#nav").load("/filmos/nav");
-
-        var carousel = layui.carousel;
-        //建造实例
-        carousel.render({
-            elem: '#headline'
-            , width: '100%' //设置容器宽度
-            , height: '580px'//设置容器高度
-            , arrow: 'hover' //始终显示箭头
-            , indicator: 'none'//指示器不显示
-            , anim: 'fade' //切换动画方式
-        });
-    </script>
+<script>
+    $ = layui.$
+    //调用ajax实现页面的局部刷新,将iframe的页面加载出来
+    $("#nav").load("/filmos/nav");
+    var carousel = layui.carousel;
+    //建造实例
+    carousel.render({
+        elem: '#headline'
+        , width: '100%' //设置容器宽度
+        , height: '580px'//设置容器高度
+        , arrow: 'hover' //始终显示箭头
+        , indicator: 'none'//指示器不显示
+        , anim: 'fade' //切换动画方式
+    });
+</script>
 
 </body>
 </html>
