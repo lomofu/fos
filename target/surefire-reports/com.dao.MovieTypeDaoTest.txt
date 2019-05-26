@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.dao.MovieTypeDaoTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.648 s <<< FAILURE! - in com.dao.MovieTypeDaoTest
 queryAllMovieType(com.dao.MovieTypeDaoTest)  Time elapsed: 1.279 s  <<< ERROR!
 org.mybatis.spring.MyBatisSystemException: 
@@ -26,3 +27,6 @@ Caused by: java.sql.SQLException: Connections could not be acquired from the und
 Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
 	at com.dao.MovieTypeDaoTest.queryAllMovieType(MovieTypeDaoTest.java:23)
 
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.895 s - in com.dao.MovieTypeDaoTest
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7

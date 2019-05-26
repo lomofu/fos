@@ -48,6 +48,7 @@ $(function () {
                     $("#tourist1").css('display','block');
                     $("#customer").css('display', 'none');
                     $("#customer1").css('display','none');
+<<<<<<< HEAD
                     layer.msg(data.msg, {
                         icon: 0, time: 3000, end: function () {
                             location.href = "index.jsp";
@@ -55,6 +56,10 @@ $(function () {
                     })
 
 
+=======
+                    layer.msg('登出成功！', {icon: 0, time:5000});
+                    location.href = "index.jsp";
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
                 }else {
 
                     $("#tourist").css('display','none');

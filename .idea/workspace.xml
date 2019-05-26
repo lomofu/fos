@@ -6,6 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a9f83599-93af-47a6-b332-57af167f9616" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/nav/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/nav/nav.jsp" afterDir="false" />
@@ -31,6 +32,191 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/Impl/MovieTypeServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/MovieService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/service/MovieTypeService.class" beforeDir="false" />
+=======
+    <list default="true" id="24cb07cf-d18b-428c-98ae-0464e7d305fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/movietypeadmin/movietypeOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/movietypeadmin/movieTypeOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/useradmin/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/useradmin/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/adad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/movietypeadmin/movieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/movietypeadmin/movietypeoperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/movietypeadmin/movietypeoperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dto/Layui.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dto/Layui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/spring-service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/spring-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/controller/adad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/controller/movietypeadmin/movieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/controller/movietypeadmin/movietypeoperation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/dao/MovieTypeDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/dto/Layui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/Info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/MovieType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/Rank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/service/Impl/MovieTypeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/com/service/MovieTypeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/mapper/MovieTypeDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/spring/spring-dao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/spring/spring-service" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/spring/spring-service.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/spring/spring-web" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/classes/spring/spring-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/jsp/nav/nav.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/c3p0-0.9.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/commons-collections-3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/commons-fileupload-1.3.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/commons-io-2.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/jackson-annotations-2.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/jackson-core-2.8.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/jackson-databind-2.8.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/javax.servlet-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/logback-classic-1.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/logback-core-1.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/mybatis-3.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/mybatis-spring-1.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/mysql-connector-java-5.1.37.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/slf4j-api-1.7.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-aop-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-beans-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-context-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-core-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-expression-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-jdbc-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-tx-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-web-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/spring-webmvc-4.3.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/standard-1.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/lib/thumbnailator-0.4.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/common/animate.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/common/hover-min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/index/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/layui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/layui.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/code.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/laydate/default/laydate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/layer/default/icon-ext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/layer/default/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/layer/default/layer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/layer/default/loading-0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/layer/default/loading-1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/modules/layer/default/loading-2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/css/nav/nav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/font/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/font/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/font/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/font/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/10.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/12.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/13.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/14.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/15.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/17.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/18.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/19.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/20.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/21.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/22.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/23.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/26.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/27.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/28.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/29.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/30.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/31.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/32.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/33.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/34.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/35.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/36.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/37.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/38.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/39.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/40.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/41.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/42.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/43.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/44.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/45.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/46.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/47.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/48.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/49.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/51.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/52.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/53.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/54.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/55.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/56.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/57.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/58.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/59.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/6.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/60.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/61.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/62.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/63.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/64.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/65.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/66.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/67.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/68.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/69.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/70.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/71.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/8.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/face/9.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/headline/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/headline/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/headline/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/headline/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/images/index/wings-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/js/jquery-3.4.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/js/movietypelist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/code.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/colorpicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/element.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/flow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/laydate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/layedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/layer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/laypage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/laytpl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/mobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/rate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/lay/modules/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/layui.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/filmos/resources/layui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/service/MovieTypeServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/service/MovieTypeServiceTest.class" afterDir="false" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,21 +226,41 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
-  </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>hvr-skew-forward</find>
     </findStrings>
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/useradmin/userController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1938">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/useradmin/userOperation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -73,6 +279,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -91,6 +299,10 @@
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
         <option name="jdkForImporter" value="1.8" />
+<<<<<<< HEAD
+=======
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
       </MavenImportingSettings>
     </option>
   </component>
@@ -110,7 +322,11 @@
       <select />
     </treeState>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     <option name="x" value="20" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -121,7 +337,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -146,62 +365,114 @@
               <item name="fos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
             </path>
             <path>
               <item name="filmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
             </path>
             <path>
               <item name="filmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
             </path>
             <path>
               <item name="filmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="success" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="commoncontroller" type="462c0819:PsiDirectoryNode" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
             </path>
             <path>
               <item name="filmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="movieadmin" type="462c0819:PsiDirectoryNode" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
             </path>
             <path>
               <item name="filmos" type="b2602c69:ProjectViewProjectNode" />
               <item name="fos" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="movietypeadmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="filmos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fos" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="useradmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/resources/css/modfiy" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -210,6 +481,12 @@
       <recent name="F:\software program\fos\src\main\webapp\resources\css\modfiy" />
     </key>
   </component>
+=======
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -223,8 +500,12 @@
     </option>
   </component>
   <component name="RunManager">
+<<<<<<< HEAD
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.40" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/filmos/" />
+=======
+    <configuration name="Tomcat 8.5.40" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.40" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="filmos:war exploded">
@@ -242,7 +523,11 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
+<<<<<<< HEAD
         <option name="DEBUG_PORT" value="58949" />
+=======
+        <option name="DEBUG_PORT" value="63108" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -302,6 +587,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="a9f83599-93af-47a6-b332-57af167f9616" name="Default Changelist" comment="" />
       <created>1558667070419</created>
       <option name="number" value="Default" />
@@ -309,16 +595,40 @@
       <updated>1558667070419</updated>
       <workItem from="1558667072775" duration="1384000" />
       <workItem from="1558854117422" duration="5869000" />
+=======
+      <changelist id="24cb07cf-d18b-428c-98ae-0464e7d305fe" name="Default Changelist" comment="" />
+      <created>1558659496755</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558659496755</updated>
+      <workItem from="1558659499478" duration="554000" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="7253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25375536" />
+=======
+    <option name="totallyTimeSpent" value="554000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Web" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -333,6 +643,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32974428" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
@@ -342,6 +653,14 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" />
+=======
+      <window_info anchor="right" id="Maven" weight="0.3295129" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -357,6 +676,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/useradmin/userController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/commoncontroller/navOperation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/useradmin/userOperation.java" />
@@ -520,8 +840,44 @@
             <element signature="e#2823#2831#0" />
             <element signature="e#2912#2920#0" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/movietypeadmin/movieTypeOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/useradmin/userController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1938">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/useradmin/userOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="37" />
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

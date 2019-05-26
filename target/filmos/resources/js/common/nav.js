@@ -64,7 +64,10 @@ $(function () {
     $('#login').click(function () {
         document.getElementById("background").className = 'layui-anim layui-anim-scaleSpring';
         document.getElementById("background").style.display = 'block';
+<<<<<<< HEAD
         document.getElementById("user").className='layui-anim layui-anim-scale';
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
         $("#search-bar").css("display","none");
         $("#search-bar").removeClass("yijingdianjile");
     })

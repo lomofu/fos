@@ -20,7 +20,11 @@
     <div id="top">
         <div id="blank"></div>
         <div id="head">
+<<<<<<< HEAD
             <img src="/img/${user.userImg}">
+=======
+            <img src="//t.cn/RCzsdCq">
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
         </div>
         <div id="userName">
             ${user.userName}
@@ -168,6 +172,7 @@
 
                 <!-- 写影评 -->
                 <div class="layui-tab-item layui-anim layui-anim-upbit">
+<<<<<<< HEAD
                     <form action="" method="post">
                         <input name="title" required lay-verify="required" placeholder="请输入影评标题" autocomplete="off" class="layui-input">
                         <br>
@@ -178,10 +183,17 @@
                             <input class="btn" type="submit" value="发表" />
                         </div>
                     </form>
+=======
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
                 </div>
             </div>
         </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     </div>
 
 

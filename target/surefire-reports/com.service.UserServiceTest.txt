@@ -1,11 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: com.service.UserServiceTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.014 s <<< FAILURE! - in com.service.UserServiceTest
+=======
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in com.service.UserServiceTest
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 addUserTest(com.service.UserServiceTest)  Time elapsed: 0 s  <<< ERROR!
 java.io.FileNotFoundException: C:\Users\Public\Pictures\Sample Pictures\1.jpg (系统找不到指定的文件。)
 	at com.service.UserServiceTest.addUserTest(UserServiceTest.java:33)
 
+<<<<<<< HEAD
 selectUserTest(com.service.UserServiceTest)  Time elapsed: 0.999 s  <<< ERROR!
 org.mybatis.spring.MyBatisSystemException: 
 nested exception is org.apache.ibatis.exceptions.PersistenceException: 
@@ -29,4 +34,9 @@ Caused by: java.sql.SQLException: Connections could not be acquired from the und
 	at com.service.UserServiceTest.selectUserTest(UserServiceTest.java:42)
 Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
 	at com.service.UserServiceTest.selectUserTest(UserServiceTest.java:42)
+=======
+selectUserTest(com.service.UserServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.service.UserServiceTest.selectUserTest(UserServiceTest.java:43)
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 

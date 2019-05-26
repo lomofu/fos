@@ -18,7 +18,11 @@ public class PathUtil {
         String basePath = "";
         if (os.toLowerCase().startsWith("win")) {
             //此处路径在项目上线后会做相对应的修改
+<<<<<<< HEAD
             basePath = "D:/fos-resources/img";
+=======
+            basePath = "D:/apache-tomcat-8.5.37/fos-resources/img";
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
         } else {
             //部署再云服务器上
             basePath = "/home/fos-resources/img";

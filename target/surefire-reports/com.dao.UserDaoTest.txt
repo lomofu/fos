@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.dao.UserDaoTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.027 s <<< FAILURE! - in com.dao.UserDaoTest
 updateUserTest(com.dao.UserDaoTest)  Time elapsed: 0.998 s  <<< ERROR!
 org.mybatis.spring.MyBatisSystemException: 
@@ -61,4 +62,10 @@ Caused by: java.sql.SQLException: Connections could not be acquired from the und
 	at com.dao.UserDaoTest.insertUserTest(UserDaoTest.java:42)
 Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
 	at com.dao.UserDaoTest.insertUserTest(UserDaoTest.java:42)
+=======
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.256 s <<< FAILURE! - in com.dao.UserDaoTest
+selectUserTest(com.dao.UserDaoTest)  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.dao.UserDaoTest.selectUserTest(UserDaoTest.java:23)
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 

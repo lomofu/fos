@@ -13,6 +13,7 @@ public class userOperation {
     @RequestMapping(value = "/centre",method = RequestMethod.GET)
     private String centre(){return "usercentre/centre";}
 
+<<<<<<< HEAD
     @RequestMapping(value = "/userinfo",method = RequestMethod.GET)
     private String info(){return "usercentre/modifyinfo";}
 
@@ -21,4 +22,9 @@ public class userOperation {
 
     @RequestMapping(value = "/goback")
     private String goback(){return "usercentre/successpassword";}
+=======
+    @RequestMapping(value = "/info",method = RequestMethod.GET)
+    private String info(){return "usercentre/modifyinfo";}
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 }

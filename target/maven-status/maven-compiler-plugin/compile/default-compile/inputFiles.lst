@@ -18,7 +18,10 @@ D:\fos\src\main\java\com\service\MovieTypeService.java
 D:\fos\src\main\java\com\util\PathUtil.java
 D:\fos\src\main\java\com\entity\Movie.java
 D:\fos\src\main\java\com\controller\movietypeadmin\movieTypeOperation.java
+<<<<<<< HEAD
 D:\fos\src\main\java\com\util\SpringMD5.java
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 D:\fos\src\main\java\com\service\UserService.java
 D:\fos\src\main\java\com\util\HttpServletRequestUtil.java
 D:\fos\src\main\java\com\dao\MovieTypeDao.java

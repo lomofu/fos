@@ -33,6 +33,7 @@
 
     <update id="updateUser" parameterType="com.entity.User">
         UPDATE tb_user
+<<<<<<< HEAD
         <trim prefix="set" suffixOverrides=",">
             <if test="userName!=null">user_name=#{userName},</if>
             <if test="sex!=null">sex=#{sex},</if>
@@ -43,6 +44,17 @@
             <if test="password!=null">password=#{password},</if>
         </trim>
         WHERE user_id=#{userId}
+=======
+        <set>
+            <if test="userName!=null">user_name=#{userName},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="phone!=null">phone=#{phone},</if>
+            <if test="userImg!=null">user_img=#{userImg},</if>
+            <if test="email!=null">email=#{email}</if>
+            WHERE user_id=#{userId}
+        </set>
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     </update>
 
 </mapper>

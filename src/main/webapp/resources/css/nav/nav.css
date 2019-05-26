@@ -178,6 +178,7 @@ h2 {
 
 }
 
+<<<<<<< HEAD
 #search {
     cursor: pointer;
     font-size:25px;
@@ -205,6 +206,8 @@ h2 {
     right: 176px;
 }
 
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 #search-bar-text {
     z-index: 998;
     margin-left: -115px;
@@ -223,6 +226,7 @@ h2 {
 
 }
 
+<<<<<<< HEAD
 #secondinfo {
     position: absolute;
     top: 131px;
@@ -230,6 +234,9 @@ h2 {
 }
 
 #next{
+=======
+#text1 {
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
     z-index: 999;
     width: 80px;
     margin: auto;
@@ -240,12 +247,19 @@ h2 {
     display: block;
 }
 
+<<<<<<< HEAD
 #tourist {
     position:absolute;
     right: 360px;
     top:0px;
     display: block;
 }
+=======
+#secondinfo {
+    position: absolute;
+    top: 131px;
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 
 #tourist1 {
     position:absolute;
@@ -253,3 +267,27 @@ h2 {
     top: 0px;
     display: block;
 }
+<<<<<<< HEAD
+=======
+
+#text2 {
+    z-index: 999;
+    font-size: 15px;
+    position: relative;
+    top: 208px;
+    left: 210px;
+}
+
+#next{
+    z-index: 999;
+    width: 80px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    left: 500px;
+    top:6px;
+
+}
+
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7

@@ -1,7 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.BaseTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in com.BaseTest
 initializationError(com.BaseTest)  Time elapsed: 0 s  <<< ERROR!
+=======
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! - in com.BaseTest
+initializationError(com.BaseTest)  Time elapsed: 0.001 s  <<< ERROR!
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 java.lang.Exception: No runnable methods
 

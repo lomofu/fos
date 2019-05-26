@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.service.MovieTypeServiceTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.046 s <<< FAILURE! - in com.service.MovieTypeServiceTest
 getAllMovieTypeTest(com.service.MovieTypeServiceTest)  Time elapsed: 1.046 s  <<< ERROR!
 org.mybatis.spring.MyBatisSystemException: 
@@ -26,3 +27,6 @@ Caused by: java.sql.SQLException: Connections could not be acquired from the und
 Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
 	at com.service.MovieTypeServiceTest.getAllMovieTypeTest(MovieTypeServiceTest.java:20)
 
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in com.service.MovieTypeServiceTest
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7

@@ -12,7 +12,10 @@ com\controller\commoncontroller\navOperation.class
 com\controller\movieadmin\movieController.class
 com\dao\MovieTypeDao.class
 com\entity\Admin.class
+<<<<<<< HEAD
 com\util\SpringMD5.class
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 com\service\UserService.class
 com\entity\Info.class
 com\entity\MovieType.class

@@ -43,6 +43,7 @@ public class Layui extends HashMap<String, Object> {
         r.put("count", count);
         return r;
     }
+<<<<<<< HEAD
     //用于上传头像
     public static Layui success(String msg,String data){
         Layui r=new Layui();
@@ -51,6 +52,8 @@ public class Layui extends HashMap<String, Object> {
         r.put("data",data);
         return r;
     }
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 
     public static Layui success(String msg,Integer count){
         Layui r=new Layui();

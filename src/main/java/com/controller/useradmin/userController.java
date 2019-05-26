@@ -5,6 +5,7 @@ import com.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.UserService;
 import com.util.HttpServletRequestUtil;
+<<<<<<< HEAD
 import com.util.SpringMD5;
 import com.validator.ValidatorFactory;
 import org.json.JSONObject;
@@ -13,6 +14,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.SessionScope;
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsFileUploadSupport;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -27,10 +36,14 @@ import java.io.IOException;
 public class userController {
     @Autowired
     private UserService userService;
+<<<<<<< HEAD
     @Autowired
     private ValidatorFactory validatorFactory;
     //返回校验结果
     boolean v;
+=======
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 
     /**
      * 登录方法
@@ -40,12 +53,30 @@ public class userController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
+<<<<<<< HEAD
     private Layui loginUser(HttpServletRequest request, @RequestBody User user) {
         //数据库结果
         User result = new User();
         //前端传回来的用户名和密码
         String username = user.getUserName();
         String password = SpringMD5.passwordMD5(user.getPassword());
+=======
+    private Layui loginUser(HttpServletRequest request) {
+        //数据库结果
+        User result = new User();
+        String loginUser = HttpServletRequestUtil.getString(request, "loginuser");
+        ObjectMapper mapper = new ObjectMapper();
+        //页面用户输入结果
+        User user = null;
+        try {
+            user = mapper.readValue(loginUser, User.class);
+        } catch (Exception e) {
+            return Layui.fail("系统出现错误，无法获取到用户信息！");
+        }
+        //前端传回来的用户名和密码
+        String username = user.getUserName();
+        String password = user.getPassword();
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 
         if (username.matches("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$")) {
             user.setEmail(username);
@@ -116,6 +147,10 @@ public class userController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     private Layui addUser(HttpServletRequest request) {
+<<<<<<< HEAD
+=======
+        Layui layui = new Layui();
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
         String userString = HttpServletRequestUtil.getString(request, "userString");
         ObjectMapper mapper = new ObjectMapper();
         User user = null;
@@ -134,6 +169,7 @@ public class userController {
         } else {
             return Layui.fail("图片解析错误！");
         }
+<<<<<<< HEAD
         user.setPassword(SpringMD5.passwordMD5(user.getPassword()));
         if (v) {
             if (user != null && userImg != null) {
@@ -218,4 +254,76 @@ public class userController {
 
         }
     }
+=======
+
+        if (user != null && userImg != null) {
+            try {
+                userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
+                request.getSession().setAttribute("user", user);
+                return Layui.add(1);
+            } catch (Exception e) {
+                return Layui.fail("注册失败！" + e.getMessage());
+            }
+        } else {
+            return Layui.fail("注册用户失败！");
+        }
+    }
+
+
+    @RequestMapping(value = "/updateuserinfo", method = RequestMethod.POST)
+    @ResponseBody
+    private Layui updateUser(HttpServletRequest request) {
+        Layui layui = new Layui();
+        String userString = HttpServletRequestUtil.getString(request, "userInfo");
+        ObjectMapper mapper = new ObjectMapper();
+        User user = null;
+        try {
+            user = mapper.readValue(userString, User.class);
+        } catch (Exception e) {
+            Layui.fail(e.getMessage());
+        }
+        if (user != null) {
+            try {
+                userService.updateUserInfo(user);
+                request.getSession().setAttribute("user", user);
+                return Layui.success("更新信息成功!", 1);
+            } catch (Exception e) {
+                return Layui.fail("更新失败！" + e.getMessage());
+            }
+        } else {
+            return Layui.fail("更新用户失败！");
+        }
+
+    }
+
+    @RequestMapping(value = "/updateuserimg", method = RequestMethod.POST)
+    @ResponseBody
+    private Layui updateUserImg(HttpServletRequest request, HttpSession session) {
+        Layui layui = new Layui();
+        User user = (User) session.getAttribute("user");
+        CommonsMultipartFile userImg = null;
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        if (commonsMultipartResolver.isMultipart(request)) {
+            MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+            userImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("userImg");
+
+        } else {
+            return Layui.fail("图片解析错误！");
+        }
+        if (userImg != null) {
+            try {
+                userService.updateUserImg(user, userImg.getInputStream(), userImg.getOriginalFilename());
+                request.getSession().setAttribute("user", user);
+                return Layui.add(1);
+            } catch (Exception e) {
+                return Layui.fail("上传失败！" + e.getMessage());
+            }
+        } else {
+            return Layui.fail("更换失败！");
+        }
+
+
+    }
+
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 }

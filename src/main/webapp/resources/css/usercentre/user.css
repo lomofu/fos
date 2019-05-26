@@ -70,6 +70,7 @@
 	
 }
 
+<<<<<<< HEAD
 /* 按钮 */
 .btns {
 	width: 100%;
@@ -85,6 +86,8 @@
 	height: 1.875rem;
 }
 
+=======
+>>>>>>> fe5d5ad41dca306d1c3d1bc1fdfb53beff451dd7
 /* 右侧 */
 #right {
 	position: relative;
