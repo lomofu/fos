@@ -3,12 +3,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/success/success.css">
 </head>
 <body>
-<div class="layui-icon layui-icon-ok-circle layui-anim layui-anim-up" style="font-size:100px;position: absolute;left: 45%;top: 30%"></div>
-<hr class="layui-anim layui-anim-fadein" style="position: absolute;top: 48%;width: 50%;left: 20%">
-<h1 class="layui-anim layui-anim-up" style="position: absolute;left: 44%;top: 55%">修改成功！</h1>
-<div id="info" class="layui-anim layui-anim-fadein" style="position: absolute;left: 43%;top: 62%;color: grey"></div>
+<div id="success" class="layui-icon layui-icon-ok-circle layui-anim layui-anim-up" ></div>
+<hr class="layui-anim layui-anim-fadein" >
+<h1 class="layui-anim layui-anim-up" >修改成功！</h1>
+<div id="info" class="layui-anim layui-anim-fadein" ></div>
 
 
 

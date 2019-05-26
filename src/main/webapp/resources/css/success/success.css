@@ -1,0 +1,33 @@
+h1 {
+    position: absolute;
+    left: 44%;
+    top: 55%;
+}
+
+hr {
+    position: absolute;
+    top: 48%;
+    width: 50%;
+    left: 20%;
+}
+
+#success {
+    font-size: 100px;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+}
+
+#info {
+    position: absolute;
+    left: 43%;
+    top: 62%;
+    color: grey;
+}
+
+#welcome {
+    position: absolute;
+    left: 43%;
+    top: 60%;
+    color: grey;
+}

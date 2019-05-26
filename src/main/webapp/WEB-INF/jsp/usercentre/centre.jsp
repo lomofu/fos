@@ -168,11 +168,19 @@
 
                 <!-- 写影评 -->
                 <div class="layui-tab-item layui-anim layui-anim-upbit">
-
+                    <form action="" method="post">
+                        <input name="title" required lay-verify="required" placeholder="请输入影评标题" autocomplete="off" class="layui-input">
+                        <br>
+                        <textarea name="" required lay-verify="required" placeholder="请输入你的影评" class="layui-textarea"></textarea>
+                        <div class="btns">
+                            <input class="btn" type="reset" value="清空" onclick="" />
+                            <input class="btn" type="button" value="存为草稿" onclick="" />
+                            <input class="btn" type="submit" value="发表" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
 
     </div>
 

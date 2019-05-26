@@ -44,6 +44,8 @@ h2 {
     position: absolute;
     top: 10px;
     left: 10px;
+    display: none;
+    cursor: pointer;
 }
 
 #user {
@@ -52,15 +54,6 @@ h2 {
     position: absolute;
     top: 30px;
     left: 210px;
-
-}
-
-#form {
-    z-index: 999;
-    width: 400px;
-    height: 300px;
-    text-align: center;
-
 }
 
 #submit {
@@ -121,7 +114,35 @@ h2 {
     position: relative;
     top: 90px;
     left: 15px;
+    color:grey;
+}
 
+#text1 {
+    z-index: 999;
+    font-size: 15px;
+    position: relative;
+    top: 208px;
+    left: 210px;
+    color:grey;
+    display: block;
+}
+
+#text2 {
+    z-index: 999;
+    font-size: 15px;
+    position: relative;
+    top: 208px;
+    left: 210px;
+    color:grey;
+    display: block;
+}
+
+#form {
+    z-index: 999;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    padding-top: 100px!important;
 }
 
 #form1 {
@@ -131,7 +152,7 @@ h2 {
     text-align: center;
     position: relative;
     top: -16px;
-
+    padding-top: 100px!important;
 }
 
 #submit1 {
@@ -157,6 +178,33 @@ h2 {
 
 }
 
+#search {
+    cursor: pointer;
+    font-size:25px;
+}
+
+#search-card {
+    position:absolute;
+    right:100px;
+}
+
+#search-bar {
+    display: none;
+    z-index: 998;
+}
+
+#search-input {
+    background-color: black;
+    left:0px;
+}
+
+#customer1 {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: 176px;
+}
+
 #search-bar-text {
     z-index: 998;
     margin-left: -115px;
@@ -175,29 +223,10 @@ h2 {
 
 }
 
-#text1 {
-    z-index: 999;
-    font-size: 15px;
-    position: relative;
-    top: 208px;
-    left: 210px;
-
-
-}
-
 #secondinfo {
     position: absolute;
     top: 131px;
-
-
-}
-
-#text2 {
-    z-index: 999;
-    font-size: 15px;
-    position: relative;
-    top: 208px;
-    left: 210px;
+    display: none;
 }
 
 #next{
@@ -208,7 +237,19 @@ h2 {
     position: relative;
     left: 500px;
     top:6px;
-
+    display: block;
 }
 
+#tourist {
+    position:absolute;
+    right: 360px;
+    top:0px;
+    display: block;
+}
 
+#tourist1 {
+    position:absolute;
+    right:300px;
+    top: 0px;
+    display: block;
+}

@@ -15,34 +15,39 @@
 <body>
 
 <ul class="layui-nav">
+<%--    首页--%>
     <li class="layui-nav-item layui-this"><a href="index.jsp">首页</a></li>
+<%--    分类--%>
     <li class="layui-nav-item">
         <a href="javascript:;">分类</a>
+<%--    分类列表--%>
         <dl id="moivetype" class="layui-nav-child">
             <dd><a href=""></a></dd>
         </dl>
     </li>
-
+<%--资讯--%>
     <li class="layui-nav-item"><a href="">资讯</a></li>
-
+<%--电影库--%>
     <li class="layui-nav-item"><a href="">电影库</a></li>
 
-    <li id="tourist" class="layui-nav-item" style="position:absolute;right: 360px;top:0px;display: block">
+<%--    登录--%>
+    <li id="tourist" class="layui-nav-item" >
         <button id="login" class="hvr-pulse-grow layui-btn layui-btn-radius layui-btn-normal "
                 style="width: 50px;">
             登录
         </button>
     </li>
-    <li id="tourist1" class="layui-nav-item" style="position:absolute;right:300px;top: 0px;display: block">
+<%--    注册--%>
+    <li id="tourist1" class="layui-nav-item" >
         <button id="register" class="hvr-pulse-grow layui-btn layui-btn-radius layui-btn-warm "
                 style="width: 50px;">注册
         </button>
     </li>
-    <li class="layui-nav-item" style="position:absolute;right:100px">
-        <div id="search" class="layui-icon layui-icon-search hvr-pulse-grow"
-             style="cursor: pointer;font-size:25px"></div>
+<%--    搜索--%>
+    <li class="layui-nav-item" id="search-card">
+        <div id="search" class="layui-icon layui-icon-search hvr-pulse-grow" ></div>
     </li>
-    <li class="layui-nav-item" id="customer1" style="display: block;position: absolute;top: -5px;right: 176px;">
+    <li class="layui-nav-item" id="customer1" >
         <%--style="display: none;position: absolute!important;top: 0px!important;right: 200px!important;">--%>
         <a><img src="/img/${user.userImg}" class="layui-nav-img">
             <%--style="position: absolute!important;top: 7px!important;right: 80px!important;"--%>
@@ -57,23 +62,26 @@
 
 
 </ul>
-
-<div id="search-bar" style="display: none;z-index: 998">
+<%--搜索框--%>
+<div id="search-bar" >
     <form class="layui-form layui-form-pane">
         <div class="layui-form-item">
-            <div class="layui-input-block" style="background-color: black;left:0px">
+            <div class="layui-input-block" id="search-input">
                 <input id="search-bar-text" type="text" name="search" placeholder="搜索电影..." class="layui-input">
             </div>
         </div>
     </form>
 </div>
+
+<%--    登录页--%>
 <div id="background" class="layui-anim" style="display: none">
     <div id="login-body" style="position: relative">
         <div id="close" class="hvr-buzz-out layui-icon layui-icon-close" style="cursor: pointer"></div>
         <div id="user" class="layui-icon layui-icon-username "></div>
         <h2>登录</h2>
         <br><br><br><br>
-        <form id="form" class="layui-form" style="padding-top: 100px!important;" method="post">
+<%--    登录表单--%>
+        <form id="form" class="layui-form" method="post">
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <input id="login-user" type="text" name="login-user" required lay-verify="required"
@@ -105,6 +113,7 @@
 </div>
 
 <%--layui-icon-file--%>
+<%--    注册页--%>
 <div id="background1" class="layui-anim layui-anim-scaleSpring" style="display: none">
     <div id="register-body" style="position: relative">
 
@@ -113,11 +122,11 @@
         <div id="progress-bar" class="layui-progress">
             <div id="progress-bar-inside" class="layui-progress-bar" lay-percent="1/2"></div>
         </div>
-        <div id="front" class="layui-icon layui-icon-left hvr-backward" style="display: none;cursor: pointer"></div>
-        <div id="text" style="color:grey;"><h4>欢迎加入，Assessment社区！</h4></div>
-        <div id="text1" style="color:grey;display: block"><h6>首先你需要完善一些个人资料，<br/>填写完成后点击下一步哦!</h6></div>
-        <div id="text2" style="color:grey;display: block"><h6>加油，<br/>还差一步!</h6></div>
-        <form id="form1" class="layui-form" style="padding-top: 100px!important;" method="post" onsubmit="return false">
+        <div id="front" class="layui-icon layui-icon-left hvr-backward" ></div>
+        <div id="text" ><h4>欢迎加入，Assessment社区！</h4></div>
+        <div id="text1" ><h6>首先你需要完善一些个人资料，<br/>填写完成后点击下一步哦!</h6></div>
+        <div id="text2"><h6>加油，<br/>还差一步!</h6></div>
+        <form id="form1" class="layui-form" method="post" onsubmit="return false">
             <div id="firstinfo">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名</label>
@@ -161,7 +170,7 @@
                 </div>
             </div>
 
-            <div id="secondinfo" style="display: none">
+            <div id="secondinfo" >
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
@@ -194,7 +203,7 @@
                     <button type="reset" class="layui-btn layui-btn-danger hvr-wobble-skew" id="submit-no">重置</button>
                 </div>
             </div>
-            <div id="next" class="layui-btn" style="display: block">下一步</div>
+            <div id="next" class="layui-btn" >下一步</div>
         </form>
 
 

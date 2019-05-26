@@ -1,0 +1,101 @@
+/* 主体 */
+#main {
+	position: relative;
+	top: 20px;
+	height: 901px;
+}
+
+/* 个人资料 */
+#user {
+	font-size: 43px;
+	position: relative;
+	top: 6px;
+}
+
+#userInfo {
+	height: 35px;
+	position: relative;
+	top:30px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 35px;
+}
+
+/* ID */
+#userID {
+	position:relative;
+	top: 7px;
+	font-size: 15px;
+	left: 76px;
+}
+
+/* 修改按钮 */
+#update {
+	width: 80px;
+	text-align: center;
+}
+
+/* 修改密码 */
+#change {
+	width: 80px;
+	position:relative;
+	top: 20px;
+}
+
+/* 资料表单 */
+#modfiyInfo {
+	position: relative;
+	top:60px;
+	text-align: left;
+}
+
+/* 用户头像 */
+#userHead {
+	position: absolute;
+	top: 17px;
+	right: 67px;
+	width: 310px;
+}
+
+#right {
+	height: 60px;
+	text-align: center;
+}
+
+#headIcon {
+	font-size: 30px;
+	position: relative;
+	top: 6px;
+}
+	
+/* 待上传头像 */
+#user-img {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	left: 88px;
+	background-color: #0F9E5E;
+}
+
+/* 开始上传 */
+#upload {
+	width: 80px;
+	display: none;
+	position: relative;
+	left: 100px;
+	top: 20px;
+}
+
+h3 {
+	position: relative;
+	top: -33px;
+	left: 58px;
+}
+
+h4 {
+	position: relative;
+	top: -12px;
+	left: 1px;
+	font-size: 15px;
+	color: white;
+}
