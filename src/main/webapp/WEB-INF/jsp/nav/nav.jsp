@@ -44,7 +44,7 @@
     </li>
     <li class="layui-nav-item" id="customer1" style="display: block;position: absolute;top: -5px;right: 176px;">
         <%--style="display: none;position: absolute!important;top: 0px!important;right: 200px!important;">--%>
-        <a href=""><img src="/img/1.jpg" class="layui-nav-img">
+        <a><img src="/img/${user.userImg}" class="layui-nav-img">
             <%--style="position: absolute!important;top: 7px!important;right: 80px!important;"--%>
             <span style="position: absolute;top: 7px;right: 80px;font-size: 18px;">${user.userName}</span>
         </a>
@@ -91,7 +91,7 @@
             <br><br>
             <div class="layui-form-item" id="submit">
                 <div class="layui-input-block ">
-                    <button class="layui-btn" lay-submit lay-filter="login1" id="submit-yes">登录</button>
+                    <button type="button" class="layui-btn" lay-submit lay-filter="login1" id="submit-yes">登录</button>
                 </div>
             </div>
             <div class="layui-form-item" id="rem">
@@ -187,7 +187,7 @@
             </div>
             <div class="layui-form-item" id="submit1">
                 <div class="layui-input-block">
-                    <button class="layui-btn hvr-pulse-grow" lay-submit lay-filter="reg" id="submit-yes1"
+                    <button type="button" class="layui-btn hvr-pulse-grow" lay-submit lay-filter="reg" id="submit-yes1"
                             style="display: none">提交
                     </button>
                     <br><br>
@@ -213,19 +213,16 @@
         console.log(loginusername);
         var loginpassword = $('#login-password').val();
         var md5pas = md5(loginpassword);
-        console.log(md5pas);
         var user = {};
         user.userName = loginusername;
         user.password = md5pas;
-        var formDatas = new FormData();
-        formDatas.append('loginuser', JSON.stringify(user));
-
+        var login = JSON.stringify(user);
         $.ajax({
             type: "POST",
-            url: "/filmos/user/login",
-            data: formDatas,
+            url: "${pageContext.request.contextPath}/user/login",
+            data: login,
             dataType: "json",
-            contentType: false,
+            contentType: "application/json;charset=UTF-8",
             processData: false,
             cache: false,
             beforeSend: function () {
@@ -236,11 +233,18 @@
             success: function (data) {
                 console.log(data);
                 if (data.code == 200) {
-                    layer.msg(data.msg, {icon: 0, time: 7000});
-                    location.href = "index.jsp";
+                    layer.msg(data.msg, {
+                        icon: 0, time: 5000, end: function () {
+                            location.href = "index.jsp";
+                        }
+                    })
                 } else {
-                    layer.msg(data.msg, {icon: 2, time: 7000});
-                    location.href = "index.jsp";
+                    layer.msg(data.msg, {
+                        icon: 2, time: 5000, end: function () {
+                            location.href = "index.jsp";
+                        }
+                    })
+
                 }
             },
         });
@@ -248,6 +252,10 @@
 
     });
 
+    document.onkeydown = function (e) { // 回车提交表单
+        var theEvent = window.event || e;
+        var code = theEvent.keyCode || theEvent.which;
+        if (code == 13) {
 </script>
 <script>
     //注册表单监听
@@ -352,7 +360,7 @@
         formData.append('userString', JSON.stringify(user));
         $.ajax({
             type: "POST",
-            url: "/filmos/user/register",
+            url: "${pageContext.request.contextPath}/user/register",
             data: formData,
             dataType: "json",
             contentType: false,
@@ -365,10 +373,18 @@
             },
             success: function (data) {
                 if (data.code == 200) {
-                    location.href = "/filmos/success"
+                    layer.msg(data.msg, {
+                        icon: 0, time: 3000, end: function () {
+                            location.href = "index.jsp";
+                        }
+                    })
+
                 } else {
-                    layer.msg(data.msg, {icon: 2, time: 5000});
-                    location.href = "index.jsp";
+                    layer.msg(data.msg, {
+                        icon: 2, time: 3000, end: function () {
+                        }
+                    })
+
                 }
             },
         });

@@ -72,8 +72,9 @@ public class UserServiceImpl implements UserService {
                 throw new RuntimeException("用户不能为空");
             }
 
-            int effectNum = userDao.insertUser(user);
+            int effectNum = userDao.updateUser(user);
             if (effectNum <= 0) {
+                System.out.println("====================");
                 throw new RuntimeException("更新信息失败");
             } else {
                 return effectNum;
@@ -85,7 +86,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+
     public int updateUserImg(User user, InputStream userImgInputStream, String fileName) {
         if (userImgInputStream == null) {
             throw new RuntimeException("图片获取失败！");

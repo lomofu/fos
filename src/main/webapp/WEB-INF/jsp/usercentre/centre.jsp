@@ -20,7 +20,7 @@
     <div id="top">
         <div id="blank"></div>
         <div id="head">
-            <img src="//t.cn/RCzsdCq">
+            <img src="/img/${user.userImg}">
         </div>
         <div id="userName">
             ${user.userName}

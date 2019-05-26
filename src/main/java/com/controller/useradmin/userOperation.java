@@ -16,4 +16,9 @@ public class userOperation {
     @RequestMapping(value = "/userinfo",method = RequestMethod.GET)
     private String info(){return "usercentre/modifyinfo";}
 
+    @RequestMapping(value = "/ok")
+    private  String successinfo(){return "usercentre/success";}
+
+    @RequestMapping(value = "/goback")
+    private String goback(){return "usercentre/successpassword";}
 }

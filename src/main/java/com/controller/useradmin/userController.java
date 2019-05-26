@@ -6,12 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.UserService;
 import com.util.HttpServletRequestUtil;
 import com.util.SpringMD5;
+import com.validator.ValidatorFactory;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.SessionScope;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsFileUploadSupport;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -26,7 +27,10 @@ import java.io.IOException;
 public class userController {
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private ValidatorFactory validatorFactory;
+    //返回校验结果
+    boolean v;
 
     /**
      * 登录方法
@@ -36,18 +40,9 @@ public class userController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    private Layui loginUser(HttpServletRequest request) {
+    private Layui loginUser(HttpServletRequest request, @RequestBody User user) {
         //数据库结果
         User result = new User();
-        String loginUser = HttpServletRequestUtil.getString(request, "loginuser");
-        ObjectMapper mapper = new ObjectMapper();
-        //页面用户输入结果
-        User user = null;
-        try {
-            user = mapper.readValue(loginUser, User.class);
-        } catch (Exception e) {
-            return Layui.fail("系统出现错误，无法获取到用户信息！");
-        }
         //前端传回来的用户名和密码
         String username = user.getUserName();
         String password = SpringMD5.passwordMD5(user.getPassword());
@@ -121,7 +116,6 @@ public class userController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     private Layui addUser(HttpServletRequest request) {
-        Layui layui = new Layui();
         String userString = HttpServletRequestUtil.getString(request, "userString");
         ObjectMapper mapper = new ObjectMapper();
         User user = null;
@@ -141,73 +135,87 @@ public class userController {
             return Layui.fail("图片解析错误！");
         }
         user.setPassword(SpringMD5.passwordMD5(user.getPassword()));
-        if (user != null && userImg != null) {
-            try {
-                userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
-                request.getSession().setAttribute("user", user);
-                return Layui.add(1);
-            } catch (Exception e) {
-                return Layui.fail("注册失败！" + e.getMessage());
+        if (v) {
+            if (user != null && userImg != null) {
+                try {
+                    userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
+                    return Layui.add(1);
+                } catch (Exception e) {
+                    return Layui.fail("注册失败！" + e.getMessage());
+                }
+            } else {
+                return Layui.fail("注册用户失败！");
             }
         } else {
-            return Layui.fail("注册用户失败！");
+            return Layui.fail("用户已存在");
         }
     }
 
-
-    @RequestMapping(value = "/updateuserinfo", method = RequestMethod.POST)
+    /**
+     * 更新用户信息
+     *
+     * @param user    前端传入的json包装为对象
+     * @param session
+     * @return json
+     */
+    @RequestMapping(value = "/updateuserinfo", method = {RequestMethod.POST})
     @ResponseBody
-    private Layui updateUser(HttpServletRequest request) {
-        Layui layui = new Layui();
-        String userString = HttpServletRequestUtil.getString(request, "userInfo");
-        ObjectMapper mapper = new ObjectMapper();
-        User user = null;
-        try {
-            user = mapper.readValue(userString, User.class);
-        } catch (Exception e) {
-            Layui.fail(e.getMessage());
-        }
+    private Layui updateUser(@RequestBody User user, HttpSession session) {
         if (user != null) {
-            try {
-                userService.updateUserInfo(user);
-                request.getSession().setAttribute("user", user);
-                return Layui.success("更新信息成功!", 1);
-            } catch (Exception e) {
-                return Layui.fail("更新失败！" + e.getMessage());
-            }
+            userService.updateUserInfo(user);
+            session.setAttribute("user", userService.login(user));
+            return Layui.success("更新信息成功!", 1);
+
         } else {
-            return Layui.fail("更新用户失败！");
+            return Layui.fail("更新失败！");
+        }
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param user    前端传入的json包装对象
+     * @param session
+     * @return json
+     */
+
+    @RequestMapping(value = "/updatepassword", method = RequestMethod.POST)
+    @ResponseBody
+    private Layui updatePassword(@RequestBody User user, HttpSession session) {
+        if (user != null) {
+            String password = user.getPassword();
+            String newpassword = SpringMD5.passwordMD5(password);
+            user.setPassword(newpassword);
+            userService.updateUserInfo(user);
+            return Layui.success("更新密码成功！", 1);
+        } else {
+            return Layui.fail("密码修改失败！");
         }
 
+
     }
+
+    /**
+     * 更新头像
+     *
+     * @param multipartFile 前端传入的图片流
+     * @param session
+     * @return json
+     * @throws IOException
+     */
 
     @RequestMapping(value = "/updateuserimg", method = RequestMethod.POST)
     @ResponseBody
-    private Layui updateUserImg(HttpServletRequest request, HttpSession session) {
-        Layui layui = new Layui();
+    private Layui updateUserImg(@RequestParam(value = "file", required = false) CommonsMultipartFile multipartFile, HttpSession session) throws IOException {
         User user = (User) session.getAttribute("user");
-        CommonsMultipartFile userImg = null;
-        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-        if (commonsMultipartResolver.isMultipart(request)) {
-            MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-            userImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("userImg");
-
+        JSONObject jsonObject = new JSONObject();
+        if (multipartFile != null && multipartFile.getSize() > 0 && user != null) {
+            userService.updateUserImg(user, multipartFile.getInputStream(), multipartFile.getOriginalFilename());
+            session.setAttribute("user", userService.login(user));
+            return Layui.success("更新成功！", user.getUserImg());
         } else {
-            return Layui.fail("图片解析错误！");
-        }
-        if (userImg != null) {
-            try {
-                userService.updateUserImg(user, userImg.getInputStream(), userImg.getOriginalFilename());
-                request.getSession().setAttribute("user", user);
-                return Layui.add(1);
-            } catch (Exception e) {
-                return Layui.fail("上传失败！" + e.getMessage());
-            }
-        } else {
-            return Layui.fail("更换失败！");
-        }
+            return Layui.fail("更新失败！");
 
-
+        }
     }
-
 }

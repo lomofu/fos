@@ -48,8 +48,9 @@ public class UserDaoTest extends BaseTest {
     @Test
     public void updateUserTest(){
         User user=new User();
-        user.setUserId(83);
-        user.setEmail("2357650152@qq.com");
+        user.setUserId(98);
+        user.setEmail("2357650154@qq.com");
+        user.setAge(20);
         int num=userDao.updateUser(user);
     }
 }
