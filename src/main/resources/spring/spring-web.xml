@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
@@ -18,6 +19,7 @@
     这些资源不用dispatcher 拦截 直接交由默认的service去处理-->
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:default-servlet-handler />
+    
 
 
     <!-- 3.定义视图解析器 -->
@@ -31,10 +33,12 @@
     <!-- 文件上传解析器 -->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding" value="utf-8"></property>
-        <property name="maxUploadSize" value="10485760000"></property><!-- 最大上传文件大小 -->
-        <property name="maxInMemorySize" value="10960"></property>
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="20971520"></property><!-- 最大上传文件大小 -->
     </bean>
     <!--4.扫描web相关的bean-->
     <context:component-scan base-package="com.controller"/>
+
+
 </beans>
+
