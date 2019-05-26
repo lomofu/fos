@@ -234,13 +234,13 @@
                 console.log(data);
                 if (data.code == 200) {
                     layer.msg(data.msg, {
-                        icon: 0, time: 5000, end: function () {
+                        icon: 0, time: 2000, end: function () {
                             location.href = "index.jsp";
                         }
                     })
                 } else {
                     layer.msg(data.msg, {
-                        icon: 2, time: 5000, end: function () {
+                        icon: 2, time: 2000, end: function () {
                             location.href = "index.jsp";
                         }
                     })
@@ -371,14 +371,14 @@
             success: function (data) {
                 if (data.code == 200) {
                     layer.msg(data.msg, {
-                        icon: 0, time: 3000, end: function () {
+                        icon: 0, time: 2000, end: function () {
                             location.href = "${pageContext.request.contextPath}/success";
                         }
                     })
 
                 } else {
                     layer.msg(data.msg, {
-                        icon: 2, time: 3000, end: function () {
+                        icon: 2, time: 2000, end: function () {
                             location.href = "index.jsp";
                         }
                     })

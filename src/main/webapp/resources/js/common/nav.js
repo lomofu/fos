@@ -49,14 +49,11 @@ $(function () {
                     $("#customer").css('display', 'none');
                     $("#customer1").css('display','none');
                     layer.msg(data.msg, {
-                        icon: 0, time: 3000, end: function () {
+                        icon: 0, time: 800, end: function () {
                             location.href = "index.jsp";
                         }
                     })
-
-
                 }else {
-
                     $("#tourist").css('display','none');
                     $("#tourist1").css('display','none');
                     $("#customer").css('display', 'block');
