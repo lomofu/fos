@@ -14,12 +14,14 @@ public class Layui extends HashMap<String, Object> {
     private String msg;
     private Integer num;
     private Object data;
+    private String token;
 
     //单个查询操作成功的模板
-    public static Layui select(Integer count, Object data,String msg) {
+    public static Layui select(Integer count, Object data,String msg,String token) {
         Layui r = new Layui();
         r.put("code", 200);
         r.put("msg", msg);
+        r.put("token",token);
         r.put("count", count);
         r.put("data", data);
         return r;
@@ -43,6 +45,13 @@ public class Layui extends HashMap<String, Object> {
         r.put("count", count);
         return r;
     }
+    public static Layui success(String msg){
+        Layui r=new Layui();
+        r.put("code",200);
+        r.put("msg",msg);
+        r.put("count",1);
+        return r;
+    }
     //用于上传头像
     public static Layui success(String msg,String data){
         Layui r=new Layui();
@@ -52,13 +61,7 @@ public class Layui extends HashMap<String, Object> {
         return r;
     }
 
-    public static Layui success(String msg,Integer count){
-        Layui r=new Layui();
-        r.put("code",200);
-        r.put("msg",msg);
-        r.put("count",count);
-        return r;
-    }
+
 
     //自定义失败模板
     public static Layui fail(String msg){

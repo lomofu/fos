@@ -5,6 +5,8 @@ import com.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.UserService;
 import com.util.HttpServletRequestUtil;
+import com.util.JWTUtils;
+import com.util.JedisUtils;
 import com.util.SpringMD5;
 import com.validator.ValidatorFactory;
 import org.json.JSONObject;
@@ -18,6 +20,7 @@ import org.springframework.web.multipart.commons.CommonsFileUploadSupport;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -66,10 +69,18 @@ public class userController {
         if (result != null) {
             if (result.getPassword().equals(password)) {
                 request.getSession().setAttribute("user", result);
+                try {
+                    String token = JWTUtils.createToken(result.getUserName());
+                    JedisUtils.setToken(result.getUserName(), token, 7);
+                    return Layui.select(1, result, "登录成功", token);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    return Layui.fail("令牌生成失效");
+                }
             } else {
                 return Layui.fail("密码错误！");
             }
-            return Layui.select(1, result, "登录成功");
+
         } else {
             return Layui.fail("用户不存在！");
 
@@ -85,12 +96,12 @@ public class userController {
      */
     @RequestMapping(value = "/islogin", method = RequestMethod.GET)
     @ResponseBody
-    private Layui isLogin(HttpSession session) {
+    private Layui isLogin(HttpSession session, HttpServletRequest request) {
 
         if (session.getAttribute("user") == null) {
             return Layui.fail("无用户登录");
         } else {
-            return Layui.success("当前有用户", 1);
+            return Layui.success("当前有用户", "登录状态");
         }
     }
 
@@ -99,7 +110,7 @@ public class userController {
     private Layui loginOut(HttpSession session) {
         try {
             session.removeAttribute("user");
-            return Layui.success("登出成功", 1);
+            return Layui.success("登出成功");
         } catch (Exception e) {
             return Layui.fail("出现登出错误");
         }
@@ -137,7 +148,7 @@ public class userController {
         user.setPassword(SpringMD5.passwordMD5(user.getPassword()));
         try {
             v = validatorFactory.CreateRegisterVali(user);
-        }catch (Exception e){
+        } catch (Exception e) {
             v = false;
             e.printStackTrace();
             System.out.println("出错");
@@ -146,7 +157,7 @@ public class userController {
             if (user != null && userImg != null) {
                 try {
                     userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
-                    request.getSession().setAttribute("user",user);
+                    request.getSession().setAttribute("user", user);
                     return Layui.add(1);
                 } catch (Exception e) {
                     return Layui.fail("注册失败！" + e.getMessage());
@@ -172,7 +183,7 @@ public class userController {
         if (user != null) {
             userService.updateUserInfo(user);
             session.setAttribute("user", userService.login(user));
-            return Layui.success("更新信息成功!", 1);
+            return Layui.success("更新信息成功!");
 
         } else {
             return Layui.fail("更新失败！");
@@ -193,7 +204,7 @@ public class userController {
         if (user != null) {
             user.setPassword(SpringMD5.passwordMD5(user.getPassword()));
             userService.updateUserInfo(user);
-            return Layui.success("更新密码成功！", 1);
+            return Layui.success("更新密码成功！");
         } else {
             return Layui.fail("密码修改失败！");
         }
