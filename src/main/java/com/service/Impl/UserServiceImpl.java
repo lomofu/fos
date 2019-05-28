@@ -57,6 +57,11 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public User selectByUserId(User user) {
+        return null;
+    }
+
 
     private String insertUserImg(User user, InputStream userImgInputStream, String fileName) {
         String dir = PathUtil.getUserImgPath(user.getUserId());

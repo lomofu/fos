@@ -18,7 +18,7 @@ public class JWTUtils {
      */
     private static String SECRET = "lomofu";  //此处随便设置一个自己的加密符号
 
-    public static String createToken(String username) throws Exception {
+    public static String createToken(String userId) throws Exception {
         // 签发时间
         Date iatDate = new Date();
 
@@ -32,7 +32,7 @@ public class JWTUtils {
         map.put("typ", "JWT");
         String token = JWT.create()
                 .withHeader(map)
-                .withClaim("username", username)
+                .withClaim("userId", userId)
                 .withExpiresAt(experiesDate) // 设置过期的日期
                 .withIssuedAt(iatDate) // 签发时间
                 .sign(Algorithm.HMAC256(SECRET)); // 加密
@@ -46,12 +46,8 @@ public class JWTUtils {
     public static Map<String, Claim> verifyToken(String token) throws Exception {
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
         DecodedJWT jwt = null;
-        try {
             jwt = verifier.verify(token);  //核实token
-        } catch (Exception e) {
-            throw new Exception("登录过期");
-        }
-        //返回的是解析完的token，是一个map，里面有username键值对
+        //返回的是解析完的token，是一个map，里面有userId键值对
         return jwt.getClaims();
     }
 

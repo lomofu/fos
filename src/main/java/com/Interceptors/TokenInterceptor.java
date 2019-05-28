@@ -19,12 +19,11 @@ public class TokenInterceptor implements HandlerInterceptor {
         //拿到用户请求的token
         String token = (String) request.getHeader("Authorization");
         Map<String, Claim> verifyToken= JWTUtils.verifyToken(token);
-        String username=verifyToken.get("username").asString();
+        String userId=verifyToken.get("userId").asString();
         //缓存中的token
-        String usertoken=JedisUtils.getToken(username);
-
-        if(!usertoken.isEmpty()) {
-            System.out.println("=================token生效=================");
+        String usertoken=JedisUtils.getToken(userId);
+        if(usertoken!=null) {
+            System.out.println("=================token验证成功=================");
             return true;
         }else {
             System.out.println("=================token失效=================");

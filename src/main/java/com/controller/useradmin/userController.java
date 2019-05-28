@@ -2,25 +2,17 @@ package com.controller.useradmin;
 
 import com.dto.Layui;
 import com.entity.User;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.UserService;
 import com.util.HttpServletRequestUtil;
 import com.util.JWTUtils;
 import com.util.JedisUtils;
 import com.util.SpringMD5;
 import com.validator.ValidatorFactory;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.SessionScope;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsFileUploadSupport;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -35,6 +27,7 @@ public class userController {
     //返回校验结果
     boolean v;
 
+
     /**
      * 登录方法
      *
@@ -43,7 +36,7 @@ public class userController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    private Layui loginUser(HttpServletRequest request, @RequestBody User user) {
+    private Layui loginUser(HttpServletRequest request, @RequestBody User user) throws Exception {
         //数据库结果
         User result = new User();
         //前端传回来的用户名和密码
@@ -65,18 +58,23 @@ public class userController {
 
     }
 
-    private Layui valicatePassword(User result, String password, HttpServletRequest request) {
+    private Layui valicatePassword(User result, String password, HttpServletRequest request) throws Exception {
         if (result != null) {
             if (result.getPassword().equals(password)) {
-                request.getSession().setAttribute("user", result);
-                try {
-                    String token = JWTUtils.createToken(result.getUserName());
-                    JedisUtils.setToken(result.getUserName(), token, 7);
-                    return Layui.select(1, result, "登录成功", token);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    return Layui.fail("令牌生成失效");
+                //如果缓存中没有相应id的值说明第一次登陆（这里的第一次是说有清除过token的或者账号刚登陆，防止token重复生成）
+                if (JedisUtils.getToken(String.valueOf(result.getUserId())).isEmpty()) {
+                    //根据id创建token
+                    String token = JWTUtils.createToken(String.valueOf(result.getUserId()));
+                    //放入缓存
+                    JedisUtils.setToken(String.valueOf(result.getUserId()), token, 7);
+                    //将用户结果放入session
+                    request.getSession().setAttribute("user", result);
+                    return Layui.select(1, result, "登录成功！", token);
+                } else {
+                    request.getSession().setAttribute("user", result);
+                    return Layui.select(1, result, "登录成功！");
                 }
+
             } else {
                 return Layui.fail("密码错误！");
             }
@@ -91,30 +89,34 @@ public class userController {
     /**
      * 判断是否登录
      *
-     * @param session
+     * @param session,request
      * @return json字符串
      */
     @RequestMapping(value = "/islogin", method = RequestMethod.GET)
     @ResponseBody
-    private Layui isLogin(HttpSession session, HttpServletRequest request) {
-
-        if (session.getAttribute("user") == null) {
-            return Layui.fail("无用户登录");
+    private Layui isLogin(HttpSession session, HttpServletRequest request) throws Exception {
+        String usertoken = HttpServletRequestUtil.getTokenFromRedis(request);
+        if (usertoken != null) {
+            return Layui.success("当前有用户！", "登录状态!");
         } else {
-            return Layui.success("当前有用户", "登录状态");
+            return Layui.fail("无用户登录！");
         }
+
     }
 
+
+    /**
+     * 退出登录
+     *
+     * @param session
+     * @return JSON 字符串
+     */
     @RequestMapping(value = "/quit", method = RequestMethod.GET)
     @ResponseBody
     private Layui loginOut(HttpSession session) {
-        try {
-            session.removeAttribute("user");
-            return Layui.success("登出成功");
-        } catch (Exception e) {
-            return Layui.fail("出现登出错误");
-        }
 
+        session.removeAttribute("user");
+        return Layui.success("登出成功!");
     }
 
 
@@ -126,49 +128,24 @@ public class userController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    private Layui addUser(HttpServletRequest request) {
-        String userString = HttpServletRequestUtil.getString(request, "userString");
-        ObjectMapper mapper = new ObjectMapper();
-        User user = null;
-        try {
-            user = mapper.readValue(userString, User.class);
-        } catch (Exception e) {
-            Layui.fail(e.getMessage());
-        }
-        //接受图片，并解析为string
-        CommonsMultipartFile userImg = null;
-        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-        if (commonsMultipartResolver.isMultipart(request)) {
-            MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-            userImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("userImg");
-
-        } else {
-            return Layui.fail("图片解析错误！");
-        }
-        user.setPassword(SpringMD5.passwordMD5(user.getPassword()));
-        try {
-            v = validatorFactory.CreateRegisterVali(user);
-        } catch (Exception e) {
-            v = false;
-            e.printStackTrace();
-            System.out.println("出错");
-        }
+    private Layui addUser(HttpServletRequest request) throws Exception {
+        User user = HttpServletRequestUtil.JsonToClass(request);
+        CommonsMultipartFile userImg = HttpServletRequestUtil.getUserImg(request);
+        //校验
+        v = validatorFactory.CreateRegisterVali(user);
         if (v) {
             if (user != null && userImg != null) {
-                try {
-                    userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
-                    request.getSession().setAttribute("user", user);
-                    return Layui.add(1);
-                } catch (Exception e) {
-                    return Layui.fail("注册失败！" + e.getMessage());
-                }
+                userService.addUser(user, userImg.getInputStream(), userImg.getOriginalFilename());
+                return Layui.add(1);
+
             } else {
-                return Layui.fail("注册用户失败！");
+                return Layui.fail("用户信息不完整！");
             }
         } else {
-            return Layui.fail("用户已存在");
+            return Layui.fail("用户已存在!");
         }
     }
+
 
     /**
      * 更新用户信息
@@ -190,6 +167,7 @@ public class userController {
         }
     }
 
+
     /**
      * 修改密码
      *
@@ -197,7 +175,6 @@ public class userController {
      * @param session
      * @return json
      */
-
     @RequestMapping(value = "/updatepassword", method = RequestMethod.POST)
     @ResponseBody
     private Layui updatePassword(@RequestBody User user, HttpSession session) {
@@ -212,6 +189,7 @@ public class userController {
 
     }
 
+
     /**
      * 更新头像
      *
@@ -220,7 +198,6 @@ public class userController {
      * @return json
      * @throws IOException
      */
-
     @RequestMapping(value = "/updateuserimg", method = RequestMethod.POST)
     @ResponseBody
     private Layui updateUserImg(@RequestParam(value = "file", required = false) CommonsMultipartFile multipartFile, HttpSession session) throws IOException {
@@ -229,9 +206,9 @@ public class userController {
             userService.updateUserImg(user, multipartFile.getInputStream(), multipartFile.getOriginalFilename());
             session.setAttribute("user", userService.login(user));
             return Layui.success("更新成功！", user.getUserImg());
+
         } else {
             return Layui.fail("更新失败！");
-
         }
     }
 }

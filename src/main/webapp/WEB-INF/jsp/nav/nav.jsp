@@ -233,6 +233,7 @@
             success: function (data) {
                 console.log(data);
                 if (data.code == 200) {
+                    document.cookie=data
                     layer.msg(data.msg, {
                         icon: 0, time: 2000, end: function () {
                             location.href = "index.jsp";

@@ -17,6 +17,15 @@ public class Layui extends HashMap<String, Object> {
     private String token;
 
     //单个查询操作成功的模板
+    public static Layui select(Integer count, Object data,String msg) {
+        Layui r = new Layui();
+        r.put("code", 200);
+        r.put("msg", msg);
+
+        r.put("count", count);
+        r.put("data", data);
+        return r;
+    }
     public static Layui select(Integer count, Object data,String msg,String token) {
         Layui r = new Layui();
         r.put("code", 200);

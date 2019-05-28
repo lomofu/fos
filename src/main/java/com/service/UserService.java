@@ -8,6 +8,8 @@ import java.io.InputStream;
 public interface UserService {
     int addUser(User user, InputStream userImgInputStream,String fileName);
 
+    User selectByUserId(User user);
+
     User login(User user);
 
     int updateUserInfo(User user);
