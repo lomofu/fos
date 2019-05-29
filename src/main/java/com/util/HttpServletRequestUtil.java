@@ -82,13 +82,23 @@ public class HttpServletRequestUtil {
         }
     }
 
-    public static String getTokenFromRedis( HttpServletRequest request)throws Exception {
+    public static String getTokenFromRedis( HttpServletRequest request) {
+        System.out.println(request.getHeader("Authorization"));
         String token = (String) request.getHeader("Authorization");
-        Map<String, Claim> verifyToken = JWTUtils.verifyToken(token);
-        String userId = verifyToken.get("userId").asString();
-        //缓存中的token
-        String usertoken = JedisUtils.getToken(userId);
-        return usertoken;
-    }
+        Map<String, Claim> verifyToken = null;
+        if (token != null) {
 
+            try {
+                verifyToken = JWTUtils.verifyToken(token);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            String userId = verifyToken.get("userId").asString();
+            //缓存中的token
+            String usertoken = JedisUtils.getToken(userId);
+            return usertoken;
+        }else {
+            return null;
+        }
+    }
 }

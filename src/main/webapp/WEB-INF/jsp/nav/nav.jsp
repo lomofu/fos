@@ -42,15 +42,15 @@
         <div id="search" class="layui-icon layui-icon-search hvr-pulse-grow"
              style="cursor: pointer;font-size:25px"></div>
     </li>
-    <li class="layui-nav-item" id="customer1" style="display: block;position: absolute;top: -5px;right: 176px;">
+    <li class="layui-nav-item" id="customer1" style="display: none;position: absolute;top: -5px;right: 176px;">
         <%--style="display: none;position: absolute!important;top: 0px!important;right: 200px!important;">--%>
         <a style="cursor: pointer"><img src="/img/${user.userImg}" class="layui-nav-img">
             <%--style="position: absolute!important;top: 7px!important;right: 80px!important;"--%>
             <span style="position: absolute;top: 7px;right: 80px;font-size: 18px;">${user.userName}</span>
         </a>
         <dl class="layui-nav-child">
-            <dd><a href="${pageContext.request.contextPath}/centre">个人中心</a></dd>
-            <dd><a href="${pageContext.request.contextPath}/userinfo">修改信息</a></dd>
+            <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/centre" >个人中心</a></dd>
+            <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/userinfo">修改信息</a></dd>
             <dd><a id="quit" style="cursor: pointer">退出登录</a></dd>
         </dl>
     </li>
@@ -205,8 +205,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/nav.js"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/md5.min.js"/>
 <script>
-    //# sourceURL=dynamicScript.js
+
     var form = layui.form;
+    var currentToken = document.cookie.split(";")[0];
     //登录表单监听
     form.on('submit(login1)', function (data) {
         var loginusername = $('#login-user').val();
@@ -222,9 +223,10 @@
             url: "${pageContext.request.contextPath}/user/login",
             data: login,
             dataType: "json",
-            contentType: "application/json;charset=UTF-8",
-            processData: false,
-            cache: false,
+            contentType: 'application/json;charset=utf-8',
+            header: {
+                'Content-Type': 'application/json'
+            },
             beforeSend: function () {
                 // 禁用按钮防止重复提交
                 $("#submit-yes1").attr({disabled: "disabled"});
@@ -233,7 +235,7 @@
             success: function (data) {
                 console.log(data);
                 if (data.code == 200) {
-                    document.cookie=data
+                    document.cookie = data.token;
                     layer.msg(data.msg, {
                         icon: 0, time: 2000, end: function () {
                             location.href = "index.jsp";
@@ -373,7 +375,7 @@
                 if (data.code == 200) {
                     layer.msg(data.msg, {
                         icon: 0, time: 2000, end: function () {
-                            location.href = "${pageContext.request.contextPath}/success";
+                            location.href = "${pageContext.request.contextPath}/page/success";
                         }
                     })
 
@@ -389,7 +391,7 @@
         });
         return false;
     });
-
+    //# sourceURL=dynamicScript.js
 
 </script>
 

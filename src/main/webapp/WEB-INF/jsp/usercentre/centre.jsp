@@ -262,7 +262,22 @@
             element.tabChange('demo', '22');
         }
     };
-
+    var currentToken=document.cookie.split(";")[0];
+    $.ajax({
+        url: "/filmos/user/islogin",
+        type: 'get',
+        dataType: "json",
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':currentToken
+        },
+        success: function (data) {
+            console.log(data.code);
+            if (data.code!=200) {
+                window.location.href="index.jsp"
+            }
+        }
+    });
 </script>
 </body>
 </html>

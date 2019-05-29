@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-
+@RequestMapping("/page")
 public class userOperation {
+    @RequestMapping(value = "/index.jsp")
+    private String index(){return "redirect:index.jsp";}
     @RequestMapping(value = "/success")
     private String success(){return "register/success";}
 

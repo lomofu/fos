@@ -1,0 +1,229 @@
+/* 筛选器 */
+#filter {
+	width: 100%;
+	height: 50px;
+	background: #93D1FF;
+	margin: auto;
+}
+
+.btn {
+	float: right;
+	margin: 10px ;
+	padding: 0 25px;
+	border: #000000 solid 1.5px;
+	height: 30px;
+	width: auto;
+	list-style: none;
+	text-align: center;
+	line-height: 25px;
+	font-size: 1.1em;
+	background: #009688;
+	color: white;
+	border-radius:10px;
+}
+
+.btn:hover {
+	background: #7ECBC8;
+}
+
+/* 搜索框 */
+#search-bar {
+	z-index: 998;
+	background-color: black;
+	left:0px;
+}
+#search-bar-text {
+    z-index: 998;
+    margin-left: -115px;
+!important;
+    width: 100%;
+    font-size: 20px;
+    height: 80px;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+#select {
+	width: 100%;
+	background: white;
+
+}
+
+.select-result {
+	margin-left: 50px;
+}
+
+#year {
+	margin: 10px;
+	float: left;
+	width: 100%;
+	height: auto;
+	
+}
+
+#location {
+	margin: 10px;
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+#type {
+	margin: 10px;
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+.label {
+	float: left;
+	height: 48px;
+	width: 100px;
+	line-height: 48px;
+	text-align: center;
+}
+.choose {
+	float: left;
+}
+
+li {
+	margin: 10px;
+	padding: 0 20px;
+	border: #000000 solid 1.5px;
+	height: 25px;
+	width: auto;
+	float: left;
+	list-style: none;
+	text-align: center;
+	line-height: 25px;
+	font-size: 1.1em;
+	background: #009688;
+	color: white;
+	border-radius:10px;
+}
+
+li:hover {
+	background: #7ECBC8;
+}
+
+a {
+	text-decoration: none;
+	color: #2d2f30;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	transition: all .3s linear;
+}
+
+a:focus {
+	outline: none;
+}
+
+#filter button {
+	margin: 0.15rem;
+	width: 2rem;
+	height: 2rem;
+	float: right;
+	background: #000000;
+}
+
+
+/* 电影库 */
+#movieList {
+	margin: auto;
+	width: 90%;
+	height: 1300px;
+	background: #E2E2E2;
+}
+
+
+/* 电影 */
+.movie {
+	margin: 30px auto;
+	width: 170px;
+	height: 250px;
+	text-align: center;
+}
+
+/* 电影名 */
+.movieName {
+	font-size: 1.25em;
+	width: 100%;
+	height: auto;
+}
+
+/* 电影评分 */
+.movieScore {
+	width: 100%;
+	height: 15%;
+}
+
+/* 主演 */
+.actors {
+	width: 100%;
+	height: 15%;
+}
+
+/* 电影类型 */
+.movieType {
+	width: 100%;
+	height: 15%;
+	float: left;
+}
+
+/* 电影时长 */
+.movieTime {
+	width: 100%;
+	height: 15%;
+	float: left;
+}
+
+
+/* 电影列表 */
+.movieList {
+	width: 80%;
+	
+}
+
+.movieList tr {
+	height: 400px;
+}
+
+.movieList tr td {
+	margin: 10px;
+}
+
+figure {
+	width: 200px;
+	height: 240px;
+}
+
+/* 年份 */
+.year{
+	
+}
+
+/* 分数 */
+.score {
+	font-size: 1.35em;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+}
+
+h1 {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+hr {
+	color: #0F9E5E;
+	width: 80%;
+	height: 3px;
+	margin: 30px auto;
+}

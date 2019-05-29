@@ -1,12 +1,17 @@
 
 $ = layui.$
+var currentToken=document.cookie.split(";")[0];
 $(function () {
     $.ajax({
         url: "/filmos/user/islogin",
-        type: "get",
+        type: 'get',
         dataType: "json",
-        data: {},
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':currentToken
+        },
         success: function (data) {
+            console.log(data.code);
             if (data.code==200){
                 $("#tourist").css('display','none');
                 $("#tourist1").css('display','none');
@@ -50,7 +55,7 @@ $(function () {
                     $("#customer1").css('display','none');
                     layer.msg(data.msg, {
                         icon: 0, time: 800, end: function () {
-                            location.href = "index.jsp";
+                           window.location.href = "/filmos/index.jsp";
                         }
                     })
                 }else {

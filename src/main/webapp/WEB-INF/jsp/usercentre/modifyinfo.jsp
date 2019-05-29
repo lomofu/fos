@@ -116,7 +116,7 @@
                 <div class="layui-upload" style="text-align: center">
                     <button type="button" class="layui-btn" id="choose" style="width: 80px">选择图片</button>
                     <button type="button" class="layui-btn  layui-btn-danger layui-anim layui-anim-upbit" id="upload"
-                            style="width: 80px;display: none;position: relative;left: 100px;top: 20px;">开始上传
+                            style="width: 80px;display: none;position: relative;left: 100px;top: 20px;" onclick="">开始上传
                     </button>
                 </div>
             </div>
@@ -141,6 +141,23 @@
             element.tabChange('demo', '22');
         }
     };
+    var currentToken=document.cookie.split(";")[0];
+    $.ajax({
+        url: "/filmos/user/islogin",
+        type: 'get',
+        dataType: "json",
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':currentToken
+        },
+        success: function (data) {
+            console.log(data.code);
+            if (data.code!=200) {
+                window.location.href="index.jsp"
+            }
+        }
+    });
+
     //文件上传
     upload.render({
         elem: '#choose'
@@ -148,6 +165,10 @@
         , url: '${pageContext.request.contextPath}/user/updateuserimg'
         , accept: 'file'
         , bindAction: '#upload'
+        , headers: {
+            'Content-Type': 'application/json',
+            'Authorization': currentToken
+        }
         , choose: function (obj) {//选择文件的回调，obj为选中的文件
             //将每次选择的文件追加到文件队列
             var files = obj.pushFile();
@@ -162,7 +183,7 @@
         }
         , done: function (res) {
             if (res.code == 200) {
-                location.href = "${pageContext.request.contextPath}/userinfo"
+                location.href = "${pageContext.request.contextPath}/page/userinfo"
             } else {
                 return layer.msg(res.msg);
 
@@ -267,6 +288,10 @@
                 contentType: "application/json;charset=UTF-8",
                 processData: false,
                 cache: false,
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':currentToken
+                },
                 beforeSend: function () {
                     // 禁用按钮防止重复提交
                     $("#update").attr({disabled: "disabled"});
@@ -274,7 +299,7 @@
                 },
                 success: function (data) {
                     if (data.code == 200) {
-                        location.href = "/filmos/ok"
+                        location.href = "/filmos/page/ok"
                     } else {
                         layer.msg(data.msg, {icon: 2, time: 5000});
                         location.href = "index.jsp";
@@ -339,6 +364,10 @@
             contentType: "application/json;charset=UTF-8",
             processData: false,
             cache: false,
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':currentToken
+            },
             beforeSend: function () {
                 layer.load(0, 5000);
             },
@@ -370,9 +399,11 @@
                             '                        </form>'
                     });
                 } else {
-                    layer.msg('原密码错误!', {icon: 2,time:2000,end: function () {
-                           layer.closeAll()
-                        }});
+                    layer.msg('原密码错误!', {
+                        icon: 2, time: 2000, end: function () {
+                            layer.closeAll()
+                        }
+                    });
 
                 }
             },
@@ -404,6 +435,10 @@
                 contentType: "application/json;charset=UTF-8",
                 processData: false,
                 cache: false,
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':currentToken
+                },
                 beforeSend: function () {
                     layer.load(0, 5000);
                 },
@@ -414,11 +449,15 @@
                             type: "get",
                             dataType: "json",
                             data: {},
-                            success: function (data) {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': currentToken
+                            }
+                            , success: function (data) {
 
                             }
                         });
-                        location.href = "/filmos/goback"
+                        location.href = "/filmos/page/goback"
                     } else {
                         layer.msg(data.msg, {icon: 2, time: 5000});
                         location.href = "index.jsp";

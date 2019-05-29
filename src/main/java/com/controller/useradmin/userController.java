@@ -61,8 +61,6 @@ public class userController {
     private Layui valicatePassword(User result, String password, HttpServletRequest request) throws Exception {
         if (result != null) {
             if (result.getPassword().equals(password)) {
-                //如果缓存中没有相应id的值说明第一次登陆（这里的第一次是说有清除过token的或者账号刚登陆，防止token重复生成）
-                if (JedisUtils.getToken(String.valueOf(result.getUserId())).isEmpty()) {
                     //根据id创建token
                     String token = JWTUtils.createToken(String.valueOf(result.getUserId()));
                     //放入缓存
@@ -70,11 +68,6 @@ public class userController {
                     //将用户结果放入session
                     request.getSession().setAttribute("user", result);
                     return Layui.select(1, result, "登录成功！", token);
-                } else {
-                    request.getSession().setAttribute("user", result);
-                    return Layui.select(1, result, "登录成功！");
-                }
-
             } else {
                 return Layui.fail("密码错误！");
             }
@@ -114,7 +107,8 @@ public class userController {
     @RequestMapping(value = "/quit", method = RequestMethod.GET)
     @ResponseBody
     private Layui loginOut(HttpSession session) {
-
+        User user=(User) session.getAttribute("user");
+        JedisUtils.deleteToken(String.valueOf(user.getUserId()));
         session.removeAttribute("user");
         return Layui.success("登出成功!");
     }
