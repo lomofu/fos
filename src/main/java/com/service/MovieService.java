@@ -1,10 +1,7 @@
 package com.service;
 
-import com.dto.Layui;
-import com.entity.Movie;
-import org.springframework.stereotype.Service;
-import java.util.List;
+import java.util.ArrayList;
 
 public interface MovieService {
-    List<Movie>getAllMovie();
+    ArrayList getAllMovie();
 }

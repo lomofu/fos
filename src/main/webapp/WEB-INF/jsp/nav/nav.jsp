@@ -15,7 +15,7 @@
 <body>
 
 <ul class="layui-nav">
-    <li class="layui-nav-item layui-this"><a href="index.jsp">首页</a></li>
+    <li class="layui-nav-item layui-this"><a href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
     <li class="layui-nav-item">
         <a href="javascript:;">分类</a>
         <dl id="moivetype" class="layui-nav-child">
@@ -25,7 +25,7 @@
 
     <li class="layui-nav-item"><a href="">资讯</a></li>
 
-    <li class="layui-nav-item"><a href="">电影库</a></li>
+    <li class="layui-nav-item"><a href="movie_list.jsp">电影库</a></li>
 
     <li id="tourist" class="layui-nav-item" style="position:absolute;right: 360px;top:0px;display: block">
         <button id="login" class="hvr-pulse-grow layui-btn layui-btn-radius layui-btn-normal "

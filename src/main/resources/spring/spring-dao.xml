@@ -10,7 +10,7 @@
 
     <!-- 配置整合mybatis过程 -->
     <!--1.配置数据库相关参数通过jdbc.properities文件中的属性-->
-    <context:property-placeholder location="classpath:*.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties,classpath:redis.properties"/>
 
 
     <!--2.数据库连接池-->

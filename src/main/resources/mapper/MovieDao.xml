@@ -5,10 +5,34 @@
 
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.MovieDao">
-    <select id="queryAllMovie" resultType="com.entity.Movie">
-        SELECT *FROM tb_movie;
-    </select>
+    <resultMap id="movieMap" type="com.entity.Movie">
+        <id column="movie_id" property="movieId"/>
+        <result column="movie_name" property="movieName"/>
+        <result column="type_id" property="typeId"/>
+        <result column="on_time" property="onTime"/>
+        <result column="language" property="language"/>
+        <result column="country" property="country"/>
+        <association property="movieType" column="type_id" javaType="com.entity.MovieType">
+            <id column="type_id" property="typeId"/>
+            <result column="type_name" property="typeName"/>
+        </association>
+    </resultMap>
 
+
+    <select id="queryAllMovie" resultType="com.vo.VeiwMovie">
+        SELECT
+        movie_id,
+        movie_name,
+        type_name,
+        on_time,
+        language,
+        country
+        FROM
+        tb_movie,
+        tb_movie_type
+        WHERE
+        tb_movie.type_id = tb_movie_type.type_id
+    </select>
 
 
 </mapper>

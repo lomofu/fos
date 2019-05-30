@@ -1,18 +1,16 @@
-package com.entity;
+package com.vo;
+
+import com.entity.MovieType;
 
 import java.util.Date;
 
-/**
- * 电影实体类
- */
-public class Movie {
+public class VeiwMovie {
     private Integer movieId;
     private String movieName;
-    private Integer typeId;
+    private String typeName;
     private Date onTime;
     private String language;
     private String country;
-    private MovieType movieType;
 
     public Integer getMovieId() {
         return movieId;
@@ -30,12 +28,12 @@ public class Movie {
         this.movieName = movieName;
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     public Date getOnTime() {
@@ -60,13 +58,5 @@ public class Movie {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public MovieType getMovieType() {
-        return movieType;
-    }
-
-    public void setMovieType(MovieType movieType) {
-        this.movieType = movieType;
     }
 }

@@ -6,7 +6,7 @@ package com.entity;
 public class Rank {
     private Integer rankId;
     private Integer movieId;
-    private Integer avg_start;
+    private Integer avgStart;
 
     public Integer getRankId() {
         return rankId;
@@ -24,11 +24,11 @@ public class Rank {
         this.movieId = movieId;
     }
 
-    public Integer getAvg_start() {
-        return avg_start;
+    public Integer getAvgStart() {
+        return avgStart;
     }
 
-    public void setAvg_start(Integer avg_start) {
-        this.avg_start = avg_start;
+    public void setAvgStart(Integer avgStart) {
+        this.avgStart = avgStart;
     }
 }

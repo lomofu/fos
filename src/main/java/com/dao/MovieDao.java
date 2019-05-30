@@ -1,9 +1,7 @@
 package com.dao;
 
-import com.entity.Movie;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public interface MovieDao {
-    List<Movie> queryAllMovie();
+    ArrayList queryAllMovie();
 }

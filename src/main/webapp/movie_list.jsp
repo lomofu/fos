@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index/index.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/movie_list/movie_list.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/imagehover.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/imagehover.min.css">
+    <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/movie_list/movie_list.css">--%>
     <html>
 <body bgcolor="#f0f0f0">
 <div id="nav"></div>
+
 <div class="layui-container" id="container">
     <div class="layui-fluid">
         <div id="filter">
@@ -31,11 +32,11 @@
 
         </div>
         <!-- 搜索框 -->
-        <div id="search-bar">
+        <div id="search-bar1">
             <form class="layui-form layui-form-pane">
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <input id="search-bar-text" type="text" name="search" placeholder="搜索电影..." class="layui-input">
+                        <input id="search-bar-text1" type="text" name="search" placeholder="搜索电影..." class="layui-input">
                     </div>
                 </div>
             </form>
@@ -133,7 +134,7 @@
                         <div class="movie">
                             <!-- 动效 -->
                             <figure class="imghvr-shutter-out-vert hvr-grow-shadow">
-                                <img src="img/c1.jpg">
+                                <img src="resources/images/headline/1.jpg">
                                 <figcaption>
                                     <div class="movieName">
                                         Kevin Hart<span class="year">(2019)</span>
@@ -682,9 +683,7 @@
 
     </div>
 </div>
-<%--<script !src=""></script>--%>
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-
 <script>
     $ = layui.$
     //调用ajax实现页面的局部刷新,将iframe的页面加载出来
@@ -694,3 +693,7 @@
 
 </body>
 </html>
+
+
+
+

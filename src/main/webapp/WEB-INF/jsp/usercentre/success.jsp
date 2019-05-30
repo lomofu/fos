@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
     var num = 2; //倒计时的秒数
-    var URL = "${pageContext.request.contextPath}/userinfo";
+    var URL = "${pageContext.request.contextPath}/page/userinfo";
     var id = window.setInterval('doUpdate()', 1000);
     function doUpdate() {
         document.getElementById('info').innerHTML = '将在'+num+'秒后自动返回!' ;
