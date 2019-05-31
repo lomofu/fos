@@ -12,7 +12,11 @@ public class Movie {
     private Date onTime;
     private String language;
     private String country;
-    private MovieType movieType;
+    private String movieTime;
+    private String director;
+    private String actor;
+    private String movieImg;
+    private String movieVideo;
 
     public Integer getMovieId() {
         return movieId;
@@ -62,11 +66,43 @@ public class Movie {
         this.country = country;
     }
 
-    public MovieType getMovieType() {
-        return movieType;
+    public String getMovieTime() {
+        return movieTime;
     }
 
-    public void setMovieType(MovieType movieType) {
-        this.movieType = movieType;
+    public void setMovieTime(String movieTime) {
+        this.movieTime = movieTime;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getActor() {
+        return actor;
+    }
+
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
+
+    public String getMovieImg() {
+        return movieImg;
+    }
+
+    public void setMovieImg(String movieImg) {
+        this.movieImg = movieImg;
+    }
+
+    public String getMovieVideo() {
+        return movieVideo;
+    }
+
+    public void setMovieVideo(String movieVideo) {
+        this.movieVideo = movieVideo;
     }
 }

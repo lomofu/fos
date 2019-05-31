@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 评论表
  */
-public class Comment {
+public class MovieComment {
     private Integer commentId;
     private Integer movieId;
     private Integer userId;

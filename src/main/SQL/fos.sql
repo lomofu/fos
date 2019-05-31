@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 31/05/2019 10:09:57
+ Date: 31/05/2019 10:31:06
 */
 
 SET NAMES utf8mb4;
@@ -31,17 +31,17 @@ CREATE TABLE `tb_admin`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for tb_comment_rely
+-- Table structure for tb_comment_reply
 -- ----------------------------
-DROP TABLE IF EXISTS `tb_comment_rely`;
-CREATE TABLE `tb_comment_rely`  (
-  `rely_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '影评回复id',
+DROP TABLE IF EXISTS `tb_comment_reply`;
+CREATE TABLE `tb_comment_reply`  (
+  `reply_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '影评回复id',
   `comment_id` int(11) NOT NULL COMMENT '评论ID',
   `content` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '内容',
   `create_time` datetime NOT NULL COMMENT '时间',
   `state` int(2) NOT NULL DEFAULT 0 COMMENT '删除与否(0-没删除,1-删除)',
   `parent_id` int(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`rely_id`) USING BTREE
+  PRIMARY KEY (`reply_id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '影评回复表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
