@@ -21,10 +21,16 @@ public class movieController {
 
     @RequestMapping(value = "/movielist",method = RequestMethod.GET)
     @ResponseBody
-    private Layui selectAllMovie(HttpServletRequest request){
-    ArrayList list=new ArrayList();
-    list=movieService.getAllMovie();
-    return Layui.select(list.size(),list,"查询成功");
+    private Layui selectAllMovie(HttpServletRequest request) {
+        ArrayList list = new ArrayList();
+        list = movieService.getAllMovie();
+        if (list.size() > 0) {
+            return Layui.select(list.size(), list, "查询成功");
+        }else {
+            return Layui.fail("无数据");
+        }
     }
+    @RequestMapping(value = "/movieinfos",method = RequestMethod.GET)
+    private Layui selectMovieById(HttpServletRequest request){ return null;}
 
 }

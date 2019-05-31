@@ -1,0 +1,27 @@
+package com.service.Impl;
+
+import com.dao.CommentDao;
+import com.service.CommentService;
+import com.vo.VeiwMovieComment;
+import com.vo.ViewUserComment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+
+@Service
+public class CommentServiceImpl implements CommentService {
+    @Autowired
+    private CommentDao commentDao;
+
+
+    @Override
+    public ArrayList<VeiwMovieComment> getAllCommentByMovieId(Integer movieId) {
+        return commentDao.queryAllCommentByMovieId(movieId) ;
+    }
+
+    @Override
+    public ArrayList<ViewUserComment> getAllCommentByUserId(Integer userId) {
+        return commentDao.queryAllCommentByUserId(userId);
+    }
+}

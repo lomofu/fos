@@ -21,18 +21,50 @@
 
     <select id="queryAllMovie" resultType="com.vo.VeiwMovie">
         SELECT
+        m.movie_id,
+        m.movie_name,
+        t.type_name,
+        m.on_time,
+        m.language,
+        m.country,
+        m.movie_time,
+        m.director,
+        m.actor,
+        m.movie_img,
+        m.movie_video,
+        avg (c.start) as start
+        FROM
+        tb_movie m,
+        tb_movie_type t,
+        tb_movie_comment c
+        WHERE
+        m.type_id = t.type_id
+        AND
+        m.movie_id = c.movie_id
+        GROUP BY
+        c.movie_id
+    </select>
+
+    <select id="queryByMovieId" parameterType="Integer" resultType="com.vo.VeiwMovie">
+        SELECT
         movie_id,
         movie_name,
         type_name,
         on_time,
         language,
-        country
+        country,
+        movie_time,
+        director,
+        actor,
+        movie_img,
+        movie_video
         FROM
         tb_movie,
         tb_movie_type
         WHERE
         tb_movie.type_id = tb_movie_type.type_id
+        and
+        movie_id=#{movieId}
     </select>
-
 
 </mapper>

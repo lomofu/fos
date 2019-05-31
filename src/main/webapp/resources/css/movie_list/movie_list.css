@@ -1,16 +1,16 @@
 /* 筛选器 */
 #filter {
-	width: 100%;
+	width: 90%;
 	height: 50px;
-	background: #93D1FF;
-	margin: auto;
+margin: auto;
 }
 
-.btn {
+/* 筛选框按钮样式 */
+.Sbtn {
 	float: right;
-	margin: 10px ;
+	margin: 10px;
 	padding: 0 25px;
-	border: #000000 solid 1.5px;
+	border: #5FB878 solid 1.5px;
 	height: 30px;
 	width: auto;
 	list-style: none;
@@ -19,63 +19,68 @@
 	font-size: 1.1em;
 	background: #009688;
 	color: white;
-	border-radius:10px;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-.btn:hover {
+.Sbtn:hover {
 	background: #7ECBC8;
 }
 
 /* 搜索框 */
-#search-bar {
+#Ssearch-bar-text {
 	z-index: 998;
-	background-color: black;
-	left:0px;
-}
-#search-bar-text {
-    z-index: 998;
-    margin-left: -115px;
-!important;
-    width: 100%;
-    font-size: 20px;
-    height: 80px;
-    background-color: black;
-    color: white;
-    border: none;
+	margin: 14px 15px !important;
+	width: 200px !important;
+	font-size: 1em;
+	height: 30px;
+	background-color: #DDDDDD;
+	color: #23262E;
+	float: right;
+	border-radius: 5px;
 }
 
+/* 筛选框 */
 #select {
-	width: 100%;
+	width: 90%;
 	background: white;
-
+	position: relative;
+	top: 33px;
+	left: 7%;
+	box-shadow: 0 0 6px 0px #bdbcbc;
+	border-radius: 5px;
 }
 
+/* 已选择的筛选项 */
 .select-result {
 	margin-left: 50px;
 }
 
-#year {
-	margin: 10px;
-	float: left;
-	width: 100%;
-	height: auto;
-	
-}
-
-#location {
+/* 年份 */
+#Syear {
 	margin: 10px;
 	float: left;
 	width: 100%;
 	height: auto;
 }
 
-#type {
+/* 地区 */
+#Slocation {
 	margin: 10px;
 	float: left;
 	width: 100%;
 	height: auto;
 }
 
+/* 类型 */
+#Stype {
+	margin: 10px;
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+/* 标签样式 */
 .label {
 	float: left;
 	height: 48px;
@@ -83,61 +88,80 @@
 	line-height: 48px;
 	text-align: center;
 }
+
+/* 筛选项 */
 .choose {
 	float: left;
 }
 
-li {
+/* 筛选项样式 */
+.lis-year {
 	margin: 10px;
 	padding: 0 20px;
-	border: #000000 solid 1.5px;
+	border: crimson solid 1.5px;
 	height: 25px;
 	width: auto;
 	float: left;
 	list-style: none;
 	text-align: center;
 	line-height: 25px;
-	font-size: 1.1em;
-	background: #009688;
+	background: orangered;
 	color: white;
-	border-radius:10px;
+	border-radius: 5px;
 }
 
-li:hover {
-	background: #7ECBC8;
+.lis-year:hover {
+	background: coral;
 }
 
-a {
-	text-decoration: none;
-	color: #2d2f30;
-	-webkit-transition: all .3s linear;
-	-moz-transition: all .3s linear;
-	-o-transition: all .3s linear;
-	-ms-transition: all .3s linear;
-	transition: all .3s linear;
+.lis-location {
+	margin: 10px;
+	padding: 0 20px;
+	border: #00F7DE solid 1.5px;
+	height: 25px;
+	width: auto;
+	float: left;
+	list-style: none;
+	text-align: center;
+	line-height: 25px;
+	background: #01AAED;
+	color: white;
+	border-radius: 5px;
 }
 
-a:focus {
-	outline: none;
+.lis-location:hover {
+	background: skyblue;
 }
 
-#filter button {
-	margin: 0.15rem;
-	width: 2rem;
-	height: 2rem;
-	float: right;
-	background: #000000;
+.lis-type {
+	margin: 10px;
+	padding: 0 20px;
+	border: #FFFF00 solid 1.5px;
+	height: 25px;
+	width: auto;
+	float: left;
+	list-style: none;
+	text-align: center;
+	line-height: 25px;
+	background: gold;
+	color: green;
+	border-radius: 5px;
 }
 
+.lis-type:hover {
+	background: lightyellow;
+}
 
 /* 电影库 */
 #movieList {
 	margin: auto;
 	width: 90%;
 	height: 1300px;
-	background: #E2E2E2;
+	background: white;
+	border-radius: 10px;
+	/* box-shadow: #555555 0px 0px 40px 2px; */
+	box-shadow:0 0px 10px rgba(0, 0, 0, 0.2); 
 }
-
 
 /* 电影 */
 .movie {
@@ -149,14 +173,21 @@ a:focus {
 
 /* 电影名 */
 .movieName {
-	font-size: 1.25em;
+	font-size: 14px;
 	width: 100%;
 	height: auto;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+
 }
 
 /* 电影评分 */
 .movieScore {
 	width: 100%;
+	height: 15%;
+}
+
+/* 导演 */
+.master {
 	height: 15%;
 }
 
@@ -184,7 +215,6 @@ a:focus {
 /* 电影列表 */
 .movieList {
 	width: 80%;
-	
 }
 
 .movieList tr {
@@ -201,13 +231,17 @@ figure {
 }
 
 /* 年份 */
-.year{
-	
+.year {
+	font-size: 13px;
+	width: 100%;
+	height: auto;
 }
 
 /* 分数 */
 .score {
-	font-size: 1.35em;
+	font-size: 15px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	color: #5FB878;
 }
 
 img {
@@ -215,15 +249,9 @@ img {
 	width: 100%;
 }
 
-h1 {
+.h1 {
 	margin-top: 20px;
 	text-align: center;
 	font-size: 2.5em;
 }
 
-hr {
-	color: #0F9E5E;
-	width: 80%;
-	height: 3px;
-	margin: 30px auto;
-}

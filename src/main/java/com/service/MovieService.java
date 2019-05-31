@@ -1,7 +1,11 @@
 package com.service;
 
+import com.vo.VeiwMovie;
+
 import java.util.ArrayList;
 
 public interface MovieService {
-    ArrayList getAllMovie();
+    ArrayList<VeiwMovie> getAllMovie();
+
+    VeiwMovie getMovieByMovieId(Integer movieId);
 }

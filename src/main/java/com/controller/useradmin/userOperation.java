@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class userOperation {
     @RequestMapping(value = "/index.jsp")
     private String index(){return "redirect:index.jsp";}
+    @RequestMapping(value = "/movielist.jsp")
+    private String movieList(){return "redirect:movielist.jsp";}
+
     @RequestMapping(value = "/success")
     private String success(){return "register/success";}
 

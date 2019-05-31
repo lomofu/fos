@@ -11,7 +11,6 @@ $(function () {
             'Authorization':currentToken
         },
         success: function (data) {
-            console.log(data.code);
             if (data.code==200){
                 $("#tourist").css('display','none');
                 $("#tourist1").css('display','none');
@@ -33,6 +32,7 @@ $(function () {
         dataType: "json",
         data: {},
         success: function (data) {
+
             var list = data.data;
             var tempHtml = '';
             $.each(list, function (i, item) {

@@ -11,15 +11,28 @@
     http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
     <!-- 配置SpringMVC -->
     <!-- 1.开启SpringMVC注解模式 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="dateFormat">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg type="java.lang.String" value="yyyy年MM月dd日 HH:mm:ss"/>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!-- 2.静态资源默认servlet配置
     (1)加入对静态资源的处理：js,gif,png
     (2)允许使用"/"做整体映射
     这些资源不用dispatcher 拦截 直接交由默认的service去处理-->
-    <mvc:resources mapping="/resources/**" location="/resources/" />
-    <mvc:default-servlet-handler />
-    
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:default-servlet-handler/>
 
 
     <!-- 3.定义视图解析器 -->
@@ -42,7 +55,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
-            <mvc:mapping path="/user/**" />
+            <mvc:mapping path="/user/**"/>
             <!-- /register 和 /login 不需要拦截-->
 
             <mvc:exclude-mapping path="/user/login"/>

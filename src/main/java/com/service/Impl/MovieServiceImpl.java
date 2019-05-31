@@ -2,6 +2,7 @@ package com.service.Impl;
 
 import com.dao.MovieDao;
 import com.service.MovieService;
+import com.vo.VeiwMovie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,16 @@ public class MovieServiceImpl implements MovieService {
     private MovieDao movieDao;
 
     @Override
-    public ArrayList getAllMovie() {
+    public ArrayList<VeiwMovie> getAllMovie() {
         ArrayList movieList= new ArrayList();
         movieList=movieDao.queryAllMovie();
         return movieList;
     }
+
+    @Override
+    public VeiwMovie getMovieByMovieId(Integer movieId) {
+        return movieDao.queryByMovieId(movieId);
+    }
+
+
 }

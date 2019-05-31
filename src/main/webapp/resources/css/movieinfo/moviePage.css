@@ -1,0 +1,234 @@
+.movie {
+	color: white;
+	background: #000000;
+	box-shadow: black 0 0 10px 0px;
+}
+
+/* 电影评分 */
+.score {
+	float: right;
+	background: #009688;
+	width: ;
+	height: ;
+	font-size: 3em;
+	font-weight: bolder;
+	text-align: center;
+	color: yellow;
+	box-shadow: black 0 0 5px 0px;
+}
+
+/* 电影名 */
+.movieName {
+	font-size: 2.5em;
+	font-weight: bolder;
+}
+
+/* 年份 */
+.year {
+	font-size: 2em;
+	
+}
+
+/* 电影海报区域 */
+.moviePic {
+
+}
+
+/* 电影海报图片 */
+#pic {
+	opacity: 0.8;
+	transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s; /* Safari */
+}
+
+#pic:hover {
+	opacity: 1;
+}
+
+/* 播放按钮 */
+.playbtn{
+	position: absolute;
+	top: 39%;
+	left: 39%;
+	font-size: 6em!important;
+	transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s; /* Safari */
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+
+}
+
+.playbtn:hover {
+	opacity: 1;
+}
+
+/* 演员 */
+.actors {
+	text-indent: 2em;
+}
+
+/* 电影简介区域 */
+.movieText {
+	box-shadow: 0 0 5px #B2B2B2;
+	background: white;
+}
+
+/* 电影简介 */
+#movieInfo {
+	margin: 20px 30px;
+	font-size: 1.1em;
+	line-height: 2em;
+	text-indent: 2em;
+}
+
+/* 评论区 */
+.commentArea {
+	
+}
+
+/* 评论卡片 */
+.commentCard {
+	background: white;
+	box-shadow: #B2B2B2 0 0 10px 0px;
+}
+
+/* 评论正文 */
+.commentText {
+	text-indent: 2em;
+	line-height: 2em;
+	font-size: 1.1em;
+}
+
+/* 偏移 */
+.commentLoaction {
+	position: relative;
+	left: 30px;
+	top: 10px;
+
+}
+
+/* 评论信息 */
+.commentInfo {
+	text-indent: 2em;
+	font-size: 0.9em;
+	color: gray;
+}
+
+/* 评论日期 */
+.commentDate {
+	font-size: 1.1em;
+	margin-right: 30px;
+}
+
+/* 用户头像 */
+.CuserPic {
+	width: 56px;
+	height: 56px;
+	background: wheat;
+	border: #00FF00 solid 1.5px;
+	border-radius: 28px;
+	cursor: pointer;
+}
+
+/* 用户名 */
+.CuserName {
+	margin-top: 5px;
+	margin-left: 10px;
+	color: #4E5465;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+/* 回复者头像 */
+.RuserPic {
+	width: 40px;
+	height: 40px;
+	background: wheat;
+	border: #00F7DE solid 1.5px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+/* 回复者名 */
+.RuserName {
+	color: #4E5465;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+
+/* 回复评论正文 */
+.RcommentText {
+	text-indent: 2em;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+/* 回复评论信息 */
+.RcommentInfo {
+	text-indent: 2em;
+	font-size: 0.9em;
+	color: gray;
+}
+
+/* 回复日期 */
+.RcommentDate {
+	font-size: 1.1em;
+	margin-right: 30px;
+}
+
+
+img {
+	height: 100%;
+	width: 100%;
+}
+
+label {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+/* 用户评论区域 */
+.TuserCommentArea {
+	padding: 15px;
+	background: white;
+	box-shadow: #B2B2B2 0 0 10px 0px;
+}
+
+/* 按钮 */
+.btns {
+	width: 100%;
+	height: 50px;
+}
+
+.btn {
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	float: right;
+	background: #2D93CA;
+	color: white;
+	width: 5rem;
+	height: 1.875rem;
+	border: #007DDB solid 1.5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: #01AAED;
+}
+/* 分页条 */
+#render {
+	background: white;
+	width: 60%;
+	margin: auto;
+}
+
+.replyBtn {
+	cursor: pointer;
+}
+
+.replyBtn:hover {
+	color: #009F95;
+}

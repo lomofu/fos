@@ -16,6 +16,7 @@ public class VeiwMovie {
     private String actor;
     private String movieImg;
     private String movieVideo;
+    private Float start;
 
     public Integer getMovieId() {
         return movieId;
@@ -103,5 +104,13 @@ public class VeiwMovie {
 
     public void setMovieVideo(String movieVideo) {
         this.movieVideo = movieVideo;
+    }
+
+    public Float getStart() {
+        return start;
+    }
+
+    public void setStar(Float start) {
+        this.start = start;
     }
 }

@@ -21,7 +21,6 @@ public class Layui extends HashMap<String, Object> {
         Layui r = new Layui();
         r.put("code", 200);
         r.put("msg", msg);
-
         r.put("count", count);
         r.put("data", data);
         return r;

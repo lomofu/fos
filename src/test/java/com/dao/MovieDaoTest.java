@@ -5,6 +5,8 @@ import com.vo.VeiwMovie;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MovieDaoTest extends BaseTest {
@@ -14,6 +16,18 @@ public class MovieDaoTest extends BaseTest {
 
     @Test
     public void queryAllMovieTest(){
-        List list = movieDao.queryAllMovie();
+        List<VeiwMovie> list =new ArrayList<VeiwMovie>();
+        list=movieDao.queryAllMovie();
+       System.out.println(list.size());
+        VeiwMovie veiwMovie=list.get(0);
+       System.out.println(veiwMovie.getMovieId());
+       System.out.println(veiwMovie.getMovieName());
+    }
+
+    @Test
+    public void queryByMovieIdTest(){
+      VeiwMovie veiwMovie= movieDao.queryByMovieId(2001);
+        System.out.println(veiwMovie.getMovieId());
+        System.out.println(veiwMovie.getMovieName());
     }
 }

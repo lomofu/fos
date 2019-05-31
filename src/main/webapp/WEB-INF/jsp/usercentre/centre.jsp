@@ -32,8 +32,8 @@
             <div id="write" style="position: relative;left: 941px;color: white;top:-28px;font-size: 17px;width: 53px">
                 影评数
             </div>
-            <div style="position: relative;left: 796px;top: -23px;font-size: 30px;width: 20px">0</div>
-            <div style="position: relative;left: 956px;top: -58px;font-size: 31px;width: 20px">0</div>
+            <div id="guanzhushu" style="position: relative;left: 796px;top: -23px;font-size: 30px;width: 20px">0</div>
+            <div id="yingpingshu" style="position: relative;left: 956px;top: -58px;font-size: 31px;width: 20px">0</div>
         </div>
     </div>
     <!-- 左侧 -->
@@ -50,118 +50,8 @@
                 <div class="layui-tab-item layui-show myComment  layui-anim layui-anim-upbit">
                     <!-- 时间线 -->
                     <ul class="layui-timeline" id="line">
-                        <li class="layui-timeline-item">
-                            <!-- 小圆圈 -->
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <!-- 主体 -->
-                            <div class="layui-timeline-content layui-text">
-                                <!-- 日期 -->
-                                <h3 class="layui-timeline-title">8月20日</h3>
-                                <!-- 正文 -->
-                                <p>
-                                    layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
-                                    <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
-                                    <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <!-- 小圆圈 -->
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <!-- 主体 -->
-                            <div class="layui-timeline-content layui-text">
-                                <!-- 日期 -->
-                                <h3 class="layui-timeline-title">8月18日</h3>
-                                <!-- 正文 -->
-                                <p>
-                                    layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
-                                    <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
-                                    <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">8月16日</h3>
-                                <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
-                                <ul>
-                                    <li>《登高》</li>
-                                    <li>《茅屋为秋风所破歌》</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">8月15日</h3>
-                                <p>
-                                    中国人民抗日战争胜利72周年
-                                    <br>常常在想，尽管对这个国家有这样那样的抱怨，但我们的确生在了最好的时代
-                                    <br>铭记、感恩
-                                    <br>所有为中华民族浴血奋战的英雄将士
-                                    <br>永垂不朽
-                                </p>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <div class="layui-timeline-title">过去</div>
-                            </div>
-                        </li>
-                    </ul>
+                        <li class="layui-timeline-item" id="usercomment">
 
-                </div>
-
-                <!-- 回复我的 -->
-                <div class="layui-tab-item replyMe layui-anim layui-anim-upbit">
-                    <!-- 时间线 -->
-                    <ul class="layui-timeline">
-                        <li class="layui-timeline-item">
-                            <!-- 小圆圈 -->
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <!-- 主体 -->
-                            <div class="layui-timeline-content layui-text">
-                                <!-- 日期 -->
-                                <h3 class="layui-timeline-title">8月19日</h3>
-                                <!-- 正文 -->
-                                <p>
-                                    layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
-                                    <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
-                                    <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">8月16日</h3>
-                                <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
-                                <ul>
-                                    <li>《登高》</li>
-                                    <li>《茅屋为秋风所破歌》</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <h3 class="layui-timeline-title">8月15日</h3>
-                                <p>
-                                    中国人民抗日战争胜利72周年
-                                    <br>常常在想，尽管对这个国家有这样那样的抱怨，但我们的确生在了最好的时代
-                                    <br>铭记、感恩
-                                    <br>所有为中华民族浴血奋战的英雄将士
-                                    <br>永垂不朽
-                                </p>
-                            </div>
-                        </li>
-                        <li class="layui-timeline-item">
-                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                            <div class="layui-timeline-content layui-text">
-                                <div class="layui-timeline-title">过去</div>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -249,12 +139,13 @@
 
 
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/centre/centre.js"></script>
 
 <!-- 选项卡 -->
 <script>
     $ = layui.$
     $("#nav").load("/filmos/nav");
-    var $ = layui.jquery, element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+    var $ = layui.jquery, element = layui.element,layer=layui.layer; //Tab的切换功能，切换事件监听等，需要依赖element模块
     //触发事件
     var active = {
         tabChange: function () {
@@ -262,22 +153,22 @@
             element.tabChange('demo', '22');
         }
     };
-    var currentToken=document.cookie.split(";")[0];
-    $.ajax({
-        url: "/filmos/user/islogin",
-        type: 'get',
-        dataType: "json",
-        headers:{
-            'Content-Type':'application/json',
-            'Authorization':currentToken
-        },
-        success: function (data) {
-            console.log(data.code);
-            if (data.code!=200) {
-                window.location.href="index.jsp"
-            }
-        }
-    });
+    var currentToken = document.cookie.split(";")[0];
+    var user = {};
+    user.userId =${user.userId};
+    function deleter(){
+        layer.confirm('您确定要删除此评论？', {
+            btn: ['是的','再想想'] //按钮
+        }, function(){
+            layer.msg('好的，方法还没写', {icon: 1});
+        }, function(){
+            layer.closeAll();
+        });
+
+    }
+
+
+
 </script>
 </body>
 </html>

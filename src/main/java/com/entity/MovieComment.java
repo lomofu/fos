@@ -11,7 +11,7 @@ public class MovieComment {
     private Integer userId;
     private String content;
     private Date createTime;
-    private Integer start;
+    private Float start;
     private Integer state;
 
     public Integer getCommentId() {
@@ -54,11 +54,11 @@ public class MovieComment {
         this.createTime = createTime;
     }
 
-    public Integer getStart() {
+    public Float getStart() {
         return start;
     }
 
-    public void setStart(Integer start) {
+    public void setStart(Float start) {
         this.start = start;
     }
 
