@@ -8,9 +8,7 @@
 .score {
 	float: right;
 	background: #009688;
-	width: ;
-	height: ;
-	font-size: 3em;
+	font-size: 50px;
 	font-weight: bolder;
 	text-align: center;
 	color: yellow;
@@ -66,38 +64,47 @@
 /* 演员 */
 .actors {
 	text-indent: 2em;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 
 /* 电影简介区域 */
 .movieText {
 	box-shadow: 0 0 5px #B2B2B2;
 	background: white;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+
 }
 
 /* 电影简介 */
 #movieInfo {
-	margin: 20px 30px;
-	font-size: 1.1em;
-	line-height: 2em;
-	text-indent: 2em;
+	margin: 25px 26px;
+	font-size: 13px;
+	line-height: 19px;
+	text-indent: 0px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 
 /* 评论区 */
 .commentArea {
-	
+
 }
 
 /* 评论卡片 */
 .commentCard {
 	background: white;
-	box-shadow: #B2B2B2 0 0 10px 0px;
+    box-shadow: #B2B2B2 0 0 10px 0px;
 }
 
 /* 评论正文 */
 .commentText {
-	text-indent: 2em;
-	line-height: 2em;
-	font-size: 1.1em;
+	margin-left: 11%;
+	width: 100%;
+	position: relative;
+	text-indent: 0px;
+	line-height: 21px;
+	font-size: 15px;
+	color: #666666cc;
+	left: 1.5%;
 }
 
 /* 偏移 */
@@ -110,15 +117,19 @@
 
 /* 评论信息 */
 .commentInfo {
-	text-indent: 2em;
+	margin-right: 159px;
+	position: relative;
+	text-indent: 24em;
 	font-size: 0.9em;
 	color: gray;
+	top: -19px;
 }
 
 /* 评论日期 */
 .commentDate {
 	font-size: 1.1em;
-	margin-right: 30px;
+	position: relative;
+	left:51.5%;
 }
 
 /* 用户头像 */
@@ -192,7 +203,7 @@ label {
 .TuserCommentArea {
 	padding: 15px;
 	background: white;
-	box-shadow: #B2B2B2 0 0 10px 0px;
+
 }
 
 /* 按钮 */

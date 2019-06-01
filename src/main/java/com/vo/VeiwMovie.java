@@ -17,6 +17,7 @@ public class VeiwMovie {
     private String movieImg;
     private String movieVideo;
     private Float start;
+    private String profile;
 
     public Integer getMovieId() {
         return movieId;
@@ -110,7 +111,15 @@ public class VeiwMovie {
         return start;
     }
 
-    public void setStar(Float start) {
+    public void setStart(Float start) {
         this.start = start;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 }

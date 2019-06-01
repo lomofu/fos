@@ -42,13 +42,13 @@ margin: auto;
 
 /* 筛选框 */
 #select {
-	width: 90%;
+	width: 62%;
 	background: white;
 	position: relative;
 	top: 33px;
-	left: 7%;
+	left: 19%;
 	box-shadow: 0 0 6px 0px #bdbcbc;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 /* 已选择的筛选项 */

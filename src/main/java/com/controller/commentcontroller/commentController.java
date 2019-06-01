@@ -3,6 +3,7 @@ package com.controller.commentcontroller;
 import com.dto.Layui;
 import com.service.CommentService;
 import com.util.HttpServletRequestUtil;
+import com.vo.VeiwMovieComment;
 import com.vo.ViewUserComment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,21 @@ public class commentController {
         List<ViewUserComment> list = new ArrayList<ViewUserComment>();
         Integer userId=HttpServletRequestUtil.getInt(request,"userId");
         list = commentService.getAllCommentByUserId(userId);
+        if (list.size() > 0) {
+            return Layui.select(list.size(), list, "查询成功");
+        } else {
+            return Layui.fail("无评论");
+        }
+
+
+    }
+
+    @RequestMapping(value = "moviecomment", method = RequestMethod.GET)
+    @ResponseBody
+    private Layui getMovieComment(HttpServletRequest request) {
+        List<VeiwMovieComment> list = new ArrayList<VeiwMovieComment>();
+        Integer movieId=HttpServletRequestUtil.getInt(request,"movieid");
+        list=commentService.getAllCommentByMovieId(movieId);
         if (list.size() > 0) {
             return Layui.select(list.size(), list, "查询成功");
         } else {

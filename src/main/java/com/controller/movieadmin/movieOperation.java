@@ -1,14 +1,14 @@
 package com.controller.movieadmin;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class movieOperation {
 
-    @RequestMapping(value = "/moiveinfo" ,method = RequestMethod.GET)
+    @RequestMapping(value = "/movieinfo")
     private String movieInfo(){return "movie/movieinfo";}
 
+    @RequestMapping(value = "/movielist.jsp")
+    private String movieList(){return "redirect:movielist.jsp";}
 }

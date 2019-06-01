@@ -17,6 +17,7 @@ public class Movie {
     private String actor;
     private String movieImg;
     private String movieVideo;
+    private String profile;
 
     public Integer getMovieId() {
         return movieId;
@@ -105,4 +106,8 @@ public class Movie {
     public void setMovieVideo(String movieVideo) {
         this.movieVideo = movieVideo;
     }
+
+    public String getProfile() { return profile; }
+
+    public void setProfile(String profile) { this.profile = profile; }
 }

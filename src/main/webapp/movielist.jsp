@@ -4,20 +4,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>首页</title>
+    <title>电影库</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>首页</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/imagehover.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/movie_list/movie_list.css">
     <html>
-<body bgcolor="#f0f0f0">
+<body bgcolor="#f0f0f0" style="z-index: 3">
 <div id="nav"></div>
 
-<div class="layui-container" id="container">
+<div class="layui-container" id="container" style="width: 67%">
     <div class="layui-fluid">
         <div id="filter">
             <div class="select-result-year clearfix">
@@ -126,7 +125,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <p>
         </div>
-        <h1 class="h1">电影库</h1>
+        <h1 class="h1" style="z-index: 3!important;" >电影库</h1>
         <br><br><br><br><br>
         <div class="layui-container">
             <div id="movieList">

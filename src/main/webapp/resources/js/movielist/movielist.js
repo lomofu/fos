@@ -7,15 +7,13 @@ $(function () {
         type: 'get',
         data:'',
         success: function (data) {
-            console.log(data.code)
-            console.log(data.data)
             var list = data.data;
             var tempHtml= '';
             $.each(list, function (i,item) {
                 var time=item.onTime;
                 tempHtml +='<div  class="layui-col-lg3">' +
                     ' <div class="movie">' +
-                    '<figure class="imghvr-shutter-out-vert hvr-grow-shadow">' +
+                    '<figure class="imghvr-slide-right hvr-grow-shadow">' +
                     '    <img src="/img/' + item.movieImg + '">' +
                     '    <figcaption>' +
                     '    <div>' +
@@ -36,7 +34,7 @@ $(function () {
                     '<span class="actors">'+item.actor+'</span>' +
                     '    </div>' +
                     '    </figcaption><br>' +
-                    '    <a href="#"></a>' +
+                    '    <a href="/filmos/movieinfo?movieid='+item.movieId+'"></a>' +
                     '    </figure>' +
                     ' <div class="movieName">' +
                     item.movieName+

@@ -25,7 +25,7 @@
 
     <li class="layui-nav-item"><a href="">资讯</a></li>
 
-    <li class="layui-nav-item"><a href="../movielist.jsp">电影库</a></li>
+    <li class="layui-nav-item"><a href="${pageContext.request.contextPath}/movielist.jsp">电影库</a></li>
 
     <li id="tourist" class="layui-nav-item" style="position:absolute;right: 360px;top:0px;display: block">
         <button id="login" class="hvr-pulse-grow layui-btn layui-btn-radius layui-btn-normal "

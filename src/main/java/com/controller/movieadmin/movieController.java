@@ -1,17 +1,16 @@
 package com.controller.movieadmin;
 
-
 import com.dto.Layui;
 import com.service.MovieService;
+import com.util.HttpServletRequestUtil;
+import com.vo.VeiwMovie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "/movie")
@@ -30,7 +29,17 @@ public class movieController {
             return Layui.fail("无数据");
         }
     }
-    @RequestMapping(value = "/movieinfos",method = RequestMethod.GET)
-    private Layui selectMovieById(HttpServletRequest request){ return null;}
+    @RequestMapping(value = "/moviesinfo",method = RequestMethod.GET)
+    @ResponseBody
+    private Layui selectMovieById(HttpServletRequest request){
+        Integer movieId= HttpServletRequestUtil.getInt(request,"movieid");
+        VeiwMovie veiwMovie=movieService.getMovieByMovieId(movieId);
+        if (veiwMovie!=null){
+            return Layui.select(1,veiwMovie,"查询成功！");
+        }else {
+            return Layui.fail("没有这个电影！");
+        }
+
+    }
 
 }
