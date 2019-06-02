@@ -16,11 +16,14 @@ $(function () {
             var tempHtml3='';
             var time = movie.onTime;
 
-            tempHtml += '<div class="layui-col-md4 ">' +
+            tempHtml += '<div class="bgbox">' +
+                '        <!-- 插入bgpic的图片 -->' +
+                '        <img class="bgpic" src="/img'+movie.movieImg+'"/>' +
+                '<div class="layui-col-md4 ">' +
                 '<div class="moviePic">' +
                 '<span class="layui-icon layui-icon-play playbtn"></span>' +
                 '<img id="pic" src="/img/' + movie.movieImg + '"></div></div>' +
-                '<div class="layui-col-md7 layui-col-md-offset1"><div class="layui-row grid-demo layui-col-space20"><br><div class="layui-col-md8">' +
+                '<div class="layui-col-md7 layui-col-md-offset1"><div class="layui-row grid-demo layui-col-space20" style="margin-top: 17px"><br><div class="layui-col-md8">' +
                 '    <span class="movieName">' + movie.movieName + '</span>' +
                 '    <span class="year">(' + time.substring(0, 5) + ')</span>' +
                 '    </div>' +
@@ -57,7 +60,7 @@ $(function () {
                     tempHtml3 +='<br><br><br><div class="layui-row grid-demo commentLoaction" >' +
                         '<div class="layui-col-md1 ">' +
                         '<div class="CuserPic"><img src="/img'+ item.userImg +'"></div>' +
-                        '</div><span style="position: relative;left: 7%;font-size: 22px;background: #009688;color: white;">'+item.start+'分</span>' +
+                        '</div><span style="position: relative;left: 2%;font-size: 26px;background: #009688;color: white;">'+item.start+'分</span>' +
                         '    <div class="layui-col-md9">' +
                         '    <div class="CuserName">'+item.userName+'</div>' +
                         '    </div><br><br><br>' +

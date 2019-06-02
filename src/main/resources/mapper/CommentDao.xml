@@ -25,7 +25,7 @@
        c.movie_id=#{movieId}
        AND
        c.user_id=u.user_id
-
+       ORDER BY c.create_time DESC
     </select>
 
 
@@ -52,5 +52,12 @@
         ORDER BY c.create_time DESC
     </select>
 
+
+   <insert id="insertComment" useGeneratedKeys="true" keyProperty="commentId" keyColumn="comment_id">
+      INSERT INTO
+      tb_movie_comment(comment_id,movie_id,user_id,content,create_time,start,state)
+      VALUES
+      (#{commentId},#{movie.movieId},#{user.userId},#{content},#{createTime},#{start},#{state});
+   </insert>
 
 </mapper>

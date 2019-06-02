@@ -24,7 +24,7 @@ public class movieController {
         ArrayList list = new ArrayList();
         list = movieService.getAllMovie();
         if (list.size() > 0) {
-            return Layui.select(list.size(), list, "查询成功");
+            return Layui.select(list.size(), list, "查询电影库成功！");
         }else {
             return Layui.fail("无数据");
         }
@@ -35,9 +35,9 @@ public class movieController {
         Integer movieId= HttpServletRequestUtil.getInt(request,"movieid");
         VeiwMovie veiwMovie=movieService.getMovieByMovieId(movieId);
         if (veiwMovie!=null){
-            return Layui.select(1,veiwMovie,"查询成功！");
+            return Layui.select(1,veiwMovie,"查询电影成功！");
         }else {
-            return Layui.fail("没有这个电影！");
+            return Layui.fail("没有这个电影");
         }
 
     }

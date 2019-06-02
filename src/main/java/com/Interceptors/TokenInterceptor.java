@@ -24,9 +24,11 @@ public class TokenInterceptor implements HandlerInterceptor {
             System.out.println("=================token验证成功=================");
             return true;
         }else {
+
             System.out.println("=================token失效=================");
+
             response.sendRedirect("index.jsp");
-            return false;
+            throw new RuntimeException("用户不存在，请重新登录");
         }
     }
 

@@ -138,7 +138,7 @@
         </div>
 
 
-
+</div>
         <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/movielist/movielist.js"></script>
         <script>
@@ -239,7 +239,7 @@
             });
         </script>
 
-</body>
+    </body>
 </html>
 
 

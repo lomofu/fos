@@ -23,7 +23,7 @@
         </dl>
     </li>
 
-    <li class="layui-nav-item"><a href="">资讯</a></li>
+    <li class="layui-nav-item"><a href="${pageContext.request.contextPath}/infolist.jsp">资讯</a></li>
 
     <li class="layui-nav-item"><a href="${pageContext.request.contextPath}/movielist.jsp">电影库</a></li>
 

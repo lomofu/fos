@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import com.dao.CommentDao;
+import com.entity.MovieComment;
 import com.service.CommentService;
 import com.vo.VeiwMovieComment;
 import com.vo.ViewUserComment;
@@ -23,5 +24,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public ArrayList<ViewUserComment> getAllCommentByUserId(Integer userId) {
         return commentDao.queryAllCommentByUserId(userId);
+    }
+
+    @Override
+    public int addComment(MovieComment movieComment) {
+        int num=commentDao.insertComment(movieComment);
+        return num;
     }
 }

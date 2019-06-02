@@ -1,18 +1,16 @@
-package com.entity;
+package com.vo;
 
 import java.util.Date;
 
-/**
- * 咨询
- */
-public class Info {
+public class VeiwInfo {
     private Integer infoId;
     private Date createTime;
     private String title;
     private String infoContent;
-    private String infoImg;
     private Integer adminId;
+    private String adminName;
     private String infoFrom;
+    private String infoImg;
 
     public Integer getInfoId() {
         return infoId;
@@ -52,6 +50,14 @@ public class Info {
 
     public void setAdminId(Integer adminId) {
         this.adminId = adminId;
+    }
+
+    public String getAdminName() {
+        return adminName;
+    }
+
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
     }
 
     public String getInfoFrom() {

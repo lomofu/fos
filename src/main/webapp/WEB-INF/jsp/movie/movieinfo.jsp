@@ -18,19 +18,23 @@
     <div class="layui-fluid">
         <div class="layui-row ">
             <div class="layui-col-md8 layui-col-md-offset2 movie">
-                <div class="layui-row grid-demo layui-col-space30" id="themovieinfo">
-                    <%--插入电影详情内容！--%>
-                </div>
+                <div class="layui-row grid-demo layui-col-space30" id="themovieinfo" >
+                    <!-- 修改部分 -->
+                    <!-- 加入bgbox层 -->
+
+
             </div>
+            </div>
+        </div>
             <!-- 简介 -->
             <div class="layui-col-md8 layui-col-md-offset2 movieText" id="profile"
-                 style="background-color: #149688;color: #ffffff;"></div>
-        </div>
+                 style="position: relative;background-color: #149688;color: #ffffff;top: -4px;width: 66.40%;left: 2px;box-shadow: 0 0 5px 0px #00000066;"></div>
+            </div>
         <br>
         <br>
 
         <!-- 评论区 -->
-        <div class="layui-row commentArea">
+        <div class="layui-row commentArea" style="width: 97%;position: relative;left: 1.5%;">
             <!-- 用户评论 -->
             <h1 style="margin-left: 18.5%; top: 46px!important;">影评区</h1>
             <div class="layui-col-md8 layui-col-md-offset2 commentCard" id="moviecomments">
@@ -59,9 +63,8 @@
                 </form>
             </div>
         </div>
-
     </div>
-</div>
+    </body>
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/common/common.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/movieinfo/movieinfo.js"></script>

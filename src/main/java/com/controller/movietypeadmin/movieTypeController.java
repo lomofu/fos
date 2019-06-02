@@ -27,12 +27,14 @@ public class movieTypeController {
     @RequestMapping(value = "/allmovietype", method = RequestMethod.GET)
     @ResponseBody
     private Layui getAllMovieType() {
-        Layui layui = new Layui();
+
         List<MovieType> list = movieTypeService.getAllMovieType();
         if(list.size()>0){
-            layui=Layui.selectAll(list.size(),list);
+            return Layui.select(list.size(),list,"查询电影类型成功！");
+        }else {
+            return Layui.fail("查询电影类型失败！");
         }
-        return layui;
+
     }
 
 

@@ -1,18 +1,54 @@
+/* 修改部分 */
+/* 高斯模糊外层 */
+.bgbox {
+	margin: 20px auto;
+	width: 93%;
+	height: 100%;
+	position: relative;
+	box-shadow: #0000006b 0 0 5px 2px;
+	overflow: hidden;
+	/*这个是必须加的，否则会有阴影层*/
+}
+
+/* 高斯模糊图片层 */
+.bgpic {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: black;
+
+	/* -webkit-filter: brightness(100%);
+	filter: brightness(100%); */
+
+	/* 浏览器兼容(blur()中的参数为模糊程度，越大越模糊) */
+	-webkit-filter: blur(10px) brightness(60%);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(28px) brightness(50%);
+}
+
+
 .movie {
 	color: white;
-	background: #000000;
-	box-shadow: black 0 0 10px 0px;
+
 }
 
 /* 电影评分 */
 .score {
 	float: right;
 	background: #009688;
+	text-align: center;
+	box-shadow: #0000003d 0 0 9px 1px;
+	font-family: fantasy;
+	padding: 5px;
 	font-size: 50px;
 	font-weight: bolder;
-	text-align: center;
-	color: yellow;
-	box-shadow: black 0 0 5px 0px;
+	/* 字色修改 */
+	color: #ffcc00;
+	text-shadow:5px 3px 4px #00000042
 }
 
 /* 电影名 */

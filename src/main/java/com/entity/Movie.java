@@ -19,6 +19,7 @@ public class Movie {
     private String movieVideo;
     private String profile;
 
+
     public Integer getMovieId() {
         return movieId;
     }

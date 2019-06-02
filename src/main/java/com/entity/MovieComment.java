@@ -7,12 +7,12 @@ import java.util.Date;
  */
 public class MovieComment {
     private Integer commentId;
-    private Integer movieId;
-    private Integer userId;
     private String content;
     private Date createTime;
     private Float start;
     private Integer state;
+    private Movie movie;
+    private User user;
 
     public Integer getCommentId() {
         return commentId;
@@ -20,22 +20,6 @@ public class MovieComment {
 
     public void setCommentId(Integer commentId) {
         this.commentId = commentId;
-    }
-
-    public Integer getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Integer movieId) {
-        this.movieId = movieId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getContent() {
@@ -68,5 +52,21 @@ public class MovieComment {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
