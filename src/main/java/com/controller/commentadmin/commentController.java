@@ -1,4 +1,4 @@
-package com.controller.commentcontroller;
+package com.controller.commentadmin;
 
 import com.dto.Layui;
 import com.entity.MovieComment;

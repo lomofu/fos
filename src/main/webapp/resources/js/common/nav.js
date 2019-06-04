@@ -36,7 +36,7 @@ $(function () {
             var list = data.data;
             var tempHtml = '';
             $.each(list, function (i, item) {
-                tempHtml += '<dd><a href="#" data-id="' + item.typeId + '">' + item.typeName + '</a></dd>';
+                tempHtml += '<dd><a href="/filmos/typelist.jsp?typeid='+item.typeId+'" data-id="' + item.typeId + '">' + item.typeName + '</a></dd>';
             });
             $('#moivetype').html(tempHtml);
         }

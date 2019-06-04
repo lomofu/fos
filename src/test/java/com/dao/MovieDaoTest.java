@@ -26,8 +26,16 @@ public class MovieDaoTest extends BaseTest {
 
     @Test
     public void queryByMovieIdTest(){
-      VeiwMovie veiwMovie= movieDao.queryByMovieId(2001);
+      VeiwMovie veiwMovie=movieDao.queryByMovieId(2007);
         System.out.println(veiwMovie.getMovieId());
         System.out.println(veiwMovie.getMovieName());
     }
+
+    @Test
+    public void queryByMovieTypeTest(){
+        List<VeiwMovie> list =new ArrayList<VeiwMovie>();
+        list=movieDao.queryMovieByType(1104);
+
+    }
+
 }

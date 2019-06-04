@@ -1,3 +1,9 @@
+body {
+	background: #f0f0f0;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	z-index: 3;
+}
+
 /* 筛选器 */
 #filter {
 	width: 90%;
@@ -41,15 +47,18 @@ margin: auto;
 }
 
 /* 筛选框 */
+/*修改	修改了长度*/
+/* 筛选框 */
 #select {
-	width: 62%;
+	width: 90%;
 	background: white;
 	position: relative;
 	top: 33px;
-	left: 19%;
+	left: 6.5%;
 	box-shadow: 0 0 6px 0px #bdbcbc;
 	border-radius: 10px;
 }
+
 
 /* 已选择的筛选项 */
 .select-result {
@@ -255,3 +264,15 @@ img {
 	font-size: 2.5em;
 }
 
+/*修改	新增了分页条的样式属性*/
+/*分页条*/
+#demo7 {
+	width: 60%;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background: white;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow:0 0px 10px rgba(0, 0, 0, 0.2);
+}

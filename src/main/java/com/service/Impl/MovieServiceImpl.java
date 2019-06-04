@@ -26,5 +26,15 @@ public class MovieServiceImpl implements MovieService {
         return movieDao.queryByMovieId(movieId);
     }
 
+    @Override
+    public VeiwMovie getMovieByMovieIdInfo(Integer movieId) {
+        return movieDao.queryByMovieIdInfo(movieId);
+    }
+
+    @Override
+    public ArrayList<VeiwMovie> getMovieByTypeId(Integer typeId) {
+        return movieDao.queryMovieByType(typeId);
+    }
+
 
 }

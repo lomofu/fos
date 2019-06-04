@@ -26,7 +26,7 @@
         <br><br><br><br><br>
         <!-- 新闻列表 -->
         <div class="layui-col-lg8">
-            <div id="newsList">
+            <div id="newsList" class="layui-anim layui-anim-scale">
                 <div class="layui-row">
                     <div class="layui-col-md12" >
 

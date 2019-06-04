@@ -10,28 +10,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/hover-min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/usercentre/user.css">
-
-    <%--修改  将删除按钮写为类并从js分离出来，但写入外联css则无效果--%>
-    <%-- 删除按钮的样式 --%>
-    <style type="text/css">
-        /*删除按钮*/
-        .delBtn {
-            background: black;
-            position: relative;
-            left: 94%;
-            top: 10px;
-            cursor: pointer;
-            color: gray;
-        }
-
-        .delBtn:hover {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/usercentre/otheruser.css">
 </head>
 
-<body >
+<body>
 <%--引入导航栏--%>
 <div id="nav"></div>
 
@@ -42,85 +24,81 @@
         <div id="blank"></div>
 
         <%--用户头像--%>
-        <div id="head">
-            <%-- 插入用户头像--%>
-            <img src="/img/${user.userImg}">
+        <div id="Ohead">
+            <%--插入头像--%>
+            <img src="">
         </div>
 
         <%-- 用户名--%>
-        <div id="userName">
+        <div id="OuserName">
             <%-- 插入用户名--%>
-            ${user.userName}
         </div>
 
-        <%--修改  修改了显示的样式，并新加了收藏数的显示--%>
         <%-- 关注数,收藏数,影评数--%>
         <div id="FCC">
             <%--关注数--%>
             <div id="followCount">
                 <label>关注数</label><br>
-                <%--  插入关注数--%>
-                10086
+                <%--插入关注数--%>
+                0
             </div>
 
             <%--收藏数--%>
             <div id="collectCount">
                 <label>收藏数</label><br>
-                <%-- 插入收藏数--%>
-                3029
+                <%--  插入收藏数--%>
+                0
             </div>
 
             <%--影评数--%>
             <div id="commentCount">
                 <label>影评数</label><br>
-                <%-- 插入影评数--%>
-                7044
+                <%--插入影评数--%>
             </div>
 
         </div>
 
     </div>
 
-    <%--修改  去除了写影评，增加了我的关注，我的收藏    --%>
     <!-- 左侧(影评相关，收藏关注列表) -->
     <div id="left">
         <%--功能选项卡--%>
         <div class="layui-tab layui-tab-card " style="margin: 0;">
+            <%--选项卡列表--%>
             <ul class="layui-tab-title">
-                <li class="layui-this">我的影评</li>
-                <li>回复我的</li>
-                <li>我的关注</li>
-                <li>我的收藏</li>
+                <li class="layui-this">Ta的影评</li>
+                <li >Ta的关注</li>
+                <li >Ta的收藏</li>
             </ul>
+
+            <%--各选项卡功能块--%>
             <div class="layui-tab-content">
 
-                <!-- 我的影评 -->
-                <div class="layui-tab-item layui-show myComment  layui-anim layui-anim-upbit">
+                <!-- Ta的影评 -->
+                <div class="layui-tab-item layui-show TaComment  layui-anim layui-anim-upbit">
                     <!-- 时间线 -->
                     <ul class="layui-timeline" id="line">
-                        <li class="layui-timeline-item" id="usercomment">
-
+                        <li class="layui-timeline-item" id="TaComment">
+                        <%--  插入影评--%>
                         </li>
                     </ul>
                 </div>
 
-                <!-- 回复我的 -->
-                <div class="layui-tab-item layui-anim layui-anim-upbit replyMe">
+                <%-- Ta的关注--%>
+                <div class="layui-tab-item  layui-anim layui-anim-upbit Tafollow">
+
 
                 </div>
 
-                <!-- 我的关注 -->
-                <div class="layui-tab-item layui-anim layui-anim-upbit myFollow">
+                <%-- Ta的收藏--%>
+                <div class="layui-tab-item  layui-anim layui-anim-upbit Tacollect">
 
-                </div>
-
-                <!-- 我的收藏 -->
-                <div class="layui-tab-item layui-anim layui-anim-upbit myCollect">
 
                 </div>
 
             </div>
         </div>
+
 
     </div>
 
@@ -134,27 +112,27 @@
         <div class="rightbox">
             <ul>
                 <li>
-                    <div class="follow">
+                    <div class="Ofollow">
                         <div class="movie">
-                            <%--插入电影图片--%>
+                            <%-- 插入电影图片--%>
                             <img src="">
                         </div>
                     </div>
                     <span class="movieName">电影名</span>
                 </li>
                 <li>
-                    <div class="follow">
+                    <div class="Ofollow">
                         <div class="movie">
-                            <%--插入电影图片--%>
+                            <%-- 插入电影图片--%>
                             <img src="">
                         </div>
                     </div>
                     <span class="movieName">电影名</span>
                 </li>
                 <li>
-                    <div class="follow">
+                    <div class="Ofollow">
+                        <%-- 插入电影图片--%>
                         <div class="movie">
-                            <%--插入电影图片--%>
                             <img src="">
                         </div>
                     </div>
@@ -162,16 +140,16 @@
                 </li>
             </ul>
         </div>
-
+        <%--/最近关注--%>
         <br>
 
-        <%--最近收藏的三个电影--%>
+        <%--最近收藏的三部影片--%>
         <h4><a href="">最近收藏</a></h4>
         <hr class="hr">
         <div class="rightbox">
             <ul>
                 <li>
-                    <div class="collect">
+                    <div class="Ocollect">
                         <div class="movie">
                             <%--插入电影图片--%>
                             <img src="">
@@ -180,18 +158,18 @@
                     <span class="movieName">电影名</span>
                 </li>
                 <li>
-                    <div class="collect">
+                    <div class="Ocollect">
                         <div class="movie">
-                            <%--插入电影图片--%>
+                            <%-- 插入电影图片--%>
                             <img src="">
                         </div>
                     </div>
                     <span class="movieName">电影名</span>
                 </li>
                 <li>
-                    <div class="collect">
+                    <div class="Ocollect">
                         <div class="movie">
-                            <%--插入电影图片--%>
+                            <%-- 插入电影图片--%>
                             <img src="">
                         </div>
                     </div>
@@ -199,13 +177,17 @@
                 </li>
             </ul>
         </div>
+        <%--/最近收藏--%>
+
     </div>
+
 
 </div>
 
 
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/centre/centre.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/common/common.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/centre/otheruser.js"></script>
 
 
 <script>
@@ -223,21 +205,6 @@
             element.tabChange('demo', '22');
         }
     };
-
-    //删除影评
-    var currentToken = document.cookie.split(";")[0];
-    var user = {};
-    user.userId =${user.userId};
-    function deleter(){
-        layer.confirm('您确定要删除此评论？', {
-            btn: ['是的','再想想'] //按钮
-        }, function(){
-            layer.msg('好的，方法还没写', {icon: 1});
-        }, function(){
-            layer.closeAll();
-        });
-
-    }
 
 </script>
 </body>

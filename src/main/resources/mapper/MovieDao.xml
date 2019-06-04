@@ -5,19 +5,6 @@
 
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.MovieDao">
-    <resultMap id="movieMap" type="com.entity.Movie">
-        <id column="movie_id" property="movieId"/>
-        <result column="movie_name" property="movieName"/>
-        <result column="type_id" property="typeId"/>
-        <result column="on_time" property="onTime"/>
-        <result column="language" property="language"/>
-        <result column="country" property="country"/>
-        <association property="movieType" column="type_id" javaType="com.entity.MovieType">
-            <id column="type_id" property="typeId"/>
-            <result column="type_name" property="typeName"/>
-        </association>
-    </resultMap>
-
 
     <select id="queryAllMovie" resultType="com.vo.VeiwMovie">
         SELECT
@@ -44,6 +31,35 @@
         GROUP BY
         c.movie_id
     </select>
+
+    <select id="queryMovieByType" resultType="com.vo.VeiwMovie">
+        SELECT
+        t.type_id,
+        t.type_name,
+        m.movie_id,
+        m.movie_name,
+        m.on_time,
+        m.language,
+        m.country,
+        m.movie_time,
+        m.director,
+        m.actor,
+        m.movie_img,
+        avg (c.start) as start
+        FROM
+        tb_movie m,
+        tb_movie_type t,
+        tb_movie_comment c
+        WHERE
+        t.type_id = #{typeId}
+        AND
+        m.movie_id = c.movie_id
+        AND
+        m.type_id=#{typeId}
+        GROUP BY
+        c.movie_id
+    </select>
+
 
     <select id="queryByMovieId" parameterType="Integer" resultType="com.vo.VeiwMovie">
         SELECT
@@ -72,6 +88,31 @@
         m.movie_id=#{movieId}
         GROUP BY
         c.movie_id
+
+    </select>
+
+    <select id="queryByMovieIdInfo" parameterType="Integer" resultType="com.vo.VeiwMovie">
+        SELECT
+        m.movie_id,
+        m.movie_name,
+        t.type_name,
+        m.on_time,
+        m.language,
+        m.country,
+        m.movie_time,
+        m.director,
+        m.actor,
+        m.movie_img,
+        m.movie_video,
+        m.profile
+        FROM
+        tb_movie m,
+        tb_movie_type t
+        WHERE
+        m.type_id = t.type_id
+        AND
+        m.movie_id=#{movieId}
+
 
     </select>
 

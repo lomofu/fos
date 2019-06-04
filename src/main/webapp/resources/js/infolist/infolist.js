@@ -13,7 +13,7 @@ $(function () {
                 var profile=item.infoContent;
               tempHtml+=' <!-- 插入标注 -->' +
                   '                        <!--单个新闻 -->' +
-                  '                        <div class="news">' +
+                  '                        <div class="news ">' +
                   '                            <div class="layui-row grid-demo ">' +
                   '                                <!-- 新闻图片 -->' +
                   '                                <div class="layui-col-md4">' +

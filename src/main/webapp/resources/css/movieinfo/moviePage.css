@@ -155,7 +155,7 @@
 .commentInfo {
 	margin-right: 159px;
 	position: relative;
-	text-indent: 24em;
+	text-indent: 16em;
 	font-size: 0.9em;
 	color: gray;
 	top: -19px;
@@ -172,8 +172,7 @@
 .CuserPic {
 	width: 56px;
 	height: 56px;
-	background: wheat;
-	border: #00FF00 solid 1.5px;
+	background: #5fb878;
 	border-radius: 28px;
 	cursor: pointer;
 }

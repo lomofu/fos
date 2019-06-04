@@ -16,7 +16,7 @@
 <body bgcolor="#f0f0f0" style="z-index: 3">
 <div id="nav"></div>
 
-<div class="layui-container" id="container" style="width: 67%">
+<div class="layui-container" id="container">
     <div class="layui-fluid">
         <div id="filter">
             <div class="select-result-year clearfix">

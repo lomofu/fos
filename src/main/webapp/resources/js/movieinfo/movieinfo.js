@@ -15,6 +15,7 @@ $(function () {
             var tempHtml2='';
             var tempHtml3='';
             var time = movie.onTime;
+            var start=movie.start;
 
             tempHtml += '<div class="bgbox">' +
                 '        <!-- 插入bgpic的图片 -->' +
@@ -27,7 +28,7 @@ $(function () {
                 '    <span class="movieName">' + movie.movieName + '</span>' +
                 '    <span class="year">(' + time.substring(0, 5) + ')</span>' +
                 '    </div>' +
-                '    <div class="score">' + movie.start + '</div>' +
+                '    <div class="score" id="score" style="display:block;">' + start + '</div>' +
                 '    <div class="layui-col-md8">' +
                 '    <label>国家地区：</label>' +
                 '<span class="country">' + movie.country + '</span>' +
@@ -50,37 +51,45 @@ $(function () {
                 '<p id="movieInfo">' + movie.profile + '</p>';
             $('#profile').html(tempHtml2);
 
+            if (start==0){
+                document.getElementById("score").style.display = 'none';
+            }
             $.ajax({
                 url: '/filmos/comment/moviecomment?movieid='+movieId,
                 type: 'get',
                 data: 'json',
                 success: function (data) {
-                    var list=data.data;
-                    $.each(list, function (i,item) {
-                    tempHtml3 +='<br><br><br><div class="layui-row grid-demo commentLoaction" >' +
-                        '<div class="layui-col-md1 ">' +
-                        '<div class="CuserPic"><img src="/img'+ item.userImg +'"></div>' +
-                        '</div><span style="position: relative;left: 2%;font-size: 26px;background: #009688;color: white;">'+item.start+'分</span>' +
-                        '    <div class="layui-col-md9">' +
-                        '    <div class="CuserName">'+item.userName+'</div>' +
-                        '    </div><br><br><br>' +
-                        '    <div class="layui-col-md9 ">' +
-                        '    <p class="commentText">'+item.content+'</p></div><br><br><br><br><br><br><br>'+
-                        '<div class="layui-col-md9 layui-col-md-offset1">' +
-                        '    <div class="commentInfo">' +
-                        '    <span class="replyBtn" style="position: relative;left: 48%;">回复</span>' +
-                        '    <span class="commentDate" >'+item.createTime+'</span>' +
-                        '    </div>' +
-                        '    </div>' +
-                        '    <br>' +
-                        //评论
-                        '</div><DIV style="BORDER-TOP: #99999970 1px dashed;OVERFLOW: hidden;HEIGHT: 0px;"></DIV>';
+                    if (data.code==200){
+                    var list = data.data;
+                    $.each(list, function (i, item) {
+                        var img=item.userImg;
+                        tempHtml3 += '<br><br><br><div class="layui-row grid-demo commentLoaction" >' +
+                            '<div class="layui-col-md1 ">' +
+                            '<div class="CuserPic" ><a href="/filmos/page/otheruser?userid='+item.userId+'"><img id="imgs" src="/img' + img + '" style="border-radius:100%;box-shadow: 0 0 6px 0px #33333369;display: block"></a></div>' +
+                            '</div><span style="position: relative;left: 2%;font-size: 26px;background: #009688;color: white;">' + item.start + '分</span>' +
+                            '    <div class="layui-col-md9">' +
+                            '    <div class="CuserName"><a href="/filmos/page/otheruser?userid='+item.userId+'">' + item.userName + '</a></div>' +
+                            '    </div><br><br><br>' +
+                            '    <div class="layui-col-md9 ">' +
+                            '    <p class="commentText">' + item.content + '</p></div><br><br><br><br><br><br><br>' +
+                            '<div class="layui-col-md9 layui-col-md-offset1">' +
+                            '    <div class="commentInfo">' +
+                            '    <span class="replyBtn" style="position: relative;left: 48%;">回复</span>' +
+                            '    <span class="commentDate" >' + item.createTime + '</span>' +
+                            '    </div>' +
+                            '    </div>' +
+                            '    <br>' +
+                            //评论
+                            '</div><DIV style="BORDER-TOP: #99999970 1px dashed;OVERFLOW: hidden;HEIGHT: 0px;"></DIV>';
 
-                    $('#moviecomments').html(tempHtml3);
+                        $('#moviecomments').html(tempHtml3);
+                        // if(img.length==0){
+                        //     document.getElementById("imgs").style.display='none';
+                        // }
                         $(".replyBtn").click(function () {
                             layer.prompt({
                                 title: '写下你的回复',
-                                formType:2
+                                formType: 2
                             }, function (text, index) {
                                 layer.close(index);
                                 layer.msg('已回复');
@@ -88,6 +97,15 @@ $(function () {
                         });
                     })
 
+                } else{
+                        tempHtml3 += '<br><br><br><div class="layui-row grid-demo commentLoaction" >' +
+                            '<div class="layui-col-md1 ">' +
+                            '    <div class="layui-col-md9">' +
+                            '    </div><br><br><br>' +
+                            '    <div class="layui-col-md9 ">' +
+                            '    <p class="commentText" style="margin-left: 300%!important;text-indent: -17px!important;left: 400%!important;line-height: 20px!important;">暂无评论</p></div><br><br><br><br><br><br><br>';
+                        $('#moviecomments').html(tempHtml3);
+                    }
             }
         });
 

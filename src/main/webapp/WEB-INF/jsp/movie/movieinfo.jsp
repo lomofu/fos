@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/movieinfo/moviePage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <html>
-<body bgcolor="#f0f0f0">
+<body bgcolor="#f0f0f0" class="layui-anim layui-anim-upbit">
 <div id="nav"></div>
 <div class="layui-container" id="container" style="width: 67%">
     <div class="layui-fluid">
@@ -28,7 +28,7 @@
         </div>
             <!-- 简介 -->
             <div class="layui-col-md8 layui-col-md-offset2 movieText" id="profile"
-                 style="position: relative;background-color: #149688;color: #ffffff;top: -4px;width: 66.40%;left: 2px;box-shadow: 0 0 5px 0px #00000066;"></div>
+                 style="position: relative;background-color: #149688;color: #ffffff;top: -4px;width: 67%;left: -2px;box-shadow: 0 0 5px 0px #00000066;"></div>
             </div>
         <br>
         <br>
@@ -53,12 +53,12 @@
         <div class="layui-row ">
             <div class="layui-col-md8 layui-col-md-offset2 TuserCommentArea">
                 <form action="" method="post">
+                    <div id="userScore"></div>
                     <textarea name="" required lay-verify="required" placeholder="请输入你的评论" id="TuserCommentText"
                               class="layui-textarea"></textarea>
                     <div class="btns">
                         <input class="btn" type="reset" value="清空"/>
                         <input class="btn" type="submit" value="发表"/>
-                        <input class="btn" type="button" id="userScore" value="评分"/>
                     </div>
                 </form>
             </div>
@@ -73,19 +73,15 @@
     $ = layui.$
     var laypage = layui.laypage,
         layer = layui.layer;
+     rate=layui.rate;
     //调用ajax实现页面的局部刷新,将iframe的页面加载出来
     $("#nav").load("/filmos/nav");
 
-
-    // 评分弹出层
-    $("#userScore").click(function () {
-        layer.prompt({
-            title: '给影片打打分',
-        }, function (val, index) {
-
-            layer.msg('您对该影片的评分为：' + val + '分');
-            layer.close(index);
-        });
+    rate.render({
+        elem: '#userScore'
+        ,value: 0 //初始值
+        ,text: true //开启文本
+        ,half: true
     });
 
 

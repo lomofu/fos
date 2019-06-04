@@ -8,4 +8,8 @@ public interface MovieService {
     ArrayList<VeiwMovie> getAllMovie();
 
     VeiwMovie getMovieByMovieId(Integer movieId);
+
+    VeiwMovie getMovieByMovieIdInfo(Integer movieId);
+
+   ArrayList<VeiwMovie> getMovieByTypeId(Integer typeId);
 }

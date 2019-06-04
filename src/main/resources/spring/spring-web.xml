@@ -62,6 +62,8 @@
             <mvc:exclude-mapping path="/user/islogin"/>
             <mvc:exclude-mapping path="/user/register"/>
             <mvc:exclude-mapping path="/user/quit"/>
+            <mvc:exclude-mapping path="/index.jsp"/>
+            <mvc:exclude-mapping path="/filmos"/>
             <bean class="com.Interceptors.TokenInterceptor"></bean>
         </mvc:interceptor>
         <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->

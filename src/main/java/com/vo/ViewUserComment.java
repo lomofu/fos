@@ -12,6 +12,7 @@ public class ViewUserComment {
     private String movieName;
     private String movieImg;
     private Integer userId;
+    private String userImg;
 
     public Integer getCommentId() {
         return commentId;
@@ -83,5 +84,13 @@ public class ViewUserComment {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
     }
 }

@@ -11,4 +11,7 @@ public class movieOperation {
 
     @RequestMapping(value = "/movielist.jsp")
     private String movieList(){return "redirect:movielist.jsp";}
+
+    @RequestMapping(value = "/typelist.jsp")
+    private String movieType(){return "redirect:typelist.jsp";}
 }

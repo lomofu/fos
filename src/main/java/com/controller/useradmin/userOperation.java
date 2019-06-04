@@ -18,6 +18,9 @@ public class userOperation {
     @RequestMapping(value = "/centre",method = RequestMethod.GET)
     private String centre(){return "usercentre/centre";}
 
+    @RequestMapping(value = "/otheruser",method = RequestMethod.GET)
+    private String othercentre(){return "usercentre/otheruser";}
+
     @RequestMapping(value = "/userinfo",method = RequestMethod.GET)
     private String info(){return "usercentre/modifyinfo";}
 
