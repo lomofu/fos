@@ -60,21 +60,17 @@
             <div id="followCount">
                 <label>关注数</label><br>
                 <%--  插入关注数--%>
-                10086
+
             </div>
 
             <%--收藏数--%>
             <div id="collectCount">
                 <label>收藏数</label><br>
-                <%-- 插入收藏数--%>
-                3029
             </div>
 
             <%--影评数--%>
             <div id="commentCount">
-                <label>影评数</label><br>
-                <%-- 插入影评数--%>
-                7044
+
             </div>
 
         </div>

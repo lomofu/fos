@@ -2,6 +2,7 @@ package com.dao;
 
 import com.entity.MovieComment;
 
+
 import java.util.ArrayList;
 
 public interface CommentDao {
@@ -10,4 +11,10 @@ public interface CommentDao {
     ArrayList queryAllCommentByUserId(Integer userId);
 
     int insertComment(MovieComment movieComment);
+
+    int updateComment(MovieComment movieComment);
+
+    int delectComment(MovieComment movieComment);
+
+
 }

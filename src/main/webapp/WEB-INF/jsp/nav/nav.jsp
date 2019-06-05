@@ -230,21 +230,20 @@
             beforeSend: function () {
                 // 禁用按钮防止重复提交
                 $("#submit-yes1").attr({disabled: "disabled"});
-                layer.load(0, 5000);
             },
             success: function (data) {
                 console.log(data);
                 if (data.code == 200) {
                     document.cookie = data.token;
                     layer.msg(data.msg, {
-                        icon: 0, time: 2000, end: function () {
-                            location.href = "index.jsp";
+                        icon: 0, time: 800, end: function () {
+                            location.href = "${pageContext.request.contextPath}/load";
                         }
                     })
                 } else {
                     layer.msg(data.msg, {
-                        icon: 2, time: 2000, end: function () {
-                            location.href = "index.jsp";
+                        icon: 2, time: 1000, end: function () {
+                            location.reload();
                         }
                     })
 
@@ -374,14 +373,14 @@
             success: function (data) {
                 if (data.code == 200) {
                     layer.msg(data.msg, {
-                        icon: 0, time: 2000, end: function () {
+                        icon: 0, time: 1500, end: function () {
                             location.href = "${pageContext.request.contextPath}/page/success";
                         }
                     })
 
                 } else {
                     layer.msg(data.msg, {
-                        icon: 2, time: 2000, end: function () {
+                        icon: 2, time: 1500, end: function () {
                             location.href = "index.jsp";
                         }
                     })

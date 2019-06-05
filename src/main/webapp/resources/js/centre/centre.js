@@ -8,7 +8,7 @@ $(function () {
         success: function (datas) {
             var list = datas.data;
             var tempHtml = '';
-           $('#yingpingshu').html(datas.count);
+           $('#commentCount').html('<label>影评数</label><br>'+datas.count);
             $.each(list, function (i,item) {
 
                 tempHtml += '<li class="layui-timeline-item">' + '<i class="layui-icon layui-timeline-axis">&#xe63f;</i>' +

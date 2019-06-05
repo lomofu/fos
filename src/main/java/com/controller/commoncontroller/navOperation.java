@@ -9,4 +9,10 @@ public class navOperation {
     private String nav(){
         return "nav/nav";
     }
+
+    @RequestMapping(value = "/load")
+    private String loading(){
+        return "loading/loading";
+    }
+
 }

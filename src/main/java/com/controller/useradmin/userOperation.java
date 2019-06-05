@@ -29,4 +29,5 @@ public class userOperation {
 
     @RequestMapping(value = "/goback")
     private String goback(){return "usercentre/successpassword";}
+
 }

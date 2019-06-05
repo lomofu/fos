@@ -31,4 +31,14 @@ public class CommentServiceImpl implements CommentService {
         int num=commentDao.insertComment(movieComment);
         return num;
     }
+
+    @Override
+    public int updateComment(MovieComment movieComment) {
+        return commentDao.updateComment(movieComment);
+    }
+
+    @Override
+    public int delectComment(MovieComment movieComment) {
+        return commentDao.delectComment(movieComment);
+    }
 }

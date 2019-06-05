@@ -116,7 +116,7 @@
                 <div class="layui-upload" style="text-align: center">
                     <button type="button" class="layui-btn" id="choose" style="width: 80px">选择图片</button>
                     <button type="button" class="layui-btn  layui-btn-danger layui-anim layui-anim-upbit" id="upload"
-                            style="width: 80px;display: none;position: relative;left: 100px;top: 20px;" onclick="">开始上传
+                            style="width: 80px;display: none;position: relative;left: 100px;top: 20px;" >开始上传
                     </button>
                 </div>
             </div>
@@ -165,10 +165,6 @@
         , url: '${pageContext.request.contextPath}/user/updateuserimg'
         , accept: 'file'
         , bindAction: '#upload'
-        , headers: {
-            'Content-Type': 'application/json',
-            'Authorization': currentToken
-        }
         , choose: function (obj) {//选择文件的回调，obj为选中的文件
             //将每次选择的文件追加到文件队列
             var files = obj.pushFile();
@@ -176,19 +172,19 @@
             obj.preview(function (index, file, result) {
                 $('#user-img').attr('src', result);
                 $('#upload').css('display', 'block');
-
             });
         }
         , before: function (obj) {//文件上传前的回调
         }
         , done: function (res) {
             if (res.code == 200) {
-                location.href = "${pageContext.request.contextPath}/page/userinfo"
+                layer.msg(res.msg, {
+                    icon: 0, time: 800, end: function () {
+                        location.reload();
+                    }});
             } else {
                 return layer.msg(res.msg);
-
             }
-
         }
         , error: function (res) {
             var demoText = $('#demoText');
@@ -301,7 +297,7 @@
                     if (data.code == 200) {
                         location.href = "/filmos/page/ok"
                     } else {
-                        layer.msg(data.msg, {icon: 2, time: 5000});
+                        layer.msg(data.msg, {icon: 2, time: 3000});
                         location.href = "index.jsp";
                     }
                 },

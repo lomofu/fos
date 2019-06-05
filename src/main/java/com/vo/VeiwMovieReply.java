@@ -1,16 +1,14 @@
-package com.entity;
+package com.vo;
 
 import java.util.Date;
 
-
-public class MovieReply {
+public class VeiwMovieReply {
     private Integer replyId;
+    private Integer commentId;
     private String content;
     private Date createTime;
     private Integer state;
     private Integer parentId;
-    private User user;
-    private MovieComment movieComment;
 
     public Integer getReplyId() {
         return replyId;
@@ -18,6 +16,14 @@ public class MovieReply {
 
     public void setReplyId(Integer replyId) {
         this.replyId = replyId;
+    }
+
+    public Integer getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
     }
 
     public String getContent() {
@@ -50,21 +56,5 @@ public class MovieReply {
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public MovieComment getMovieComment() {
-        return movieComment;
-    }
-
-    public void setMovieComment(MovieComment movieComment) {
-        this.movieComment = movieComment;
     }
 }

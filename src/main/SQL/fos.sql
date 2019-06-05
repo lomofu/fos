@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 04/06/2019 21:15:47
+ Date: 06/06/2019 02:09:36
 */
 
 SET NAMES utf8mb4;
@@ -46,13 +46,15 @@ CREATE TABLE `tb_comment_reply`  (
   `create_time` datetime NOT NULL COMMENT '时间',
   `state` int(2) NOT NULL DEFAULT 0 COMMENT '删除与否(0-没删除,1-删除)',
   `parent_id` int(11) NULL DEFAULT NULL,
+  `user_id` int(11) NOT NULL COMMENT '回复用户id',
   PRIMARY KEY (`reply_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 4002 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '影评回复表' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 4003 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '影评回复表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_comment_reply
 -- ----------------------------
-INSERT INTO `tb_comment_reply` VALUES (4001, 1004, '那是你没看懂啊', '2019-05-31 17:35:42', 0, 1004);
+INSERT INTO `tb_comment_reply` VALUES (4001, 3003, '那是你没看懂啊', '2019-05-31 17:35:42', 0, 1004, 1003);
+INSERT INTO `tb_comment_reply` VALUES (4002, 3003, '我干******', '2019-06-05 13:24:17', 1, 1004, 1002);
 
 -- ----------------------------
 -- Table structure for tb_info
@@ -136,13 +138,13 @@ CREATE TABLE `tb_movie_comment`  (
   `create_time` datetime NOT NULL COMMENT '时间',
   `start` float(3, 1) NULL DEFAULT NULL COMMENT '评分(从低到高 1-5)',
   `state` int(2) NOT NULL DEFAULT 0 COMMENT '删除与否(0-没删除,1-删除)',
-  `flag` int(1) NOT NULL,
+  `flag` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`comment_id`) USING BTREE,
   INDEX `UID`(`user_id`) USING BTREE,
   INDEX `MID`(`movie_id`) USING BTREE,
   CONSTRAINT `MID` FOREIGN KEY (`movie_id`) REFERENCES `tb_movie` (`movie_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `UID` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3015 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '评论表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3020 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '评论表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_movie_comment
@@ -154,7 +156,7 @@ INSERT INTO `tb_movie_comment` VALUES (3004, 2003, 1004, 'hhhh 很有趣！！',
 INSERT INTO `tb_movie_comment` VALUES (3005, 2003, 1001, '挺经典的一部作品，但是内容不够充分', '2019-04-16 00:56:12', 4.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3006, 2001, 1004, '最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！最爱小黄人这个电影！！', '2019-04-09 00:56:17', 4.5, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3007, 2002, 1004, '粗鄙之语******************************', '2019-02-13 00:56:23', 1.0, 1, 0);
-INSERT INTO `tb_movie_comment` VALUES (3008, 2005, 1004, '看的时候就在思考这个片子中有没有所谓的正与邪，其实说深点都是关于群体利益之间的关系，药厂没有有些人中所谓的恶人，药厂也是商业啊，也要赚钱啊，不然拿爱心养护工人和公司？', '2019-05-07 00:56:28', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3008, 2005, 1004, '看的时候就在思考这个片子中有没有所谓的正与邪，其实说深点都是关于群体利益之间的关系，药厂没有有些人中所谓的恶人，药厂也是商业啊，也要赚钱啊，不然拿爱心养护工人和公司？', '2019-06-05 12:38:08', 4.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3009, 2006, 1004, '第一，不解释', '2019-06-03 00:56:34', 5.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3010, 2006, 1001, '楼上是魔鬼吧', '2019-06-03 00:56:37', 0.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3011, 2006, 1002, '真的好好看!!!!!', '2019-06-03 00:57:12', 5.0, 0, 0);
@@ -226,6 +228,6 @@ CREATE TABLE `tb_user`  (
 INSERT INTO `tb_user` VALUES (1001, 'test', 'test', 0, 20, '/common/1.jpg', NULL, NULL, '2019-05-10 12:55:43', 0, 0);
 INSERT INTO `tb_user` VALUES (1002, 'test2', 'tes2', NULL, NULL, '/common/1.jpg', NULL, NULL, '0000-00-00 00:00:00', 0, NULL);
 INSERT INTO `tb_user` VALUES (1003, 'test3', 'test3', NULL, NULL, '/common/1.jpg', NULL, NULL, '0000-00-00 00:00:00', 0, NULL);
-INSERT INTO `tb_user` VALUES (1004, 'lomofu', '6ee9118a9edc61838c152ff10b66c07c', 0, 15, '/upload/item/user/1004/201905311420355753.jpg', '2357650152@qq.com', '13728705419', '2019-05-31 14:20:35', 1, 1);
+INSERT INTO `tb_user` VALUES (1004, 'lomofu', 'dfcf273b1e06318db2e8e330bdfac341', 0, 16, '/upload/item/user/1004/201906052157483107.jpg', '2357650152@qq.com', '13728705419', '2019-05-31 14:20:35', 1, 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

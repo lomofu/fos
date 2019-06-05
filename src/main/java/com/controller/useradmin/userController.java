@@ -11,6 +11,7 @@ import com.validator.ValidatorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -199,7 +200,7 @@ public class userController {
         if (multipartFile != null && multipartFile.getSize() > 0 && user != null) {
             userService.updateUserImg(user, multipartFile.getInputStream(), multipartFile.getOriginalFilename());
             session.setAttribute("user", userService.login(user));
-            return Layui.success("更新成功！", user.getUserImg());
+            return Layui.success("更新头像成功！", user.getUserImg());
 
         } else {
             return Layui.fail("更新失败！");

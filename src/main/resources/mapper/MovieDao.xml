@@ -85,9 +85,13 @@
         AND
         m.movie_id = c.movie_id
         AND
+        c.flag=0
+        AND
         m.movie_id=#{movieId}
         GROUP BY
         c.movie_id
+
+
 
     </select>
 
@@ -112,8 +116,6 @@
         m.type_id = t.type_id
         AND
         m.movie_id=#{movieId}
-
-
     </select>
 
 </mapper>

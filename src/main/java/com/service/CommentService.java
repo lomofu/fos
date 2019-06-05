@@ -12,4 +12,8 @@ public interface CommentService {
     ArrayList<ViewUserComment>getAllCommentByUserId(Integer userId);
 
     int addComment(MovieComment movieComment);
+
+    int updateComment(MovieComment movieComment);
+
+    int delectComment(MovieComment movieComment);
 }

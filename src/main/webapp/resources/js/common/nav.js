@@ -54,7 +54,7 @@ $(function () {
                     $("#customer").css('display', 'none');
                     $("#customer1").css('display','none');
                     layer.msg(data.msg, {
-                        icon: 0, time: 800, end: function () {
+                        icon: 0, time: 700, end: function () {
                            window.location.href = "/filmos/index.jsp";
                         }
                     })

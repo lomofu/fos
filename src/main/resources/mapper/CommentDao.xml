@@ -59,11 +59,38 @@
     </select>
 
 
-   <insert id="insertComment" useGeneratedKeys="true" keyProperty="commentId" keyColumn="comment_id">
+    <insert id="insertComment" useGeneratedKeys="true" keyProperty="commentId" keyColumn="comment_id">
       INSERT INTO
       tb_movie_comment(comment_id,movie_id,user_id,content,create_time,start,state)
       VALUES
       (#{commentId},#{movie.movieId},#{user.userId},#{content},#{createTime},#{start},#{state});
    </insert>
+
+
+
+    <update id="updateComment" parameterType="com.entity.MovieComment">
+        UPDATE tb_movie_comment
+        <trim prefix="set" suffixOverrides=",">
+            <if test="content!=null">content=#{content},</if>
+            <if test="start!=null">start=#{start},</if>
+            <if test="createTime!=null">create_time=#{createTime},</if>
+        </trim>
+        WHERE
+        user_id=#{user.userId}
+        AND
+        movie_id = #{movie.movieId}
+    </update>
+
+    <update id="delectComment" parameterType="com.entity.MovieComment">
+        UPDATE tb_movie_comment
+        SET
+        create_time=#{createTime},
+        state=#{state}
+        WHERE
+        user_id=#{user.userId}
+        AND
+        movie_id = #{movie.movieId}
+    </update>
+
 
 </mapper>
