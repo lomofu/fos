@@ -41,4 +41,9 @@ public class CommentServiceImpl implements CommentService {
     public int delectComment(MovieComment movieComment) {
         return commentDao.delectComment(movieComment);
     }
+
+    @Override
+    public ArrayList<MovieComment> selectComment(MovieComment movieComment) {
+        return commentDao.selectComment(movieComment);
+    }
 }

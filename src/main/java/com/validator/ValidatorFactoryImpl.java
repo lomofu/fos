@@ -1,5 +1,6 @@
 package com.validator;
 
+import com.entity.MovieComment;
 import com.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,5 +29,13 @@ public class ValidatorFactoryImpl  implements  ValidatorFactory{
         if(validator.validatorUserName(user) && validator.validatorEmail(user) && validator.validatorPhone(user))
             return true;
         return false;
+    }
+
+    @Override
+    public boolean CreateCommentVali(MovieComment movieComment) {
+        if (validator.validatorComment(movieComment))
+            return true;
+        else
+            return false;
     }
 }

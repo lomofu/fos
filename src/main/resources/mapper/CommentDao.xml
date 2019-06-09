@@ -92,5 +92,14 @@
         movie_id = #{movie.movieId}
     </update>
 
-
+    <select id="selectComment" parameterType="com.entity.MovieComment" resultType="com.entity.MovieComment">
+        SELECT
+        comment_id
+        FROM
+        tb_movie_comment
+        WHERE
+        movie_id = #{movie.movieId}
+        AND
+        user_id=#{user.userId}
+    </select>
 </mapper>

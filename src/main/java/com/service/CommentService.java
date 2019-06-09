@@ -7,13 +7,15 @@ import com.vo.ViewUserComment;
 import java.util.ArrayList;
 
 public interface CommentService {
-    ArrayList<VeiwMovieComment>getAllCommentByMovieId(Integer movieId);
+    ArrayList<VeiwMovieComment> getAllCommentByMovieId(Integer movieId);
 
-    ArrayList<ViewUserComment>getAllCommentByUserId(Integer userId);
+    ArrayList<ViewUserComment> getAllCommentByUserId(Integer userId);
 
     int addComment(MovieComment movieComment);
 
     int updateComment(MovieComment movieComment);
 
     int delectComment(MovieComment movieComment);
+
+    ArrayList<MovieComment> selectComment(MovieComment movieComment);
 }

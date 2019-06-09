@@ -16,5 +16,5 @@ public interface CommentDao {
 
     int delectComment(MovieComment movieComment);
 
-
+    ArrayList selectComment(MovieComment movieComment);
 }

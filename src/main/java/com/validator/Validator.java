@@ -1,5 +1,6 @@
 package com.validator;
 
+import com.entity.MovieComment;
 import com.entity.User;
 import org.springframework.stereotype.Component;
 
@@ -17,5 +18,6 @@ public interface Validator {
     boolean validatorPhone(User user);
     //检查是否以登陆
     boolean validatorState(User user);
-
+    //查询影评
+    boolean validatorComment(MovieComment movieComment);
 }

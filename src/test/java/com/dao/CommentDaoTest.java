@@ -14,6 +14,7 @@ import java.util.List;
 public class CommentDaoTest extends BaseTest {
     @Autowired
     private CommentDao commentDao;
+    @Autowired
 
     @Test
     public void queryAllCommentByMovieId(){
@@ -59,5 +60,16 @@ public class CommentDaoTest extends BaseTest {
         movieComment.setCreateTime(new Date());
         movieComment.setState(0);
         commentDao.updateComment(movieComment);
+    }
+    @Test
+    public void selectComment(){
+        MovieComment movieComment=new MovieComment();
+        User user=new User();
+        Movie movie=new Movie();
+        user.setUserId(1004);
+        movie.setMovieId(2001);
+        movieComment.setMovie(movie);
+        movieComment.setUser(user);
+        commentDao.selectComment(movieComment);
     }
 }

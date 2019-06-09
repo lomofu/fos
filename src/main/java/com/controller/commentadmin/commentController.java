@@ -4,6 +4,7 @@ import com.dto.Layui;
 import com.entity.MovieComment;
 import com.service.CommentService;
 import com.util.HttpServletRequestUtil;
+import com.validator.ValidatorFactory;
 import com.vo.VeiwMovieComment;
 import com.vo.ViewUserComment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class commentController {
 
     @Autowired
     private CommentService commentService;
-
+    @Autowired
+    private ValidatorFactory validatorFactory;
     /**
      * 查询一个用户的所有影评
      *
@@ -74,15 +76,17 @@ public class commentController {
     private Layui addComment(@RequestBody MovieComment movieComment) {
         movieComment.setCreateTime(new Date());
         movieComment.setState(0);
-        int num = commentService.addComment(movieComment);
-        if (num > 0) {
+        if(validatorFactory.CreateCommentVali(movieComment)) {
+            int num = commentService.addComment(movieComment);
+            if (num > 0) {
             if (movieComment.getStart() == null) {
                 movieComment.setState(1);
                 return Layui.success("影评插入成功！");
+                }
             }
             return Layui.success("影评插入成功！");
         } else {
-            return Layui.fail("影评插入失败！");
+            return Layui.fail("影评已存在！");
         }
     }
 
