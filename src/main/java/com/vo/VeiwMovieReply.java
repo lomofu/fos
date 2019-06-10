@@ -6,9 +6,13 @@ public class VeiwMovieReply {
     private Integer replyId;
     private Integer commentId;
     private String content;
+    private String rcontent;
     private Date createTime;
     private Integer state;
+    private Integer userId;
     private Integer parentId;
+    private String userImg;
+    private String userName;
 
     public Integer getReplyId() {
         return replyId;
@@ -34,6 +38,14 @@ public class VeiwMovieReply {
         this.content = content;
     }
 
+    public String getRcontent() {
+        return rcontent;
+    }
+
+    public void setRcontent(String rcontent) {
+        this.rcontent = rcontent;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -56,5 +68,29 @@ public class VeiwMovieReply {
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

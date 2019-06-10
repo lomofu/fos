@@ -8,7 +8,7 @@ import java.io.InputStream;
 public interface UserService {
     int addUser(User user, InputStream userImgInputStream,String fileName);
 
-    User selectByUserId(User user);
+    User selectByUserId(Integer userId);
 
     User login(User user);
 

@@ -1,3 +1,14 @@
+/*全局设置*/
+body {
+    background: #f0f0f0;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+/* 图片 */
+img {
+    width: 100%;
+    height: 100%;
+}
 
 #nav {
     z-index: 999;
@@ -10,10 +21,322 @@
     z-index: 10;
 }
 
-.title {
+.title1 {
+    width: 100px !important;
+    height: auto !important;
+    text-align: center;
+    font-size: 25px !important;
+    color: GrayText !important;
+    margin: 0 auto;
+    z-index: 10;
+}
+.title1:hover {
+    color: #00a567 !important;
+}
+
+.title2 {
+    width: 100px !important;
+    height: auto !important;
+    text-align: center;
     font-size: 25px !important;
     color: GrayText !important;
     position: relative;
-    top: 18px;
+    top: -170px;
+    left: 45.5%;
+}
+.title2:hover {
+    color: #00a567 !important;
+}
 
+/* 标签样式 */
+.label {
+    font-size: 15px;
+    line-height: 0px;
+}
+
+/* 图片排行榜 */
+#NoList {
+    margin: 20px auto;
+    width: 80%;
+    height: 380px;
+    padding: 40px 100px 100px 100px;
+    background: black;
+    box-shadow: white 0px 0px 10px;
+}
+
+/*浏览更多*/
+.More\+1 {
+    float: right;
+    margin-right: 100px;
+    font-size: 14px;
+    color: #00a567;
+}
+.More\+1:hover {
+    color: #00d5aa;
+}
+
+/*浏览更多*/
+.More\+2 {
+    float: right;
+    margin-right: 100px;
+    font-size: 14px;
+    color: #00a567;
+    position: relative;
+    top: -155px;
+    left: 8%;
+}
+.More\+2:hover {
+    color: #16a580;
+}
+
+/* 排名 */
+#No1,
+#No2,
+#No3,
+#No4,
+#No5 {
+    float: left;
+    padding: 0px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.6s;
+    text-align: center;
+    box-shadow: #000000 0px 0px 15px;
+
+    -webkit-box-reflect: below 5px -webkit-linear-gradient(transparent, transparent 80%, rgba(255, 255, 255, 0.5));
+}
+
+/* 移入时置顶 */
+#No1:hover,
+#No2:hover,
+#No3:hover,
+#No4:hover,
+#No5:hover {
+    z-index: 6;
+}
+
+/* 电影信息 */
+#Tmovie1,
+#Tmovie2,
+#Tmovie3,
+#Tmovie4,
+#Tmovie5 {
+    margin: 20px auto;
+}
+
+/* 电影图片 */
+.TPic {
+    width: 100%;
+    height: 100%;
+}
+
+/* 图片排行榜评分区域 */
+.TS {
+    width: 50%;
+    float: left;
+}
+/* 图片排行榜热度区域 */
+.TH {
+    width: 50%;
+    float: left;
+}
+
+/* 排名1 */
+#No1 {
+    z-index: 5;
+    width: 35%;
+    height: 100%;
+    top: 0;
+    left: -25%;
+}
+#T1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+/* 电影信息 */
+#Tmovie1 {
+    margin: 30px auto;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+/* 评分 */
+#score1 {
+    font-weight: bolder;
+    font-size: 4em;
+}
+/* 热度 */
+#hot1 {
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+/* 排名2 */
+#No2 {
+    z-index: 4;
+    width: 31.6%;
+    height: 90%;
+    top: 10%;
+    left: -11%;
+}
+#T2 {
+    font-size: 2em;
+}
+/* 电影信息 */
+#Tmovie2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+/* 评分 */
+#score2 {
+    font-weight: bolder;
+    font-size: 3.8em;
+}
+/* 热度 */
+#hot2 {
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+/* 排名3 */
+#No3 {
+    z-index: 3;
+    width: 28.3%;
+    height: 80%;
+    top: -80%;
+    left: 57%;
+}
+#T3 {
+    font-size: 1.5em;
+}
+/* 电影信息 */
+#Tmovie3 {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+/* 评分 */
+#score3 {
+    font-weight: bold;
+    font-size: 3.5em;
+}
+/* 热度 */
+#hot3 {
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+/* 排名4 */
+#No4 {
+    z-index: 2;
+    width: 25%;
+    height: 70%;
+    top: 30%;
+    left: 0;
+}
+#T4 {
+    font-size: 1.5em;
+}
+/* 电影信息 */
+#Tmovie4 {
+    font-size: 1.3em;
+}
+/* 评分 */
+#score4 {
+    font-weight: bolder;
+    font-size: 3em;
+}
+/* 热度 */
+#hot4 {
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+/* 排名5 */
+#No5 {
+    z-index: 1;
+    width: 21.6%;
+    height: 60%;
+    top: -60%;
+    left: 50%;
+}
+#T5 {
+    font-size: 1.1em;
+}
+/* 电影信息 */
+#Tmovie5 {
+    margin: 15px auto;
+    font-size: 1.05em;
+}
+/* 评分 */
+#score5 {
+    font-weight: bolder;
+    font-size: 2.6em;
+}
+/* 热度 */
+#hot5 {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+
+/*新闻列表*/
+#HTList {
+    padding: 4% 4%;
+    background: white;
+    box-shadow: #0000000a 0 0 2px 0px;
+    position: relative;
+    top: -133px;
+    width: 98%;
+    margin-left: 1%;
+}
+
+/* 单个新闻 */
+.Nnews {
+    width: 100%;
+    height: 230px;
+    text-align: left;
+}
+
+/* 新闻图片 */
+.NnewsPic {
+    width: 95%;
+    height: 80%;
+    margin: 5px auto;
+    cursor: pointer;
+    box-shadow: black 0 0 5px;
+}
+
+/* 新闻标题 */
+.NnewsTitle {
+    width: 95%;
+    height: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    margin: auto;
+    text-indent: 0.3em;
+}
+
+/* 新闻简述 */
+.NnewsInfo {
+    width: 95%;
+    height: 10%;
+    font-size: 14px;
+    color: gray;
+    margin: auto;
+    text-indent: 0.3em;
+}
+
+.fire{
+    position: absolute;
+    font-size: 48px!important;
+    margin-left: 38%;
+    color: #ff0000ad;
+    text-shadow:11px -1px 0px #ffef2e
+}
+
+.top{
+    position: absolute;
+    font-size: 65px!important;
+    margin-top: -1%;
+    margin-left: 38%;
+    color: #ff0000ad;
 }

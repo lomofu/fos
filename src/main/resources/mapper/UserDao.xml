@@ -6,7 +6,7 @@
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.UserDao">
 
-    <select id="selectUserById" resultType="com.entity.User">
+    <select id="selectUserById" parameterType="Integer" resultType="com.entity.User">
     SELECT *FROM  tb_user WHERE user_id=#{userId}
     </select>
 

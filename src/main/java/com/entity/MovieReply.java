@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class MovieReply {
     private Integer replyId;
-    private String content;
+    private String rcontent;
     private Date createTime;
     private Integer state;
     private Integer parentId;
@@ -20,12 +20,12 @@ public class MovieReply {
         this.replyId = replyId;
     }
 
-    public String getContent() {
-        return content;
+    public String getRcontent() {
+        return rcontent;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setRcontent(String rcontent) {
+        this.rcontent = rcontent;
     }
 
     public Date getCreateTime() {

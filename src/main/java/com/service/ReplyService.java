@@ -6,6 +6,9 @@ import com.vo.VeiwMovieReply;
 import java.util.ArrayList;
 
 public interface ReplyService {
+
+    ArrayList<VeiwMovieReply>getRelyByCommentId(Integer commentId);
+
     ArrayList<VeiwMovieReply> getRelyByUserId(Integer userId);
 
     int addMovieReply(MovieReply movieReply);

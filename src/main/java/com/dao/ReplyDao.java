@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public interface ReplyDao {
 
+    ArrayList<VeiwMovieReply> queryRelyByCommentId(Integer commentId);
+
     ArrayList<VeiwMovieReply> queryRelyByUserId(Integer userId);
 
     int inserMovieReply(MovieReply movieReply);

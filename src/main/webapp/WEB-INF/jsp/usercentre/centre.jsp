@@ -48,9 +48,12 @@
         </div>
 
         <%-- 用户名--%>
+            <input type="hidden" id="userId" value="${user.userId}">
         <div id="userName">
+
             <%-- 插入用户名--%>
             ${user.userName}
+
         </div>
 
         <%--修改  修改了显示的样式，并新加了收藏数的显示--%>
@@ -88,6 +91,7 @@
                 <li>我的关注</li>
                 <li>我的收藏</li>
             </ul>
+
             <div class="layui-tab-content">
 
                 <!-- 我的影评 -->
@@ -100,15 +104,20 @@
                     </ul>
                 </div>
 
+
                 <!-- 回复我的 -->
                 <div class="layui-tab-item layui-anim layui-anim-upbit replyMe">
+                    <li class="layui-timeline-item" id="userreply">
 
+                    </li>
                 </div>
+
 
                 <!-- 我的关注 -->
                 <div class="layui-tab-item layui-anim layui-anim-upbit myFollow">
 
                 </div>
+
 
                 <!-- 我的收藏 -->
                 <div class="layui-tab-item layui-anim layui-anim-upbit myCollect">
@@ -198,18 +207,18 @@
     </div>
 
 </div>
-
+<div id="buttom"></div>
 
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/centre/centre.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/common/islogin.js"></script>
 
 
 <script>
     $ = layui.$
-
     //加载导航栏
     $("#nav").load("/filmos/nav");
-
+    $("#bottom").load("/filmos/bottom");
     // 选项卡
     var $ = layui.jquery, element = layui.element,layer=layui.layer; //Tab的切换功能，切换事件监听等，需要依赖element模块
     //触发事件
@@ -221,9 +230,8 @@
     };
 
     //删除影评
-    var currentToken = document.cookie.split(";")[0];
     var user = {};
-    user.userId =${user.userId};
+    user.userId =$('#userId').val();
     function deleter(){
         layer.confirm('您确定要删除此评论？', {
             btn: ['是的','再想想'] //按钮
@@ -234,7 +242,6 @@
         });
 
     }
-
 </script>
 </body>
 </html>

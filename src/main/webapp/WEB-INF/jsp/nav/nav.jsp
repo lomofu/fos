@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/animate.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/hover-min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nav/nav.css">
+
 </head>
 <body>
-
+<img id="icon" src="${pageContext.request.contextPath}/resources/images/index/icon.png" class="hvr-grow-shadow" >
 <ul class="layui-nav">
     <li class="layui-nav-item layui-this"><a href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
     <li class="layui-nav-item">
@@ -49,7 +50,7 @@
             <span style="position: absolute;top: 7px;right: 80px;font-size: 18px;">${user.userName}</span>
         </a>
         <dl class="layui-nav-child">
-            <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/centre" >个人中心</a></dd>
+            <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/centre">个人中心</a></dd>
             <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/userinfo">修改信息</a></dd>
             <dd><a id="quit" style="cursor: pointer">退出登录</a></dd>
         </dl>
@@ -201,13 +202,18 @@
     </div>
 </div>
 
+<script src="${pageContext.request.contextPath}/resources/js/common/common.js"></script>
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/nav.js"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common/md5.min.js"/>
+<script src="${pageContext.request.contextPath}/resources/js/common/nav.js"/>
+<script src="${pageContext.request.contextPath}/resources/js/common/md5.min.js"/>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
 <script>
-
+    $=layui.$;
+    $('#icon').click(function(){$('html,body').animate({scrollTop:$('#bottom').offset().top}, 800);});
+    $('#icon').hover(function () {
+        layer.msg("关于我们")
+    })
     var form = layui.form;
-    var currentToken = document.cookie.split(";")[0];
     //登录表单监听
     form.on('submit(login1)', function (data) {
         var loginusername = $('#login-user').val();
@@ -223,6 +229,7 @@
             url: "${pageContext.request.contextPath}/user/login",
             data: login,
             dataType: "json",
+            async:false,
             contentType: 'application/json;charset=utf-8',
             header: {
                 'Content-Type': 'application/json'
@@ -234,9 +241,10 @@
             success: function (data) {
                 console.log(data);
                 if (data.code == 200) {
-                    document.cookie = data.token;
+                    localStorage.setItem('token',data.token);
                     layer.msg(data.msg, {
                         icon: 0, time: 800, end: function () {
+
                             location.href = "${pageContext.request.contextPath}/load";
                         }
                     })
@@ -253,7 +261,6 @@
         return false;
 
     });
-
 
 </script>
 <script>
@@ -362,6 +369,7 @@
             url: "${pageContext.request.contextPath}/user/register",
             data: formData,
             dataType: "json",
+            async:false,
             contentType: false,
             processData: false,
             cache: false,
@@ -390,11 +398,9 @@
         });
         return false;
     });
-    //# sourceURL=dynamicScript.js
+
+
 
 </script>
-
-
 </body>
-
 </html>

@@ -70,11 +70,11 @@
         </div>
     </div>
 </div>
+<div id="buttom"></div>
 </body>
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/common/common.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/movieinfo/movieinfo.js"></script>
-
 <script>
     $ = layui.$
     var laypage = layui.laypage,
@@ -82,7 +82,8 @@
     rate = layui.rate;
     //调用ajax实现页面的局部刷新,将iframe的页面加载出来
     $("#nav").load("/filmos/nav");
-    var currentToken = document.cookie.split(";")[0];
+    $("#bottom").load("/filmos/bottom");
+
     var start = '';
     var userId=$('#myid').val();
     console.log($('#myid').val())
@@ -91,15 +92,18 @@
         , value: 0 //初始值
         , half: true
         , choose: function (value) {
-            layer.msg(value + '  分', {offset: '60%', shade: 0.3, shadeClose: true});
+            layer.tips(value + '  分', '#userScore', {
+                tips: [1, '#16a580'],
+                time: 3000
+            });
             start = value;
-
         }
 
     });
     if (userId == "") {
         document.getElementById("mustlogin").style.display='block';
         $('#tologin').click(function () {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
             document.getElementById("background").className = 'layui-anim layui-anim-scaleSpring';
             document.getElementById("background").style.display = 'block';
             $("#search-bar").css("display", "none");
@@ -129,7 +133,7 @@
             cache: false,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': currentToken
+                'Authorization':localStorage.getItem('token')
             },
             beforeSend: function () {
                 // 禁用按钮防止重复提交
@@ -146,6 +150,7 @@
                 }
             }
         });
+        return false;
     }
 
 

@@ -2,13 +2,20 @@ package com.controller.commentadmin;
 
 import com.dto.Layui;
 import com.entity.MovieComment;
+import com.entity.User;
 import com.service.CommentService;
+import com.service.PushService;
+import com.service.UserService;
 import com.util.HttpServletRequestUtil;
+import com.util.PushUtil;
 import com.vo.VeiwMovieComment;
 import com.vo.ViewUserComment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -21,6 +28,10 @@ public class commentController {
 
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private PushService pushService;
 
     /**
      * 查询一个用户的所有影评
@@ -37,7 +48,8 @@ public class commentController {
         if (list.size() > 0) {
             return Layui.select(list.size(), list, "查询用户影评成功！");
         } else {
-            return Layui.fail("此用户无评论！");
+            User user=userService.selectByUserId(userId);
+            return Layui.fail("此用户暂无影评！",user);
         }
 
 
@@ -72,14 +84,17 @@ public class commentController {
     @RequestMapping(value = "addcomment", method = RequestMethod.POST)
     @ResponseBody
     private Layui addComment(@RequestBody MovieComment movieComment) {
+        List list=new ArrayList();
         movieComment.setCreateTime(new Date());
         movieComment.setState(0);
+        if (movieComment.getStart() == null) {
+            movieComment.setState(1);
+        }
         int num = commentService.addComment(movieComment);
         if (num > 0) {
-            if (movieComment.getStart() == null) {
-                movieComment.setState(1);
-                return Layui.success("影评插入成功！");
-            }
+            User user=new User();
+            user=userService.selectByUserId(movieComment.getUser().getUserId());
+            PushUtil.push(movieComment,user);
             return Layui.success("影评插入成功！");
         } else {
             return Layui.fail("影评插入失败！");

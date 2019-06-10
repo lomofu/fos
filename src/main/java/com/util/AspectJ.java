@@ -9,10 +9,4 @@ import org.springframework.stereotype.Component;
 @Component
 public class AspectJ {
 
-
-
-    @Before(value = "execution(* com.service.MovieTypeService.getAllMovieType(..))")
-    public void before(){
-        System.out.println("权限验证===================");
-    }
 }

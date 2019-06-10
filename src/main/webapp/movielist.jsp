@@ -139,12 +139,16 @@
 
 
 </div>
-        <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/movielist/movielist.js"></script>
-        <script>
+<div id="buttom"></div>
+
+<script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/movielist/movielist.js"></script>
+<script>
             $ = layui.$;
             //调用ajax实现页面的局部刷新,将iframe的页面加载出来
             $("#nav").load("/filmos/nav");
+            $("#bottom").load("/filmos/bottom");
+
             $("#filter-button").click(function(){
                 if ($('#select').hasClass('yijingdianji')){
                     $('#select').removeClass('yijingdianji')

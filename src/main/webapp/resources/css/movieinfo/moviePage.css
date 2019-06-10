@@ -153,9 +153,9 @@
 
 /* 评论信息 */
 .commentInfo {
-	margin-right: 159px;
+	margin-right: 7%;
 	position: relative;
-	text-indent: 16em;
+	text-indent: 10em;
 	font-size: 0.9em;
 	color: gray;
 	top: -19px;
@@ -205,6 +205,11 @@
 
 /* 回复评论正文 */
 .RcommentText {
+	color: gray;
+	width: 100%;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
 	text-indent: 2em;
 	line-height: 1.5em;
 	font-size: 1em;
@@ -220,7 +225,7 @@
 /* 回复日期 */
 .RcommentDate {
 	font-size: 1.1em;
-	margin-right: 30px;
+	margin-left: 78%;
 }
 
 
@@ -277,4 +282,10 @@ label {
 
 .replyBtn:hover {
 	color: #009F95;
+}
+
+.replys{
+
+	display:none;
+
 }

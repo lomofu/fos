@@ -12,6 +12,12 @@ import java.util.ArrayList;
 public class ReplyServiceImpl  implements ReplyService {
     @Autowired
     private ReplyDao replyDao;
+
+    @Override
+    public ArrayList<VeiwMovieReply> getRelyByCommentId(Integer commentId) {
+        return replyDao.queryRelyByCommentId(commentId);
+    }
+
     @Override
     public ArrayList<VeiwMovieReply> getRelyByUserId(Integer userId) {
         return replyDao.queryRelyByUserId(userId);

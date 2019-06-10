@@ -15,4 +15,13 @@ public class navOperation {
         return "loading/loading";
     }
 
+    @RequestMapping(value = "/bottom")
+    private String bottom(){
+        return "nav/bottom";
+    }
+
+
+    @RequestMapping(value = "/nologin")
+    private String nologin(){return "error/nologin";}
+
 }

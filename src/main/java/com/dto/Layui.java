@@ -61,13 +61,15 @@ public class Layui extends HashMap<String, Object> {
         return r;
     }
     //用于上传头像
-    public static Layui success(String msg,String data){
+    public static Layui success(String msg,Object data){
         Layui r=new Layui();
         r.put("code",200);
         r.put("msg",msg);
         r.put("data",data);
         return r;
     }
+
+
 
 
 
@@ -80,6 +82,17 @@ public class Layui extends HashMap<String, Object> {
         return r;
 
     }
+    public static Layui fail(String msg,Object data){
+        Layui r = new Layui();
+        r.put("code", 400);
+        r.put("msg", msg);
+        r.put("data",data);
+        r.put("count",0);
+        return r;
+
+    }
+
+
 
 
 }

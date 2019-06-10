@@ -44,6 +44,25 @@ public class ReplyController {
 
 
     /**
+     * 查询一条影评下的所有回复
+     * @param request
+     * @return json
+     */
+    @RequestMapping(value = "/replybycommentid")
+    @ResponseBody
+    private Layui getReplyByCommentId(HttpServletRequest request){
+        Integer commentId=HttpServletRequestUtil.getInt(request,"commentid");
+        List<VeiwMovieReply>list=new ArrayList<>();
+        list=replyService.getRelyByCommentId(commentId);
+        if (list.size()>0){
+            return Layui.select(1,list,"单条影评回复查询成功！");
+        }else {
+            return Layui.fail("当前影评没有回复！");
+        }
+    }
+
+
+    /**
      * 添加回复
      *
      * @param movieReply

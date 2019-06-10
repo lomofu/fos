@@ -1,11 +1,8 @@
 package com.dao;
 
 import com.BaseTest;
-import com.entity.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.swing.plaf.ViewportUI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,5 +15,10 @@ public class ReplyDaoTest extends BaseTest {
         List list=new ArrayList();
         list=replyDao.queryRelyByUserId(1004);
 
+    }
+    @Test
+    public void queryRelyByCommentId(){
+        List list=new ArrayList();
+        list=replyDao.queryRelyByCommentId(3003);
     }
 }

@@ -1,10 +1,12 @@
 package com.util;
+
 import com.auth0.jwt.interfaces.Claim;
 import com.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Map;
@@ -82,8 +84,7 @@ public class HttpServletRequestUtil {
         }
     }
 
-    public static String getTokenFromRedis( HttpServletRequest request) {
-        System.out.println(request.getHeader("Authorization"));
+    public static String getTokenFromRedis( HttpServletRequest request)  {
         String token = (String) request.getHeader("Authorization");
         Map<String, Claim> verifyToken = null;
         if (token != null) {

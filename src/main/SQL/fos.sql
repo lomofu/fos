@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 06/06/2019 02:09:36
+ Date: 11/06/2019 00:56:29
 */
 
 SET NAMES utf8mb4;
@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS `tb_comment_reply`;
 CREATE TABLE `tb_comment_reply`  (
   `reply_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '影评回复id',
   `comment_id` int(11) NOT NULL COMMENT '评论ID',
-  `content` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '内容',
+  `rcontent` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '内容',
   `create_time` datetime NOT NULL COMMENT '时间',
   `state` int(2) NOT NULL DEFAULT 0 COMMENT '删除与否(0-没删除,1-删除)',
   `parent_id` int(11) NULL DEFAULT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `tb_comment_reply`  (
 -- Records of tb_comment_reply
 -- ----------------------------
 INSERT INTO `tb_comment_reply` VALUES (4001, 3003, '那是你没看懂啊', '2019-05-31 17:35:42', 0, 1004, 1003);
-INSERT INTO `tb_comment_reply` VALUES (4002, 3003, '我干******', '2019-06-05 13:24:17', 1, 1004, 1002);
+INSERT INTO `tb_comment_reply` VALUES (4002, 3003, '我干******', '2019-06-05 13:24:17', 0, 1004, 1002);
 
 -- ----------------------------
 -- Table structure for tb_info
@@ -144,7 +144,7 @@ CREATE TABLE `tb_movie_comment`  (
   INDEX `MID`(`movie_id`) USING BTREE,
   CONSTRAINT `MID` FOREIGN KEY (`movie_id`) REFERENCES `tb_movie` (`movie_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `UID` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3020 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '评论表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3037 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '评论表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_movie_comment
@@ -160,8 +160,19 @@ INSERT INTO `tb_movie_comment` VALUES (3008, 2005, 1004, '看的时候就在思�
 INSERT INTO `tb_movie_comment` VALUES (3009, 2006, 1004, '第一，不解释', '2019-06-03 00:56:34', 5.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3010, 2006, 1001, '楼上是魔鬼吧', '2019-06-03 00:56:37', 0.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3011, 2006, 1002, '真的好好看!!!!!', '2019-06-03 00:57:12', 5.0, 0, 0);
-INSERT INTO `tb_movie_comment` VALUES (3012, 2006, 1003, '无感，陪别人一起看的', '2019-06-03 00:57:49', 2.0, 0, 0);
 INSERT INTO `tb_movie_comment` VALUES (3014, 2007, 1001, '', '2019-06-03 15:54:32', 0.0, 0, 1);
+INSERT INTO `tb_movie_comment` VALUES (3015, 2004, 1002, '我觉得挺好的啊？？？', '2019-06-08 00:56:59', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3021, 2002, 1004, '大结局了呜呜呜', '2019-06-08 22:51:05', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3027, 2007, 1004, '快出啊啊啊啊', '2019-06-09 00:41:03', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3028, 2007, 1004, '不能用了？', '2019-06-09 00:42:16', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3029, 2007, 1004, '这是个测试啊', '2019-06-09 00:51:26', 4.5, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3030, 2007, 1004, '测试咨询？？？？', '2019-06-09 00:52:33', 4.5, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3031, 2007, 1004, '只能在首页用吗', '2019-06-09 00:56:09', 2.5, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3032, 2007, 1004, '怎么回事', '2019-06-09 00:56:44', 4.5, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3033, 2007, 1004, '我再来一次》？？', '2019-06-09 00:57:58', 4.5, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3034, 2007, 1004, '我再次二十', '2019-06-09 01:00:11', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3035, 2007, 1005, '逐渐变形？？？？', '2019-06-10 20:21:56', 5.0, 0, 0);
+INSERT INTO `tb_movie_comment` VALUES (3036, 2007, 1004, '没法插入？？？？', '2019-06-10 20:25:45', 5.0, 0, 0);
 
 -- ----------------------------
 -- Table structure for tb_movie_type
@@ -182,6 +193,20 @@ INSERT INTO `tb_movie_type` VALUES (1103, '爱情');
 INSERT INTO `tb_movie_type` VALUES (1104, '冒险');
 INSERT INTO `tb_movie_type` VALUES (1105, '历史');
 INSERT INTO `tb_movie_type` VALUES (1106, '动画');
+
+-- ----------------------------
+-- Table structure for tb_push
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_push`;
+CREATE TABLE `tb_push`  (
+  `user_id` int(11) NOT NULL,
+  `follow_id` int(11) NULL DEFAULT NULL
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Fixed;
+
+-- ----------------------------
+-- Records of tb_push
+-- ----------------------------
+INSERT INTO `tb_push` VALUES (1005, 1004);
 
 -- ----------------------------
 -- Table structure for tb_rank
@@ -220,14 +245,15 @@ CREATE TABLE `tb_user`  (
   `state` int(1) NOT NULL COMMENT '登陆状态（‘0’未登陆 ，‘1’登陆状态）',
   `user_type` int(1) NULL DEFAULT NULL COMMENT '用户类型（‘0’普通用户 ‘1’超级管理员）',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1005 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '用户表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1006 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '用户表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-INSERT INTO `tb_user` VALUES (1001, 'test', 'test', 0, 20, '/common/1.jpg', NULL, NULL, '2019-05-10 12:55:43', 0, 0);
-INSERT INTO `tb_user` VALUES (1002, 'test2', 'tes2', NULL, NULL, '/common/1.jpg', NULL, NULL, '0000-00-00 00:00:00', 0, NULL);
-INSERT INTO `tb_user` VALUES (1003, 'test3', 'test3', NULL, NULL, '/common/1.jpg', NULL, NULL, '0000-00-00 00:00:00', 0, NULL);
-INSERT INTO `tb_user` VALUES (1004, 'lomofu', 'dfcf273b1e06318db2e8e330bdfac341', 0, 16, '/upload/item/user/1004/201906052157483107.jpg', '2357650152@qq.com', '13728705419', '2019-05-31 14:20:35', 1, 1);
+INSERT INTO `tb_user` VALUES (1001, 'test', '', 0, 20, '/common/1.jpg', NULL, NULL, '2019-05-10 12:55:43', 0, 0);
+INSERT INTO `tb_user` VALUES (1002, 'test2', '', NULL, NULL, '/common/1.jpg', NULL, NULL, '0000-00-00 00:00:00', 0, NULL);
+INSERT INTO `tb_user` VALUES (1003, 'test3', '', NULL, NULL, '/common/1.jpg', NULL, NULL, '0000-00-00 00:00:00', 0, NULL);
+INSERT INTO `tb_user` VALUES (1004, 'lomofu', '6ee9118a9edc61838c152ff10b66c07c', 0, 20, '/upload/item/user/1004/201906101938242353.jpg', '2357650152@qq.com', '13728705419', '2019-05-31 14:20:35', 1, 1);
+INSERT INTO `tb_user` VALUES (1005, 'yes', '1589a1abbccb18a15f70f15185bd2d5c', 1, 18, '/upload/item/user/1005/201906071436279557.jpg', '943034679@qq.com', '13824320763', '2019-06-07 14:36:27', 1, 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

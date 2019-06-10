@@ -21,6 +21,7 @@ public class JedisUtils {
         JedisUtils.init();
         jedis.set(userId, token); //根据username存储token
         jedis.expire(userId, second);  //设置token持续时间
+        System.out.println("*******");
     }
 
     public static String getToken(String userId) {

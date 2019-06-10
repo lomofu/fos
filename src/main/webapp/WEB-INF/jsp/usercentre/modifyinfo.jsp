@@ -124,39 +124,28 @@
     </div>
 </div>
 </div>
-
+<div id="buttom"></div>
 
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 <script>
     $ = layui.$;
-    var $ = layui.jquery
+    $("#nav").load("/filmos/nav");
+    $("#bottom").load("/filmos/bottom");
+
+    var $ = layui.jquery;
     var form = layui.form;
     var element = layui.element;
     var layer = layui.layer;
+
     var upload = layui.upload;
-    $("#nav").load("${pageContext.request.contextPath}/nav");
     var active = {
         tabChange: function () {
             //切换到指定Tab项
             element.tabChange('demo', '22');
         }
     };
-    var currentToken=document.cookie.split(";")[0];
-    $.ajax({
-        url: "/filmos/user/islogin",
-        type: 'get',
-        dataType: "json",
-        headers:{
-            'Content-Type':'application/json',
-            'Authorization':currentToken
-        },
-        success: function (data) {
-            console.log(data.code);
-            if (data.code!=200) {
-                window.location.href="index.jsp"
-            }
-        }
-    });
+
+
 
     //文件上传
     upload.render({
@@ -286,7 +275,7 @@
                 cache: false,
                 headers:{
                     'Content-Type':'application/json',
-                    'Authorization':currentToken
+                    'Authorization':localStorage.getItem('token')
                 },
                 beforeSend: function () {
                     // 禁用按钮防止重复提交
@@ -314,28 +303,28 @@
             type: 1,
             skin: 'layui-layer-rim', //加上边框
             area: ['400px', '340px'], //宽高
-            content: '<form class="layui-form">\n' + '<div class="layui-form-item" style="position: relative;top:53px ;">\n' +
-                '                                <label class="layui-form-label">用户名</label>\n' +
-                '                                <div class="layui-input-inline">\n' +
-                '                                    <input id="yanzheng-username" type="text" name="username" required\n' +
-                '                                           lay-verify="required" placeholder="请输入用户名" autocomplete="off"\n' +
-                '                                           class="layui-input">\n' +
-                '                                </div><br><br>\n' +
-                '                            <div class="layui-form-item" style="position: relative;top:44px;">\n' +
-                '                                <label class="layui-form-label">原密码</label>\n' +
-                '                                <div class="layui-input-inline">\n' +
-                '                                    <input id="yanzheng-password" type="password" name="password" required\n' +
-                '                                           lay-verify="required" placeholder="请输入原密码" autocomplete="off"\n' +
-                '                                           class="layui-input">\n' +
-                '                                </div>\n' +
-                '                                <div class="layui-form-item">\n' +
-                '                                    <div class="layui-input-block">\n' +
-                '                                        <button type="button" class="layui-btn" onclick="querenpassword()"\n' +
-                '                                                style="width: 80px;position:relative;top: 20px">确定\n' +
-                '                                        </button>\n' +
-                '                                    </div>\n' +
-                '                                </div>\n' +
-                '                            </div>\n' +
+            content: '<form class="layui-form">' + '<div class="layui-form-item" style="position: relative;top:53px ;">' +
+                '                                <label class="layui-form-label">用户名</label>' +
+                '                                <div class="layui-input-inline">' +
+                '                                    <input id="yanzheng-username" type="text" name="username" required' +
+                '                                           lay-verify="required" placeholder="请输入用户名" autocomplete="off"' +
+                '                                           class="layui-input">' +
+                '                                </div><br><br>' +
+                '                            <div class="layui-form-item" style="position: relative;top:44px;">' +
+                '                                <label class="layui-form-label">原密码</label>' +
+                '                                <div class="layui-input-inline">' +
+                '                                    <input id="yanzheng-password" type="password" name="password" required' +
+                '                                           lay-verify="required" placeholder="请输入原密码" autocomplete="off"' +
+                '                                           class="layui-input">' +
+                '                                </div>' +
+                '                                <div class="layui-form-item">' +
+                '                                    <div class="layui-input-block">' +
+                '                                        <button type="button" class="layui-btn" onclick="querenpassword()"' +
+                '                                                style="width: 80px;position:relative;top: 20px">确定' +
+                '                                        </button>' +
+                '                                    </div>' +
+                '                                </div>' +
+                '                            </div>' +
                 '                        </form>'
         });
 
@@ -362,7 +351,7 @@
             cache: false,
             headers:{
                 'Content-Type':'application/json',
-                'Authorization':currentToken
+                'Authorization':localStorage.getItem('token')
             },
             beforeSend: function () {
                 layer.load(0, 5000);
@@ -375,23 +364,22 @@
                         type: 1,
                         skin: 'layui-layer-rim', //加上边框
                         area: ['400px', '340px'], //宽高
-                        content: '<form class="layui-form" >\n' +
-                            '                            <div class="layui-form-item" style="position: relative;top:40px">\n' +
-                            '                                <label class="layui-form-label">新的密码</label>\n' +
-                            '                                <div class="layui-input-inline">\n' +
-                            '                                    <input id="update-password" type="password" name="password" required\n' +
-                            '                                           lay-verify="required" placeholder="请输入新的密码" autocomplete="off"\n' +
-                            '                                           class="layui-input">\n' +
-                            '                                </div>\n' +
-                            '\n' +
-                            '                                <div class="layui-form-item">\n' +
-                            '                                    <div class="layui-input-block">\n' +
-                            '                                        <button type="button" class="layui-btn" onclick="updatepassword()"\n' +
-                            '                                                style="width: 80px;position:relative;top: 20px">立即修改\n' +
-                            '                                        </button>\n' +
-                            '                                    </div>\n' +
-                            '                                </div>\n' +
-                            '                            </div>\n' +
+                        content: '<form class="layui-form" >' +
+                            '                            <div class="layui-form-item" style="position: relative;top:40px">' +
+                            '                                <label class="layui-form-label">新的密码</label>' +
+                            '                                <div class="layui-input-inline">' +
+                            '                                    <input id="update-password" type="password" name="password" required' +
+                            '                                           lay-verify="required" placeholder="请输入新的密码" autocomplete="off"' +
+                            '                                           class="layui-input">' +
+                            '                                </div>' +
+                            '                                <div class="layui-form-item">' +
+                            '                                    <div class="layui-input-block">' +
+                            '                                        <button type="button" class="layui-btn" onclick="updatepassword()"' +
+                            '                                                style="width: 80px;position:relative;top: 20px">立即修改' +
+                            '                                        </button>' +
+                            '                                    </div>' +
+                            '                                </div>' +
+                            '                            </div>' +
                             '                        </form>'
                     });
                 } else {
@@ -433,7 +421,7 @@
                 cache: false,
                 headers:{
                     'Content-Type':'application/json',
-                    'Authorization':currentToken
+                    'Authorization':localStorage.getItem('token')
                 },
                 beforeSend: function () {
                     layer.load(0, 5000);
@@ -447,7 +435,7 @@
                             data: {},
                             headers: {
                                 'Content-Type': 'application/json',
-                                'Authorization': currentToken
+                                'Authorization': localStorage.getItem('token')
                             }
                             , success: function (data) {
 
@@ -468,5 +456,6 @@
     }
 
 </script>
+<script src="${pageContext.request.contextPath}/resources/js/common/islogin.js"/>
 </body>
 </html>

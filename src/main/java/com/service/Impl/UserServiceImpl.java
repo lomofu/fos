@@ -58,8 +58,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User selectByUserId(User user) {
-        return null;
+    public User selectByUserId(Integer userId) {
+        return userDao.selectUserById(userId);
     }
 
 

@@ -12,6 +12,7 @@ public class ViewUserComment {
     private String movieName;
     private String movieImg;
     private Integer userId;
+    private String userName;
     private String userImg;
 
     public Integer getCommentId() {
@@ -92,5 +93,13 @@ public class ViewUserComment {
 
     public void setUserImg(String userImg) {
         this.userImg = userImg;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

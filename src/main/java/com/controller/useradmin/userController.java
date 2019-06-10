@@ -11,7 +11,6 @@ import com.validator.ValidatorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -91,7 +90,9 @@ public class userController {
     private Layui isLogin(HttpSession session, HttpServletRequest request) throws Exception {
         String usertoken = HttpServletRequestUtil.getTokenFromRedis(request);
         if (usertoken != null) {
-            return Layui.success("当前有用户！", "登录状态!");
+            User user= (User) session.getAttribute("user");
+            String userId=user.getUserId().toString();
+            return Layui.success("当前有用户！", userId);
         } else {
             return Layui.fail("无用户登录！");
         }

@@ -42,6 +42,7 @@
        c.movie_id,
        m.movie_name,
        m.movie_img,
+       u.user_name,
        u.user_img
        FROM
        tb_movie_comment c,

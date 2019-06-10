@@ -26,7 +26,7 @@
     }
 
 </script>
-
+<script src="${pageContext.request.contextPath}/resources/js/common/islogin.js"></script>
 
 </body>
 </html>

@@ -211,4 +211,16 @@ h2 {
 
 }
 
+#icon{
+    position: absolute;
+    left: 47%;
+    width: 33px;
+    height: auto;
+    top: 1.5%;
+    z-index: 9;
+    box-shadow: 1px 1px 4px 6px black;
+    cursor: pointer;
+
+
+}
 

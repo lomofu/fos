@@ -69,7 +69,7 @@
     function doUpdate() {
         if(num == 0) {
             window.clearInterval(id);
-            window.location = URL;
+            location.href = URL;
         }
         num --;
     }
