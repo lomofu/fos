@@ -29,8 +29,6 @@
             <div id="newsList" class="layui-anim layui-anim-scale">
                 <div class="layui-row">
                     <div class="layui-col-md12" >
-
-
                         <%--<!-- 插入标注 -->--%>
                         <%--<!--单个新闻 -->--%>
                         <%--<div class="news">--%>
@@ -89,19 +87,14 @@
             <div id="hotTopic">
                 <!-- Hot Topic -->
                 <div id="HTtitle">
-                    Hot Topioc!!!
+                    最新咨询！！！
                 </div>
 
                 <!-- 效果展示 -->
                 <!--单个话题 -->
+                <span class="hottopiccontext">
                 <div class="HT">
                     <div class="layui-row">
-                        <!-- 话题图片 -->
-                        <div class="layui-col-lg3">
-                            <div class="HTpic">
-                                <img src="img/cxk.jpg">
-                            </div>
-                        </div>
 
                         <div class="layui-col-lg9 ">
                             <!-- 话题关键字 -->
@@ -124,41 +117,17 @@
 
                 <!-- 插入标注 -->
                 <!--单个话题 -->
-                <div class="HT">
-                    <div class="layui-row">
-                        <!-- 话题图片 -->
-                        <div class="layui-col-lg3">
-                            <div class="HTpic">
-                                <!-- 插入图片 -->
-                            </div>
-                        </div>
-
-                        <div class="layui-col-lg9 ">
-                            <!-- 话题关键字-->
-                            <a href="">
-                                <div class="HTkeyword">
-                                    <!-- 插入话题关键字 -->
-                                </div>
-                            </a>
-                            <!-- 话题简述 (title的值为话题简述全文) -->
-                            <a href="" title="">
-                                <div class="HTinfo">
-                                    <!-- 插入话题简述 -->
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-                    <!-- /单个话题 -->
-                </div>
-
                 <!-- /热点话题 -->
             </div>
-
+            </span>
         </div>
     </div>
 </div>
-<div id="buttom"></div>
+<br><br><br>
+<div id="demo7" align="center"></div>
+<br><br><br><br>
+<div id="bottom"></div>
+
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/infolist/infolist.js"></script>
 <script>
@@ -166,6 +135,33 @@
     //调用ajax实现页面的局部刷新,将iframe的页面加载出来
     $("#nav").load("/filmos/nav");
     $("#bottom").load("/filmos/bottom");
+    var laypage=layui.laypage;
+
+    $.ajax({
+        url: "/filmos/info/infolistcount",
+        type: 'get',
+        data: '',
+        success: function (data) {
+            count = data.data;
+            laypage.render({
+                elem: 'demo7',
+                limit: 5,
+                count: count,
+                layout: ['count', 'prev', 'page', 'next','skip', 'refresh'],
+                jump: function (obj) {
+                    page = obj.curr;
+                    getInfoList(page);
+
+                }
+            });
+
+        }
+    });
+
+
+
+
+
 </script>
 
 </body>

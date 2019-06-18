@@ -67,6 +67,8 @@
             <mvc:exclude-mapping path="/load"/>
             <mvc:exclude-mapping path="/comment/usercomment"/>
             <mvc:exclude-mapping path="/comment/moviecomment"/>
+            <mvc:exclude-mapping path="/comment/usercommentcount"/>
+            <mvc:exclude-mapping path="/comment/moviecommentcount"/>
             <mvc:exclude-mapping path="/reply/replybyuserid"/>
             <bean class="com.Interceptors.TokenInterceptor"></bean>
         </mvc:interceptor>

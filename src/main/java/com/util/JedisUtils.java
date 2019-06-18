@@ -6,7 +6,6 @@ import redis.clients.jedis.JedisShardInfo;
 public class JedisUtils {
 
     private static Jedis jedis;
-
     //初始化
     private static void init() {
         JedisShardInfo shardInfo = new JedisShardInfo("redis://localhost:6379/9");
@@ -15,13 +14,18 @@ public class JedisUtils {
         jedis.connect();
     }
 
+    public static Boolean isexist(String key){
+        JedisUtils.init();
+        return jedis.exists(key);
+    }
+
+
     //在redis中设置键值对存储
     public static void setToken(String userId, String token, int day) {
         int second = day * 60 * 60 * 24;
         JedisUtils.init();
         jedis.set(userId, token); //根据username存储token
         jedis.expire(userId, second);  //设置token持续时间
-        System.out.println("*******");
     }
 
     public static String getToken(String userId) {
@@ -38,6 +42,15 @@ public class JedisUtils {
         } else {
             return false;
         }
+    }
+    public static void set(String key ,Object object){
+        int second = 7 * 60 * 60 * 24;
+        JedisUtils.init();
+        jedis.set(key.getBytes(),SerializeUtil.serialize(object));
+        jedis.expire(key,second);
+    }
+    public static Object get(String key){
+        return SerializeUtil.unserialize(jedis.get(key.getBytes()));
     }
 
 }

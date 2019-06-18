@@ -24,4 +24,11 @@ public class navOperation {
     @RequestMapping(value = "/nologin")
     private String nologin(){return "error/nologin";}
 
+    @RequestMapping(value = "/game")
+    private String some(){return "error/game";}
+
+    @RequestMapping(value = "/search")
+    private String search(){return "search/resultlist";}
+
+
 }

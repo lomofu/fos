@@ -1,8 +1,17 @@
-/*修改	整合部分样式为全局样式*/
 /*全局设置*/
 body {
 	background: #f0f0f0;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+/*图片*/
+img {
+	width: 100%;
+	height: 100%;
+}
+
+p {
+	font-size: 0.95em;
 }
 
 /* 主页面 */
@@ -10,16 +19,15 @@ body {
 	margin: auto;
 	width: 64rem;
 	height: 62.5rem;
-	background: #f0f0f0;
 }
 
 /* 顶部 */
 #top {
 	width: 100%;
 	height: 25.5rem;
-
 	/*设置背景图片*/
 	background-image: url("/filmos/resources/images/usercentre/usercentre.jpg");
+	/*background: url(../img/bg2.jpg);*/
 	background-repeat: repeat;
 }
 
@@ -37,18 +45,15 @@ body {
 	background: wheat;
 	border: white solid 1.5px;
 	float: left;
-	
 }
 
 /* 用户名 */
 #userName {
 	margin-top: 10px;
 	margin-left: 110px;
-
 	font-size: 3.35em;
 	font-weight: bold;
 	color: white;
-
 }
 
 /*关注数，收藏数与影评数*/
@@ -91,7 +96,7 @@ body {
 /* 左侧 */
 #left {
 	position: relative;
-	top: 50px;
+	top: 46.5px;
 	margin-top: 0.875rem;
 	margin-right: 0.4375rem;
 	width: 43.75rem;
@@ -99,25 +104,129 @@ body {
 	float: left;
 }
 
-/* 我的影评 */
-.myComment {
-	
+/*我的影评*/
+#userComment {
+	width: 95%;
+	margin: 20px auto;
 }
 
-/* 回复我的 */
-.replyMe {
-	
+/*删除按钮*/
+.delBtn {
+	background: black;
+	position: relative;
+	left: 94%;
+	top: 10px;
+	cursor: pointer;
+	color: gray;
 }
 
-/* 我的关注 */
-.myFollow {
-	
+.delBtn:hover {
+	color: red;
+}
+
+/*回复我的*/
+#userreply {
+	margin: 20px auto;
+	width: 95%;
+}
+
+/*我的关注*/
+/*左侧关注列表*/
+#LfollowList {
+	width: 90%;
+	margin: 20px auto;
+	overflow: hidden;
+}
+/* 单个关注区域大小 */
+#LfollowList ul li {
+	margin-bottom: 40px;
+	margin-right: 15px;
+	border-radius: 5px;
+	width: 47%;
+	height: 4.5em;
+	float: left;
+	word-break: break-all;
+}
+
+/* 关注者头像 */
+.LFuserPic {
+	float: left;
+	margin-right: 20px;
+}
+
+
+/* 用户名 */
+.LFuserName {
+	width: 15em;
+	height: 50%;
+	line-height: 2em;
+	float: left;
+}
+
+/* 访问主页 */
+.Goto {
+	width: 7.5em;
+	height: 50%;
+	float: left;
+}
+/* 访问主页按钮 */
+.GotoBtn {
+	width: 6em !important;
+}
+
+/* 取消关注 */
+.Cancel {
+	width: 7.5em;
+	height: 50%;
+	float: left;
+	margin-left: -14%;
+}
+/* 取消关注按钮 */
+.CancelBtn {
+	margin-right: 10px !important;
+	width: 6em !important;
+	float: right !important;
 }
 
 /*我的收藏*/
-.myCollect {
-
+/* 左侧收藏列表 */
+#LcollectList {
+	width: 90%;
+	margin: 30px auto;
+	overflow: hidden;
 }
+/* 单个收藏区域大小 */
+#LcollectList ul li {
+	margin-bottom: 38px;
+	margin-right: 72px;
+	border-radius: 5px;
+	width: 21.5%;
+	height: 17em;
+	float: left;
+	word-break:break-all;
+}
+
+/* 收藏电影的海报图 */
+.LCollectPic {
+	width: 100%;
+	height: 13.5em;
+}
+
+/* 收藏电影的电影名 */
+.LCollectName {
+	width: 100%;
+	height: 2.5em;
+	text-align: center;
+}
+
+/* 收藏日期 */
+.LCollectDate {
+	width: 100%;
+	height: auto;
+	font-size: 0.8em;
+	color: gray;
+}
+
 
 /* 右侧 */
 #right {
@@ -129,20 +238,52 @@ body {
 	height: 28.125rem;
 	background: white;
 	float: right;
+	box-shadow: 2px 3px 5px 0px #0000001a;
 }
 
 /* 右侧盒子（关注与收藏） */
 .rightbox {
 	margin: auto;
 	width: 90%;
-	height: 9.375rem;
+	height: 8.375rem;
+}
+/* 右侧列表样式 */
+.rightbox ul {
+	list-style: none;
+}
+.rightbox ul li {
+	float: left;
+	width: 80px;
+	height: auto;
+	margin-top: 10px;
+	margin-left: 10px;
+
+	word-break:break-all;
 }
 
 /* 关注 */
 .follow {
 	margin: auto;
 	width: 5rem;
-	height: 7.5rem;
+	height: 5rem;
+}
+
+/*关注用户*/
+.Fuser {
+	width: 4.5em;
+	height: 4.5em;
+	margin: 0 auto;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: all 0.3s;
+}
+
+/*关注用户的用户名*/
+.FuserName {
+	width: 100%;
+	height: 3em;
+	text-align: center;
+	font-size: 0.9em;
 }
 
 /* 收藏 */
@@ -152,65 +293,53 @@ body {
 	height: 7.5rem;
 }
 
+/*收藏电影*/
 .movie {
 	width: 100%;
 	height: 100%;
-	transition: all 0.3s;
 }
 
-.movie:hover {
-	margin: auto;
-	width: 110%;
-	height: 110%;
-	transform: scale(1.1);
-}
-
+/*收藏的电影名*/
 .movieName {
 	text-align: center;
 	font-size: 0.9em;
+	margin-top: 12px;
 }
 
-/* 列表 */
-.rightbox ul {
-	list-style: none;
-	float: left;
-}
 
-.rightbox ul li {
-	float: left;
-	margin-top: 10px;
-	margin-left: 10px;
-}
-
-/* 分割线 */
-.hr {
-	width: 90%;
-	height: 0.0625rem;
-	margin: auto;
-}
-
-h4 {
+/*右侧标题*/
+.h4 {
 	line-height: 2em;
-	font-size: 1.45em;
+	font-size: 14px;
 	text-align: center;
-}
-
-p {
-	text-indent: 2em;
-	font-size: 0.95em;
-}
-
-img {
-	width: 100%;
-	height: 100%;
+	margin-top: -6%;
+	padding: 2%;
+	color: white;
+	background: rgb(255, 193, 7);
 }
 
 #id{
 	position: relative;
 	top: 25px;
 }
-
-.layui-tab-content{
+#userComment {
+	width: 95%;
+	margin: 20px auto;
+}
+/*删除按钮*/
+.delBtn {
+	background: black;
 	position: relative;
-	top: 25px;
+	left: 94%;
+	top: 10px;
+	cursor: pointer;
+	color: gray;
+}
+
+.delBtn:hover {
+	color: red;
+}
+
+.collect{
+	margin: -9% auto;
 }

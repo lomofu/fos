@@ -26,9 +26,10 @@ img {
     height: auto !important;
     text-align: center;
     font-size: 25px !important;
-    color: GrayText !important;
+    color: white !important;
     margin: 0 auto;
     z-index: 10;
+    cursor: pointer;
 }
 .title1:hover {
     color: #00a567 !important;
@@ -56,20 +57,19 @@ img {
 
 /* 图片排行榜 */
 #NoList {
-    margin: 20px auto;
+    margin: 40px auto;
     width: 80%;
     height: 380px;
-    padding: 40px 100px 100px 100px;
+    padding: 40px 100px 150px 100px;
     background: black;
-    box-shadow: white 0px 0px 10px;
 }
 
 /*浏览更多*/
 .More\+1 {
     float: right;
-    margin-right: 100px;
+    margin-right: 6px;
     font-size: 14px;
-    color: #00a567;
+    color: #ff0000;
 }
 .More\+1:hover {
     color: #00d5aa;
@@ -337,6 +337,6 @@ img {
     position: absolute;
     font-size: 65px!important;
     margin-top: -1%;
-    margin-left: 38%;
+    margin-left: 30%;
     color: #ff0000ad;
 }

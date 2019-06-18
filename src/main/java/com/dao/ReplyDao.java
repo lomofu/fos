@@ -11,6 +11,10 @@ public interface ReplyDao {
 
     ArrayList<VeiwMovieReply> queryRelyByUserId(Integer userId);
 
+    int queryRelyByCommentIdCount(Integer commentId);
+
+    int queryRelyByUserIdCount(Integer userId);
+
     int inserMovieReply(MovieReply movieReply);
 
     int delectMovieReply(MovieReply movieReply);

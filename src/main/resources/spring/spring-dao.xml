@@ -10,7 +10,7 @@
 
     <!-- 配置整合mybatis过程 -->
     <!--1.配置数据库相关参数通过jdbc.properities文件中的属性-->
-    <context:property-placeholder location="classpath:jdbc.properties,classpath:redis.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties,classpath:redis.properties,classpath:pagehelper.properties"/>
 
 
     <!--2.数据库连接池-->
@@ -44,6 +44,19 @@
         <property name="typeAliasesPackage" value="com.entity"/>
         <!--扫描sql配置文件mapper需要xml文件-->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--添加pagehelper插件-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            ${pagehelper.helper-dialect}
+                            ${pagehelper.reasonable}
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!--4.配置扫描dao接口包，动态实现dao接口，注入spring容器中-->
@@ -65,6 +78,7 @@
         <property name="maxIdle" value="${redis.maxIdle}"/>
         <property name="maxWaitMillis" value="${redis.maxWait}"/>
         <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+        <property name="minIdle" value="${redis.minIdle}"/>
     </bean>
     <!-- redis连接工厂 -->
     <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">

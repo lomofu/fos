@@ -20,7 +20,7 @@
     <div class="layui-row layui-col-space30">
         <div class="layui-col-md8">
             <div class="layui-tab layui-tab-card layui-card">
-                <ul class="layui-tab-title">
+                <ul class="layui-tab-title" style="background: #1bb7a5;color: white">
                     <li class="layui-this">我的资料</li>
                     <li>修改密码</li>
                 </ul>
@@ -32,7 +32,7 @@
                             <h3 style="position: relative;top: -33px;left: 58px;">个人资料</h3></div>
                         <div class="layui-card-body" style="height: 600px">
                             <div class="layui-bg layui-bg-green"
-                                 style="height: 35px;position: relative;top:30px;text-align: center;font-size: 14px"><span
+                                 style="height: 35px;position: relative;top:30px;text-align: center;font-size: 14px;background: #cfbc9a !important"><span
                                     style="position:relative;top: 5px;">基本资料</span></div>
                             <form style="position: relative;top:60px;text-align: left" class="layui-form"
                                   onsubmit="false">
@@ -94,7 +94,7 @@
 
                     <div class="layui-tab-item replyMe layui-anim layui-anim-upbit">
                         <div class="layui-icon layui-icon-password hvr-pulse-grow"
-                             style="font-size: 100px;position: relative;left: 76px;top: 37px;cursor: pointer"
+                             style="font-size: 100px;position: relative;left: 43%;top: 37px;cursor: pointer"
                              onclick="modifypassword()">
                         </div>
                         <br><br><br><br><br><br><br>
@@ -104,17 +104,16 @@
         </div>
     </div>
 
-    <div class="layui-col-md5" style="position: absolute;top: 17px;right: 67px;width: 310px;">
-        <div class="layui-card" style="height: 300px">
-            <div class="layui-card-header" style="height: 60px;text-align: center">
-                <div class="layui-icon layui-icon-picture" style="font-size: 30px;position: relative;top: 6px;"></div>
-                <h3 style="position: relative;top: -12px;left: 1px;font-size: 15px;color: white">修改头像</h3></div>
+    <div class="layui-col-md5" style="position: absolute;top: 20px;right: 67px;width: 310px;">
+        <div class="layui-card" style="margin-top: 3%;height: 300px;">
+            <div class="layui-card-header" style="font-size: 28px;position: relative;top: -5px;background: #1bb7a5;color: white">
+                <div class="layui-icon layui-icon-picture" style="font-size: 28px;position: relative;top: 2px;margin-left: 32%;"></div>
+                <h3 style="position: relative;top: -39px;left: 129px;font-size: 15px;color: white;">修改头像</h3></div>
             <div class="layui-card-body">
                 <img src="/img/${user.userImg}" class="layui-upload-img" id="user-img"
-                     style="width: 100px;height: 100px;position: relative;left: 88px;background-color: #0F9E5E">
-                <hr>
+                     style="width: 100px;height: 100px;position: relative;left: 88px;background-color: #dcdddd7a">
                 <div class="layui-upload" style="text-align: center">
-                    <button type="button" class="layui-btn" id="choose" style="width: 80px">选择图片</button>
+                    <button type="button" class="layui-btn" id="choose" style="width: 80px;margin-top: 6%">选择图片</button>
                     <button type="button" class="layui-btn  layui-btn-danger layui-anim layui-anim-upbit" id="upload"
                             style="width: 80px;display: none;position: relative;left: 100px;top: 20px;" >开始上传
                     </button>
@@ -300,6 +299,7 @@
 
     function modifypassword() {
         layer.open({
+            title:'修改密码',
             type: 1,
             skin: 'layui-layer-rim', //加上边框
             area: ['400px', '340px'], //宽高

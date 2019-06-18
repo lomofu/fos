@@ -94,6 +94,7 @@ $(function () {
                     $("#customer1").css('display', 'none');
                     layer.msg(data.msg, {
                         icon: 0, time: 700, end: function () {
+                            localStorage.removeItem('token');
                             location.reload();
                         }
                     })
@@ -146,6 +147,7 @@ $(function () {
     $('#search').click(function () {
         if ($("#search-bar").hasClass("yijingdianjile")) {
             $("#search-bar").css("display", "none");
+            // document.getElementById("#search-bar").style.display='none';
             $("#search-bar").removeClass("yijingdianjile");
         } else {
             document.getElementById("search-bar").className = 'animated flipInX';

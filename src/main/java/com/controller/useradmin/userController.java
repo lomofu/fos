@@ -4,7 +4,6 @@ import com.dto.Layui;
 import com.entity.User;
 import com.service.UserService;
 import com.util.HttpServletRequestUtil;
-import com.util.JWTUtils;
 import com.util.JedisUtils;
 import com.util.SpringMD5;
 import com.validator.ValidatorFactory;
@@ -36,46 +35,8 @@ public class userController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    private Layui loginUser(HttpServletRequest request, @RequestBody User user) throws Exception {
-        //数据库结果
-        User result = new User();
-        //前端传回来的用户名和密码
-        String username = user.getUserName();
-        String password = SpringMD5.passwordMD5(user.getPassword());
-
-        if (username.matches("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$")) {
-            user.setEmail(username);
-            result = userService.login(user);
-
-        } else if (username.matches("^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$")) {
-            user.setPhone(username);
-            result = userService.login(user);
-        } else {
-            user.setUserName(username);
-            result = userService.login(user);
-        }
-        return valicatePassword(result, password, request);
-
-    }
-
-    private Layui valicatePassword(User result, String password, HttpServletRequest request) throws Exception {
-        if (result != null) {
-            if (result.getPassword().equals(password)) {
-                    //根据id创建token
-                    String token = JWTUtils.createToken(String.valueOf(result.getUserId()));
-                    //放入缓存
-                    JedisUtils.setToken(String.valueOf(result.getUserId()), token, 7);
-                    //将用户结果放入session
-                    request.getSession().setAttribute("user", result);
-                    return Layui.select(1, result, "登录成功！", token);
-            } else {
-                return Layui.fail("密码错误！");
-            }
-
-        } else {
-            return Layui.fail("用户不存在！");
-
-        }
+    private Layui loginUser(HttpServletRequest request, @RequestBody User user)  {
+      return userService.login(user,request);
     }
 
 
@@ -155,7 +116,7 @@ public class userController {
     private Layui updateUser(@RequestBody User user, HttpSession session) {
         if (user != null) {
             userService.updateUserInfo(user);
-            session.setAttribute("user", userService.login(user));
+            session.setAttribute("user", userService.find(user));
             return Layui.success("更新信息成功!");
 
         } else {
@@ -200,7 +161,7 @@ public class userController {
         User user = (User) session.getAttribute("user");
         if (multipartFile != null && multipartFile.getSize() > 0 && user != null) {
             userService.updateUserImg(user, multipartFile.getInputStream(), multipartFile.getOriginalFilename());
-            session.setAttribute("user", userService.login(user));
+            session.setAttribute("user", userService.find(user));
             return Layui.success("更新头像成功！", user.getUserImg());
 
         } else {

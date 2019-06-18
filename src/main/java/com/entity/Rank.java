@@ -1,34 +1,21 @@
 package com.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * 排名
  */
-public class Rank {
+@Setter
+@Getter
+public class Rank implements Serializable {
     private Integer rankId;
     private Integer movieId;
     private Integer avgStart;
+    private Integer count;
+    private Date createTime;
 
-    public Integer getRankId() {
-        return rankId;
-    }
-
-    public void setRankId(Integer rankId) {
-        this.rankId = rankId;
-    }
-
-    public Integer getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Integer movieId) {
-        this.movieId = movieId;
-    }
-
-    public Integer getAvgStart() {
-        return avgStart;
-    }
-
-    public void setAvgStart(Integer avgStart) {
-        this.avgStart = avgStart;
-    }
 }

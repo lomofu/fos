@@ -6,6 +6,15 @@
 
 
 <mapper namespace="com.dao.InfoDao">
+
+    <select id="queryAllInfoCount" resultType="java.lang.Integer">
+        SELECT COUNT(info_id) AS TOTAL FROM tb_info;
+    </select>
+
+    <select id="queryOnlyThree" resultType="com.vo.VeiwInfo">
+        SELECT info_id,title,info_content FROM tb_info ORDER BY create_time DESC LIMIT 2;
+    </select>
+
     <select id="queryAllInfo" resultType="com.vo.VeiwInfo">
         SELECT
         i.info_id,
@@ -21,6 +30,9 @@
         tb_admin a
         WHERE
         i.admin_id=a.admin_id
+        ORDER BY
+        i.create_time
+        DESC
     </select>
 
 

@@ -103,8 +103,9 @@ img {
 /* 话题关键字 */
 .HTkeyword {
 	margin-top: 5px;
-	font-size: 14px;
+	font-size: 17px;
 	font-weight: bold;
+	width: 100%;
 }
 
 /* 话题简述 */

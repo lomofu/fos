@@ -140,7 +140,7 @@
 	line-height: 21px;
 	font-size: 15px;
 	color: #666666cc;
-	left: 1.5%;
+	left: 6.5%;
 }
 
 /* 偏移 */
@@ -153,12 +153,13 @@
 
 /* 评论信息 */
 .commentInfo {
-	margin-right: 7%;
+	margin-right:24%;
 	position: relative;
 	text-indent: 10em;
 	font-size: 0.9em;
 	color: gray;
 	top: -19px;
+	left: -6%;
 }
 
 /* 评论日期 */
@@ -180,7 +181,7 @@
 /* 用户名 */
 .CuserName {
 	margin-top: 5px;
-	margin-left: 10px;
+	margin-left: 27px;
 	color: #4E5465;
 	font-size: 1.5em;
 	cursor: pointer;
@@ -188,16 +189,17 @@
 
 /* 回复者头像 */
 .RuserPic {
+	margin: 26% 18%;
 	width: 40px;
 	height: 40px;
 	background: wheat;
-	border: #00F7DE solid 1.5px;
 	border-radius: 20px;
 	cursor: pointer;
 }
 
 /* 回复者名 */
 .RuserName {
+	margin: 5% 8%;
 	color: #4E5465;
 	font-size: 1.2em;
 	cursor: pointer;
@@ -205,6 +207,7 @@
 
 /* 回复评论正文 */
 .RcommentText {
+	margin: -2% 0%;
 	color: gray;
 	width: 100%;
 	word-wrap: break-word;
@@ -217,9 +220,10 @@
 
 /* 回复评论信息 */
 .RcommentInfo {
-	text-indent: 2em;
+	text-indent: -7em;
 	font-size: 0.9em;
 	color: gray;
+	margin: 3% -31%;
 }
 
 /* 回复日期 */
@@ -284,8 +288,14 @@ label {
 	color: #009F95;
 }
 
-.replys{
 
-	display:none;
-
+#toCollect {
+	width: 80px;
+	font-size: 38px;
+	color: #FFFF00;
+	cursor: pointer;
+	position: relative;
+	top: 406px;
+	left: 78%;
+	z-index: 999;
 }

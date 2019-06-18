@@ -1,0 +1,100 @@
+/* 全局设置 */
+body {
+	background: #F0F0F0;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+label {
+	text-align: center;
+}
+
+/* 搜索框 */
+#Ssearch-bar-text {
+	z-index: 998;
+	margin: 20px 10px 20px 5% !important;
+	width: 500px !important;
+	height: 30px !important;
+	font-size: 1.1em;
+	float: left;
+	background-color: #DDDDDD;
+	color: #23262E;
+	border-radius: 5px;
+}
+
+/*搜索按钮*/
+#searchBtn {
+	float: left;
+	font-size: 1.1em;
+	margin: 20px 10px 20px 0 !important;
+	width: 70px!important;
+	height: 30px!important;
+	line-height: 30px!important;
+	cursor: pointer!important;
+}
+
+/* 显示结果区域 */
+#resultArea {
+	width: 100%;
+	height: auto;
+	padding-top: 30px;
+	margin: 10px auto;
+	overflow: hidden;
+	background: white;
+	border-radius: 5px;
+	box-shadow:0 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 结果列表 */
+#resultList {
+	margin: 30px auto;
+	width: 90%;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
+}
+#resultList thead tr th {
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background: #009F95;
+	border: 0;
+}
+#resultList tbody tr td {
+	border: 0;
+}
+
+/* 电影图片 */
+.moviePic {
+	float: left;
+}
+
+/* 电影名 */
+.movieName, .year, .country, .movieDate, .movieType, .movieTime {
+	font-size: 16px;
+}
+
+/* 电影评分 */
+.movieScore {
+	font-family: fantasy;
+	color: #ffcc00;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+}
+
+/*分页条*/
+#demo7 {
+	width: 60%;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background: white;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow:0 0px 10px rgba(0, 0, 0, 0.2);
+}

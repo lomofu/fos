@@ -2,10 +2,15 @@ package com.dao;
 
 
 import com.vo.VeiwMovie;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
 
 public interface MovieDao {
+
+    int queryAllMovies();
+
+    int queryTypeMovies(Integer typeId);
 
     ArrayList<VeiwMovie> queryAllMovie();
 
@@ -15,5 +20,6 @@ public interface MovieDao {
 
     VeiwMovie queryByMovieIdInfo(Integer movieId);
 
+    ArrayList<VeiwMovie> queryByMoieName(@Param("movieName") String movieName);
 
 }

@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="bottominfo">
-    <img src="${pageContext.request.contextPath}/resources/images/index/blackicon.png" style="width: 84px;height: auto;position:relative;left: 1.3%;">
+    <img id="some" src="${pageContext.request.contextPath}/resources/images/index/blackicon.png" style="width: 84px;height: auto;position:relative;left: 1.3%;cursor: pointer" >
     <br>
     <img src="${pageContext.request.contextPath}/resources/images/index/bgB.png" style="width: 155px;height: auto;position:relative;left: 1%" >
     <br><br><br>
@@ -25,5 +25,25 @@
     <br>
     <p>Copyright © Assessment</p>
 </div>
+
+
+<script>
+    $=layui.$;
+    var index=10;
+    $('#some').click(function () {
+        if(index==10){
+            layer.msg('你刚刚点了它一下');
+        }
+        if(index<6){
+            layer.msg('还差'+index+'次');
+        }
+        if(index<1){
+            location.href="/filmos/game";
+            return false;
+        }
+        index--;
+    })
+</script>
+
 </body>
 </html>

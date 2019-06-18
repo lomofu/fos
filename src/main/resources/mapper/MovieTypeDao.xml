@@ -5,33 +5,7 @@
 
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.MovieTypeDao">
-
     <select id="queryAllMovieType" resultType="MovieType">
        SELECT type_id,type_name FROM tb_movie_type;
     </select>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </mapper>

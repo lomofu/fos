@@ -58,9 +58,7 @@
 
                     <!-- 插入新闻内容 -->
                     <p>
-                        新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新
-                        新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新
-                        新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新
+
                     </p>
                 </div>
 
@@ -71,61 +69,27 @@
         <div class="layui-col-lg3 ">
             <div id="hotTopic">
                 <div id="HTtitle">
-                    Hot Topic!!!
+                   最新咨询!!!
                 </div>
 
                 <!-- 展示效果 -->
                 <!--单个话题 -->
+                <span class="hottopiccontext">
                 <div class="HT">
                     <div class="layui-row">
                         <!-- 话题图片 -->
-                        <div class="layui-col-lg3">
-                            <div class="HTpic">
-                                <img src="img/admin.jpg">
-                            </div>
-                        </div>
+
 
                         <div class="layui-col-lg9 ">
                             <!-- 话题关键字 -->
                             <a href="">
                                 <div class="HTkeyword">
-                                    #蔡徐坤nmsl#
                                 </div>
                             </a>
                             <!-- 话题简述 -->
-                            <a href="" title="练习时长两年半的个人练习生，喜欢唱，跳，rap，篮球。music！鸡你太美">
-                                <div class="HTinfo">
-                                    练习时长两年半的个人练习生，喜欢唱，跳，rap，篮球。music！鸡你太美
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-                    <!-- /单个话题 -->
-                </div>
-
-                <!-- 插入标注 -->
-                <!-- 单个话题 -->
-                <div class="HT">
-                    <div class="layui-row">
-                        <!-- 话题图片 -->
-                        <div class="layui-col-lg3">
-                            <div class="HTpic">
-                                <!-- 插入图片 -->
-                            </div>
-                        </div>
-
-                        <div class="layui-col-lg9 ">
-                            <!-- 话题关键字-->
                             <a href="">
-                                <div class="HTkeyword">
-                                    <!-- 插入话题关键字 -->
-                                </div>
-                            </a>
-                            <!-- 话题简述 (title的值为话题简述全文) -->
-                            <a href="" title="">
                                 <div class="HTinfo">
-                                    <!-- 插入话题简述 -->
+
                                 </div>
                             </a>
                         </div>
@@ -133,6 +97,8 @@
                     </div>
                     <!-- /单个话题 -->
                 </div>
+            </span>
+
 
             </div>
         </div>

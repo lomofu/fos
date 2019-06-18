@@ -1,0 +1,148 @@
+/*全局设置*/
+body {
+    background: #F0F0F0;
+    color: black;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+/*图片*/
+img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/*排行榜*/
+#TopList {
+    margin-bottom: 50px;
+    background: url("/filmos/resources/images/top/摺皱纸张纹理高清图片1_lanrentuku.com.jpg");
+    box-shadow: 5px 5px 15px 0px #0000401f;
+    /* background: black; */
+    padding: 30px 50px;
+
+}
+
+/*Top1*/
+#Top1 {
+    width: 800px;
+    height: 900px;
+    margin: auto;
+}
+#Top1Name {
+    width: 100%;
+    height: 6.5%;
+    font-weight: bold;
+    position: relative;
+    top: -15px;
+}
+#Top1Pic {
+    width: 90%;
+    height: 93.5%;
+    margin: 0 auto;
+    box-shadow: 5px 5px 15px 0px #0000401f;
+}
+
+/* 排行榜标题 */
+#Top20 {
+    float: left;
+    width: 100%;
+    height: 100px;
+    font-size: 5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 50px auto;
+    text-shadow: -1px 1px 20px #edfb0747;
+}
+
+/* Top2，Top3所在区域 */
+#Top2and3{
+    height: 420px;
+    width: 800px;
+    margin: auto;
+}
+
+/*Top2跟Top3*/
+#Top2, #Top3 {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+#Top2Name, #Top3Name {
+    width: 20%;
+    height: 100%;
+    float: left;
+    font-weight: bold;
+
+    /* 顺时针旋转90° */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+    position: relative;
+    top: -41.5%;
+    left: -45.5%;
+}
+/* 文本区域 */
+.text {
+    height: 80px;
+    width: 500px;
+}
+#Top2Pic, #Top3Pic {
+    width: 80%;
+    height: 100%;
+    float: left;
+    box-shadow: 5px 5px 15px 0px #0000401f;
+}
+
+/* Top4~Top20标题 */
+#Top420{
+    padding: 60px 0;
+    position: relative;
+    top: 30px;
+    left: 0;
+    text-align: center;
+    font-size: 5em;
+    font-weight: 800;
+    text-shadow: -1px 1px 20px #edfb0747;
+}
+
+/*Top4~20的电影名*/
+.TopO {
+    background: #C2BE9E;
+    width: 98%;
+    height: auto;
+    margin-left: 2%;
+    padding: 2px;
+    font-size: 22px;
+    text-indent: 3em;
+    cursor: pointer;
+    border-radius: 5px 10px 10px 5px;
+    box-shadow: 5px 5px 10px 0px #00000024;
+    color: #393D49;
+    transition: all 0.6s;
+}
+.TopO:hover {
+    transform: scale(1.02);
+}
+
+/* Top数 */
+.TopNum {
+    background: #000000;
+    color: white;
+    width: 8%;
+    height: 25px;
+    border-radius: 5px 5px 20px 5px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 0.7em;
+    position: relative;
+    top: -35px;
+}

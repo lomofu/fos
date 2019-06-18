@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.entity.User;
-import org.apache.ibatis.annotations.Param;
 
 public interface UserDao {
     User selectUser(User user);

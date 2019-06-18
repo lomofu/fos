@@ -6,6 +6,14 @@
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.MovieDao">
 
+    <select id="queryAllMovies" resultType="java.lang.Integer">
+         SELECT COUNT(movie_id)AS TOTAL FROM tb_movie;
+    </select>
+
+    <select id="queryTypeMovies" resultType="java.lang.Integer">
+         SELECT COUNT(movie_id)AS TOTAL FROM tb_movie WHERE type_id=#{typeId};
+    </select>
+
     <select id="queryAllMovie" resultType="com.vo.VeiwMovie">
         SELECT
         m.movie_id,
@@ -118,4 +126,28 @@
         m.movie_id=#{movieId}
     </select>
 
+    <select id="queryByMoieName" parameterType="java.lang.String" resultType="com.vo.VeiwMovie">
+        SELECT
+        m.movie_id,
+        m.movie_name,
+        t.type_name,
+        m.on_time,
+        m.movie_time,
+        m.language,
+        m.country,
+        m.movie_img,
+        avg (c.start) as start
+        FROM
+        tb_movie m,
+        tb_movie_type t,
+        tb_movie_comment c
+        WHERE
+        m.type_id = t.type_id
+        AND
+        m.movie_id = c.movie_id
+        AND
+        m.movie_name LIKE "%" #{movieName} "%"
+        GROUP BY
+        c.movie_id
+    </select>
 </mapper>

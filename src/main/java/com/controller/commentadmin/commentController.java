@@ -33,6 +33,19 @@ public class commentController {
     @Autowired
     private PushService pushService;
 
+
+    @RequestMapping(value = "usercommentcount",method = RequestMethod.GET)
+    @ResponseBody
+    private Layui getUserCommentCount(HttpServletRequest request){
+        Integer userId = HttpServletRequestUtil.getInt(request, "userid");
+        int num=commentService.getAllCommentCountByUserId(userId);
+        if (num>0){
+            return Layui.success("用户影评总数查询成功！",num);
+        }else {
+            return Layui.fail("用户影评总数为0!");
+        }
+    }
+
     /**
      * 查询一个用户的所有影评
      *
@@ -43,15 +56,29 @@ public class commentController {
     @ResponseBody
     private Layui getUserComment(HttpServletRequest request) {
         List<ViewUserComment> list = new ArrayList<ViewUserComment>();
-        Integer userId = HttpServletRequestUtil.getInt(request, "userId");
-        list = commentService.getAllCommentByUserId(userId);
+        Integer userId = HttpServletRequestUtil.getInt(request, "userid");
+        Integer pageNum = HttpServletRequestUtil.getInt(request,"pagenum");
+        list = commentService.getAllCommentByUserId(userId,pageNum,5);
         if (list.size() > 0) {
             return Layui.select(list.size(), list, "查询用户影评成功！");
         } else {
-            User user=userService.selectByUserId(userId);
-            return Layui.fail("此用户暂无影评！",user);
+            return Layui.fail("此用户无评论！");
         }
 
+
+    }
+
+
+    @RequestMapping(value = "moviecommentcount",method = RequestMethod.GET)
+    @ResponseBody
+    private Layui getMovieCommentCount(HttpServletRequest request){
+        Integer movieId=HttpServletRequestUtil.getInt(request,"movieid");
+        int num=commentService.getAllCommentCountByMovieId(movieId);
+        if (num>0){
+            return Layui.success("该电影的所有影评数查询成功！",num);
+        }else {
+            return Layui.fail("该电影的所有影评数为0");
+        }
 
     }
 
@@ -66,7 +93,8 @@ public class commentController {
     private Layui getMovieComment(HttpServletRequest request) {
         List<VeiwMovieComment> list = new ArrayList<VeiwMovieComment>();
         Integer movieId = HttpServletRequestUtil.getInt(request, "movieid");
-        list = commentService.getAllCommentByMovieId(movieId);
+        Integer pageNum = HttpServletRequestUtil.getInt(request,"pagenum");
+        list = commentService.getAllCommentByMovieId(movieId,pageNum,5);
         if (list.size() > 0) {
             return Layui.select(list.size(), list, "查询电影影评成功！");
         } else {
@@ -84,7 +112,6 @@ public class commentController {
     @RequestMapping(value = "addcomment", method = RequestMethod.POST)
     @ResponseBody
     private Layui addComment(@RequestBody MovieComment movieComment) {
-        List list=new ArrayList();
         movieComment.setCreateTime(new Date());
         movieComment.setState(0);
         if (movieComment.getStart() == null) {

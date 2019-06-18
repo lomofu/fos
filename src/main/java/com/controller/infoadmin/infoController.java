@@ -20,16 +20,43 @@ public class infoController {
     @Autowired
     private InfoService infoService;
 
+    @RequestMapping(value = "infolistcount")
+    @ResponseBody
+    private Layui getAllInfdCount(HttpServletRequest request){
+        int num=infoService.getAllInfoCount();
+        if (num>0){
+            return Layui.success("咨询列表总数查询成功",num);
+
+        }else {
+            return  Layui.fail("咨询列表为空");
+        }
+    }
+
+
     @RequestMapping(value = "infolist",method = RequestMethod.GET)
     @ResponseBody
     private Layui getAllInfo(HttpServletRequest request){
+        int pageNum=HttpServletRequestUtil.getInt(request,"pagenum");
         List<VeiwInfo> list=new ArrayList<VeiwInfo>();
-        list=infoService.selectAllInfo();
+        list=infoService.selectAllInfo(pageNum,5);
         if (list.size()>0){
             return Layui.select(list.size(),list,"查询新闻成功!");
         }else {
             return Layui.fail("查询新闻失败！");
         }
+    }
+
+    @RequestMapping(value = "three",method = RequestMethod.GET)
+    @ResponseBody
+    private Layui getOnlyThree(HttpServletRequest request){
+        List<VeiwInfo> list=new ArrayList<>();
+        list=infoService.selectOnlyThree();
+        if (list.size()>0){
+            return Layui.select(list.size(),list,"查询最新咨询成功!");
+        }else {
+            return Layui.fail("查询最新咨询失败！");
+        }
+
     }
 
     @RequestMapping(value = "info",method = RequestMethod.GET)
@@ -43,4 +70,7 @@ public class infoController {
             return Layui.fail("查询一条新闻失败！");
         }
     }
+
+
+
 }

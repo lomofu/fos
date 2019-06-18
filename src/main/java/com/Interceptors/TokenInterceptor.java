@@ -16,16 +16,22 @@ public class TokenInterceptor implements HandlerInterceptor {
         System.out.println("=====================================================");
         System.out.println("*********************执行拦截************************");
         System.out.println("=====================================================");
+
         //拿到用户请求的token
         String token = (String) request.getHeader("Authorization");
+        System.out.println();
+        System.out.println("请求的token："+token);
+        System.out.println();
+
 
         //没有token
-        if (token==null) {
+        if (token==null||token.isEmpty()) {
             System.out.println("=====================================================");
             System.out.println("*********************未登录状态************************");
             System.out.println("=====================================================");
             response.sendRedirect(request.getContextPath());
             return false;
+
         } else {
 
             //缓存中的token

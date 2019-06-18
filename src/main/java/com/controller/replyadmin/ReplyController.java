@@ -22,6 +22,20 @@ public class ReplyController {
     @Autowired
     private ReplyService replyService;
 
+    /**
+     * 查询
+     */
+    @RequestMapping(value = "/replybyuseridcount")
+    @ResponseBody
+    private Layui getReplyByUserIdCount(HttpServletRequest request){
+        Integer userId=HttpServletRequestUtil.getInt(request,"userid");
+        int num=replyService.getRelyByUserIdCount(userId);
+        if (num>0){
+            return Layui.success("查询该用户回复总数成功",num);
+        }else {
+            return Layui.fail("该用户收到的回复数为0");
+        }
+    }
 
     /**
      * 查询一个用户下的所有回复
@@ -34,7 +48,8 @@ public class ReplyController {
     private Layui getReplyByUserId(HttpServletRequest request) {
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         List<VeiwMovieReply> list = new ArrayList<VeiwMovieReply>();
-        list = replyService.getRelyByUserId(userId);
+        Integer pageNum = HttpServletRequestUtil.getInt(request,"pagenum");
+        list = replyService.getRelyByUserId(userId,pageNum,5);
         if (list.size() > 0) {
             return Layui.select(list.size(), list, "用户回复查询成功！");
         } else {
@@ -42,6 +57,20 @@ public class ReplyController {
         }
     }
 
+    /**
+     * 查询一条影评下的回复总数
+     */
+    @RequestMapping(value = "/replybycommentidcount")
+    @ResponseBody
+    private Layui getReplyByCommentIdCount(HttpServletRequest request){
+        Integer commentId=HttpServletRequestUtil.getInt(request,"commentid");
+        int num=replyService.getRelyByCommentIdCount(commentId);
+        if (num>0){
+            return Layui.success("该影评的所有回复数查询成功",num);
+        }else {
+            return Layui.fail("该影评没有回复");
+        }
+    }
 
     /**
      * 查询一条影评下的所有回复
@@ -55,7 +84,7 @@ public class ReplyController {
         List<VeiwMovieReply>list=new ArrayList<>();
         list=replyService.getRelyByCommentId(commentId);
         if (list.size()>0){
-            return Layui.select(1,list,"单条影评回复查询成功！");
+            return Layui.select(list.size(),list,"单条影评回复查询成功！");
         }else {
             return Layui.fail("当前影评没有回复！");
         }

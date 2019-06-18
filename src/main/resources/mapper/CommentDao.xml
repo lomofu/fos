@@ -6,6 +6,15 @@
 <!--mapper文件用于Mybatis文件的dao操作 -->
 <mapper namespace="com.dao.CommentDao">
 
+    <select id="queryAllCommentCountByMovieId" resultType="java.lang.Integer">
+        SELECT COUNT(comment_id) AS TOTAL FROM tb_movie_comment WHERE state=0 AND flag=0 AND movie_id=#{movieId};
+    </select>
+
+
+    <select id="queryAllCommentCountByUserId" resultType="java.lang.Integer">
+        SELECT COUNT(comment_id) AS TOTAL FROM tb_movie_comment WHERE state=0 AND flag=0 AND user_id=#{userId};
+    </select>
+
     <select id="queryAllCommentByMovieId" resultType="com.vo.VeiwMovieComment">
        SELECT
        c.comment_id,
@@ -60,6 +69,20 @@
     </select>
 
 
+    <select id="selectComment" parameterType="com.entity.MovieComment" resultType="com.entity.MovieComment">
+        SELECT
+        comment_id
+        FROM
+        tb_movie_comment
+        WHERE
+        state=0
+        AND
+        movie_id = #{movie.movieId}
+        AND
+        user_id=#{user.userId}
+    </select>
+
+
     <insert id="insertComment" useGeneratedKeys="true" keyProperty="commentId" keyColumn="comment_id">
       INSERT INTO
       tb_movie_comment(comment_id,movie_id,user_id,content,create_time,start,state)
@@ -90,7 +113,7 @@
         WHERE
         user_id=#{user.userId}
         AND
-        movie_id = #{movie.movieId}
+        comment_id = #{commentId}
     </update>
 
 

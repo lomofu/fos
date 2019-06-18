@@ -1,22 +1,17 @@
 package com.entity;
 
-public class Push {
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.Date;
+
+@Setter
+@Getter
+public class Push implements Serializable {
     private Integer userId;
     private Integer followId;
+    private Integer state;
+    private Date createTime;
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getFollowId() {
-        return followId;
-    }
-
-    public void setFollowId(Integer followId) {
-        this.followId = followId;
-    }
 }

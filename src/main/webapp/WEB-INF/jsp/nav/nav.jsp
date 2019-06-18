@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<img id="icon" src="${pageContext.request.contextPath}/resources/images/index/icon.png" class="hvr-grow-shadow" >
+<img id="icon" src="${pageContext.request.contextPath}/resources/images/index/icon.png" class="hvr-grow-shadow">
 <ul class="layui-nav">
     <li class="layui-nav-item layui-this"><a href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
     <li class="layui-nav-item">
@@ -44,9 +44,7 @@
              style="cursor: pointer;font-size:25px"></div>
     </li>
     <li class="layui-nav-item" id="customer1" style="display: none;position: absolute;top: -5px;right: 176px;">
-        <%--style="display: none;position: absolute!important;top: 0px!important;right: 200px!important;">--%>
         <a style="cursor: pointer"><img src="/img/${user.userImg}" class="layui-nav-img">
-            <%--style="position: absolute!important;top: 7px!important;right: 80px!important;"--%>
             <span style="position: absolute;top: 7px;right: 80px;font-size: 18px;">${user.userName}</span>
         </a>
         <dl class="layui-nav-child">
@@ -60,14 +58,22 @@
 </ul>
 
 <div id="search-bar" style="display: none;z-index: 998">
-    <form class="layui-form layui-form-pane">
         <div class="layui-form-item">
             <div class="layui-input-block" style="background-color: black;left:0px">
-                <input id="search-bar-text" type="text" name="search" placeholder="搜索电影..." class="layui-input">
+                <form action="/filmos/search" onsubmit="false" method="get">
+                <input id="search-bar-text" type="text" name="search" autocomplete="true" placeholder="搜索电影..."
+                       class="layui-input">
+                </form>
             </div>
         </div>
-    </form>
 </div>
+
+
+<div id="searchresult" class="layui-anim layui-anim-upbit ">
+
+</div>
+
+
 <div id="background" class="layui-anim" style="display: none">
     <div id="login-body" style="position: relative">
         <div id="close" class="hvr-buzz-out layui-icon layui-icon-close" style="cursor: pointer"></div>
@@ -98,7 +104,7 @@
             <div class="layui-form-item" id="rem">
                 <label class="layui-form-label"><span style="color: #555555">记住我?</span></label>
                 <div class="layui-input-block">
-                    <input type="checkbox" name="switch" lay-skin="switch">
+                    <input type="checkbox" name="switch" lay-skin="switch" lay-filter="switchTest">
                 </div>
             </div>
         </form>
@@ -208,13 +214,27 @@
 <script src="${pageContext.request.contextPath}/resources/js/common/md5.min.js"/>
 <script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
 <script>
-    $=layui.$;
-    $('#icon').click(function(){$('html,body').animate({scrollTop:$('#bottom').offset().top}, 800);});
-    $('#icon').hover(function () {
+
+    $ = layui.$;
+    $('#icon').click(function () {
+        $('html,body').animate({scrollTop: $('#bottom').offset().top}, 800);
         layer.msg("关于我们")
-    })
+    });
     var form = layui.form;
     //登录表单监听
+    form.on('switch(switchTest)', function (data) {
+        layer.msg('记住我：' + (this.checked ? '开启' : '关闭'), {});
+        console.log(this.checked);
+    });
+
+    $('#login-user').click(function () {
+        layer.tips('用户名是邮箱或者用户名或者手机!', this);
+    });
+
+    $('#login-password').click(function () {
+        layer.tips('密码不能为空!', this);
+    })
+
     form.on('submit(login1)', function (data) {
         var loginusername = $('#login-user').val();
         console.log(loginusername);
@@ -229,7 +249,7 @@
             url: "${pageContext.request.contextPath}/user/login",
             data: login,
             dataType: "json",
-            async:false,
+            async: false,
             contentType: 'application/json;charset=utf-8',
             header: {
                 'Content-Type': 'application/json'
@@ -241,19 +261,14 @@
             success: function (data) {
                 console.log(data);
                 if (data.code == 200) {
-                    localStorage.setItem('token',data.token);
+                    localStorage.setItem('token', data.token);
                     layer.msg(data.msg, {
                         icon: 0, time: 800, end: function () {
-
                             location.href = "${pageContext.request.contextPath}/load";
                         }
                     })
                 } else {
-                    layer.msg(data.msg, {
-                        icon: 2, time: 1000, end: function () {
-                            location.reload();
-                        }
-                    })
+                    layer.msg(data.msg, {icon: 2, time: 1000})
 
                 }
             },
@@ -265,6 +280,7 @@
 </script>
 <script>
     //注册表单监听
+    //# sourceURL=dynamicScript.js
     var form = layui.form;
     $('#user-name').on('click', function () {
         var that = this;
@@ -369,19 +385,19 @@
             url: "${pageContext.request.contextPath}/user/register",
             data: formData,
             dataType: "json",
-            async:false,
+            async: false,
             contentType: false,
             processData: false,
             cache: false,
             beforeSend: function () {
+                layer.load(0, 3000);
                 // 禁用按钮防止重复提交
                 $("#submit-yes1").attr({disabled: "disabled"});
-                layer.load(0, 5000);
             },
             success: function (data) {
                 if (data.code == 200) {
                     layer.msg(data.msg, {
-                        icon: 0, time: 1500, end: function () {
+                        icon: 1, time: 1500, end: function () {
                             location.href = "${pageContext.request.contextPath}/page/success";
                         }
                     })
@@ -400,7 +416,46 @@
     });
 
 
+    $('#search-bar-text').keyup(function () {
+        var getcontent = $('#search-bar-text').val();
+        if (getcontent == '' || getcontent == null) {
+            $('#searchresult').addClass('')
+            document.getElementById("searchresult").style.display = 'none';
+        } else {
+            document.getElementById("searchresult").style.display = 'block';
+            $.get('/filmos/movie/moviename?moviename=' + getcontent+'&pagenum=1', function (res) {
+                if (res.code == 400) {
+                    $('#searchresult').html('<div class="layui-anim layui-anim-upbit" style="text-align: center;font-size: 15px;padding: 38px;color: gray;">无结果</div>');
+                } else {
+                    var temp = '';
+                    layui.each(res.data, function (index, item) {
+                        if (item.start == null) {
+                            item.start = '暂无'
+                        }
+                        temp += '<a class="hvr-back-pulse" href="/filmos/movieinfo?movieid='+item.movieId+'" style="width: 100%"><div class="searchresultcontent layui-anim layui-anim-upbit " >' +
+                            '        <img src="/img' + item.movieImg +
+                            '" style="margin-left: 119%;padding: 5px;">' +
+                            '        <div class="searchresultname">' +
+                            item.movieName +
+                            '        </div>' +
+                            '        <div class="searchresultpoint">' +
+                            item.start +
+                            '        </div>' +
+                            '    </div></a>' +
+                            '    <hr>';
+
+                        $('#searchresult').html(temp)
+                    })
+                }
+            })
+        }
+
+    });
+
+
 
 </script>
 </body>
 </html>
+
+

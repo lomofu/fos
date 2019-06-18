@@ -165,7 +165,7 @@ margin: auto;
 #movieList {
 	margin: auto;
 	width: 90%;
-	height: 1300px;
+	height: auto;
 	background: white;
 	border-radius: 10px;
 	/* box-shadow: #555555 0px 0px 40px 2px; */

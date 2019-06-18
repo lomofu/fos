@@ -1,6 +1,7 @@
 package com.validator;
 
 
+import com.entity.MovieComment;
 import com.entity.User;
 import org.springframework.stereotype.Component;
 
@@ -11,4 +12,6 @@ import org.springframework.stereotype.Component;
 public interface ValidatorFactory {
     String CreateLoginVali(User user);
     boolean CreateRegisterVali(User user);
+    boolean CreateCommentVail(MovieComment movieComment);
+
 }

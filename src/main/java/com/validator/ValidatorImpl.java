@@ -1,6 +1,8 @@
 package com.validator;
 
+import com.dao.CommentDao;
 import com.dao.UserDao;
+import com.entity.MovieComment;
 import com.entity.User;
 import com.util.SpringMD5;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Component;
 public class ValidatorImpl implements Validator {
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private CommentDao commentDao;
     /*
     判断是否在数据库中以存在用户名true为不存在，false存在
      */
@@ -49,6 +53,16 @@ public class ValidatorImpl implements Validator {
         return false;
     }
 
+    /*
+     * 判断评论是否存在
+     * */
+    @Override
+    public boolean validatorComment(MovieComment movieComment) {
+        if(commentDao.selectComment(movieComment) == null ||  commentDao.selectComment(movieComment).equals(""))
+            return true;
+        else
+            return false;
+    }
     /*
     * 判断邮箱规格
     * */

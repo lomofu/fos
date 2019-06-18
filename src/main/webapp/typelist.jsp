@@ -37,8 +37,9 @@
             <button type="reset" class="Sbtn layui-btn layui-btn-danger" id="filter-reset" style="display: none;width: 60px">重置</button>
             <button type="button" class="Sbtn layui-btn layui-btn-normal" id="filter-button" style="display: block;width: 60px">筛选</button>
             <!-- 搜索框 -->
+            <form action="/filmos/search" onsubmit="false" method="get">
             <input id="Ssearch-bar-text" type="text" name="search" placeholder="搜索电影..." class="layui-input">
-
+            </form>
         </div>
     </div>
 
@@ -134,6 +135,7 @@
             <div id="dianyingliebiao" class="layui-row layui-col-space10">
 
             </div>
+            <br><br>
         </div>
         <br><br>
         <%--分页条--%>
@@ -142,12 +144,16 @@
 
 
 </div>
-<div id="buttom"></div>
+<br><br><br><br>
+<div id="bottom"></div>
+
 <script src="${pageContext.request.contextPath}/resources/js/common/common.js"></script>
 <script src="${pageContext.request.contextPath}/resources/layui.all.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/typelist/typelist.js"></script>
 <script>
     $ = layui.$;
+    var laypage = layui.laypage,
+        layer = layui.layer;
     //调用ajax实现页面的局部刷新,将iframe的页面加载出来
     $("#nav").load("/filmos/nav");
     $("#bottom").load("/filmos/bottom");
@@ -171,20 +177,32 @@
             document.getElementById("select").style.display = 'block';
         }
     });
+    var typeId = getQueryString('typeid');
 
 
-    <!-- 分页 -->
-    var laypage = layui.laypage,
-        layer = layui.layer;
-    laypage.render({
-        elem: 'demo7',
-        count: 100,
-        limit: 16,
-        layout: ['count', 'prev', 'page', 'next', 'skip'],
-        jump: function(obj) {
-            console.log(obj)
+    $.ajax({
+        url: "/filmos/movie//typecount?typeid="+typeId,
+        type: 'get',
+        data: '',
+        success: function (data) {
+            var count =data.data;
+            <!-- 分页 -->
+            laypage.render({
+                elem: 'demo7',
+                count: count,
+                limit: 16,
+                layout: ['count', 'prev', 'page', 'next','skip','refresh'],
+                jump: function(obj) {
+                    console.log(obj.curr)
+                    var page =obj.curr;
+                    getTypeList(typeId,page);
+
+                }
+            });
         }
-    });
+
+    })
+
 </script>
 
 <!-- 筛选框逻辑 -->
