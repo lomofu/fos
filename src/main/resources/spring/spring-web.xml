@@ -32,6 +32,7 @@
     (2)允许使用"/"做整体映射
     这些资源不用dispatcher 拦截 直接交由默认的service去处理-->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/swagger/**" location="/swagger/"/>
     <mvc:default-servlet-handler/>
 
 
@@ -49,6 +50,10 @@
         <property name="defaultEncoding" value="UTF-8"></property>
         <property name="maxUploadSize" value="10485760"></property><!-- 最大上传文件大小 -->
     </bean>
+
+    <!--注入swagger-->
+    <bean class="com.util.Swagger"/>
+    <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration" id="swagger2Config"/>
     <!--5.扫描web相关的bean-->
     <context:component-scan base-package="com.controller"/>
     <!--6.拦截器-->

@@ -58,10 +58,10 @@ $(function () {
                                             area: ['320px', '60px'],
                                             title: false,
                                             shade: 0,
-                                            offset: ['20px', '1200px'],
+                                            offset: 'rt',
                                             closeBtn: 0,
                                             anim: 3,
-                                            time:1800,
+                                            time:3000,
                                             content: '<span style=" font-size: 18px;margin-top: 6%;position: absolute;margin-left: 6%;">' + message.content + '</span>'
                                         });
                                     }

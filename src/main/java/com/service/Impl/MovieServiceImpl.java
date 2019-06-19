@@ -4,7 +4,6 @@ import com.dao.MovieDao;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.service.MovieService;
-import com.util.JedisUtils;
 import com.vo.VeiwMovie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,13 +27,8 @@ public class MovieServiceImpl implements MovieService {
     public ArrayList<VeiwMovie> getAllMovie(int pageNum,int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         ArrayList movieList= new ArrayList();
-        if(JedisUtils.isexist("movie")){
-            Object obj=JedisUtils.get("movie");
-            movieList= (ArrayList) obj;
-        }else{
+
             movieList=movieDao.queryAllMovie();
-            JedisUtils.set("movie",movieList);
-        }
         PageInfo page = new PageInfo(movieList);
         return movieList;
     }
