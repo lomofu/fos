@@ -10,6 +10,7 @@ import com.util.HttpServletRequestUtil;
 import com.util.PushUtil;
 import com.vo.VeiwMovieComment;
 import com.vo.ViewUserComment;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/comment")
+@Api(value = "commeentController|用来进行评论控制的控制器")
 public class commentController {
 
     @Autowired
@@ -36,6 +38,9 @@ public class commentController {
 
     @RequestMapping(value = "usercommentcount",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取用户影评总数",notes = "根据用户ID进行查询")
+    @ApiResponse(code = 400, message = "用户影评总数为0!")
+    @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getUserCommentCount(HttpServletRequest request){
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         int num=commentService.getAllCommentCountByUserId(userId);
@@ -54,6 +59,11 @@ public class commentController {
      */
     @RequestMapping(value = "usercomment", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "查询一个用户所有的影评",notes = "根据用户ID查询")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer"),
+            @ApiImplicitParam(paramType="path", name = "pagenum", value = "用户ID", required = true, dataType = "Integer")
+    })
     private Layui getUserComment(HttpServletRequest request) {
         List<ViewUserComment> list = new ArrayList<ViewUserComment>();
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
@@ -71,6 +81,8 @@ public class commentController {
 
     @RequestMapping(value = "moviecommentcount",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "查询该电影的所有影评的总数",notes = "根据电影ID查询")
+    @ApiImplicitParam(paramType="path", name = "movieid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getMovieCommentCount(HttpServletRequest request){
         Integer movieId=HttpServletRequestUtil.getInt(request,"movieid");
         int num=commentService.getAllCommentCountByMovieId(movieId);
@@ -90,6 +102,11 @@ public class commentController {
      */
     @RequestMapping(value = "moviecomment", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取该电影下的所有影评",notes = "通过电影ID查询")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="path", name = "movieid", value = "用户ID", required = true, dataType = "Integer"),
+            @ApiImplicitParam(paramType="path", name = "pagenum", value = "用户ID", required = true, dataType = "Integer")
+    })
     private Layui getMovieComment(HttpServletRequest request) {
         List<VeiwMovieComment> list = new ArrayList<VeiwMovieComment>();
         Integer movieId = HttpServletRequestUtil.getInt(request, "movieid");
@@ -111,6 +128,8 @@ public class commentController {
      */
     @RequestMapping(value = "addcomment", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "添加一条影评",notes = "")
+    @ApiImplicitParam(paramType="body", name = "movieComment", value = "用户影评", required = true, dataType = "MovieComment")
     private Layui addComment(@RequestBody MovieComment movieComment) {
         movieComment.setCreateTime(new Date());
         movieComment.setState(0);
@@ -136,6 +155,8 @@ public class commentController {
      */
     @RequestMapping(value = "updatecomment", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "更新影评",notes = "通过用户ID和电影ID标识")
+    @ApiImplicitParam(paramType="body", name = "movieComment", value = "用户影评", required = true, dataType = "MovieComment")
     private Layui updatecomment(@RequestBody MovieComment movieComment) {
         movieComment.setCreateTime(new Date());
         movieComment.setState(0);
@@ -154,6 +175,8 @@ public class commentController {
      */
     @RequestMapping(value = "delectcomment", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "删除影评",notes = "通过用户ID和电影ID标识")
+    @ApiImplicitParam(paramType="body", name = "movieComment", value = "用户影评", required = true, dataType = "MovieComment")
     private Layui delectcomment(@RequestBody MovieComment movieComment) {
         movieComment.setCreateTime(new Date());
         movieComment.setState(1);

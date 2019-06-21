@@ -4,6 +4,10 @@ import com.dto.Layui;
 import com.service.MovieService;
 import com.util.HttpServletRequestUtil;
 import com.vo.VeiwMovie;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +19,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/movie")
+@Api(value = "MovieController|电影信息控制器")
 public class movieController {
     @Autowired
     private MovieService movieService;
 
     @RequestMapping(value = "/count",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取电影总数",notes = "")
     private Layui getCount(){
         int num=movieService.getMovieCount();
         if (num>0){
@@ -32,6 +38,8 @@ public class movieController {
 
     @RequestMapping(value = "/typecount",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取该类型电影的总数",notes = "通过typeid查询电影")
+    @ApiImplicitParam(paramType="path", name = "typeid", value = "电影类型ID", required = true, dataType = "Integer")
     private Layui getTypeCount(HttpServletRequest request){
         Integer typeId=HttpServletRequestUtil.getInt(request,"typeid");
         int num=movieService.getTypeMovieCount(typeId);
@@ -45,6 +53,8 @@ public class movieController {
 
     @RequestMapping(value = "/movielist",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取所有电影",notes = "进行过分页")
+    @ApiImplicitParam(paramType="path", name = "pagenum", value = "分页数", required = true, dataType = "Integer")
     private Layui selectAllMovie(HttpServletRequest request) {
         int pageNum = HttpServletRequestUtil.getInt(request,"pagenum");
         ArrayList list = new ArrayList();
@@ -58,6 +68,8 @@ public class movieController {
 
     @RequestMapping(value = "/moviesinfo",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "查询一条电影",notes = "")
+    @ApiImplicitParam(paramType="path", name = "movieid", value = "电影ID", required = true, dataType = "Integer")
     private Layui selectMovieById(HttpServletRequest request){
         Integer movieId= HttpServletRequestUtil.getInt(request,"movieid");
         VeiwMovie veiwMovie=movieService.getMovieByMovieId(movieId);
@@ -76,6 +88,11 @@ public class movieController {
 
     @RequestMapping(value = "/movietype",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "查询该电影类型下的所有电影",notes = "")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="path", name = "typeid", value = "电影类型ID", required = true, dataType = "Integer"),
+            @ApiImplicitParam(paramType="path", name = "pagenum", value = "分页数", required = true, dataType = "Integer")
+    })
     private Layui selectMovieByTypeId(HttpServletRequest request){
         Integer typeId= HttpServletRequestUtil.getInt(request,"typeid");
         Integer pageNum = HttpServletRequestUtil.getInt(request,"pagenum");
@@ -90,6 +107,11 @@ public class movieController {
 
     @RequestMapping(value = "/moviename",method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "通过电影名查询电影",notes = "")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="path", name = "pagenum", value = "分页数", required = true, dataType = "Integer"),
+            @ApiImplicitParam(paramType="path", name = "moviename", value = "电影名", required = true, dataType = "String")
+    })
     private Layui selectMovieByName(HttpServletRequest request){
         Integer page=HttpServletRequestUtil.getInt(request,"pagenum");
         String movieName = HttpServletRequestUtil.getString(request,"moviename");

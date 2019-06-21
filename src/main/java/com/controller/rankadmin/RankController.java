@@ -5,6 +5,8 @@ import com.dto.Layui;
 import com.service.RankService;
 import com.util.JedisUtils;
 import com.vo.ViewRank;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +19,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/rank")
+@Api(value = "RankController|排行控制器")
 public class RankController {
     @Autowired
     RankService rankService;
     @RequestMapping(value = "/rank20" ,method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取排名前20的电影",notes = "")
     private Layui gettop20MovieRank(HttpServletRequest request) {
         List<ViewRank> list ;
         //判断有没有20个电影
@@ -40,6 +44,7 @@ public class RankController {
     }
     @RequestMapping(value = "/rank5" ,method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "获取排名前5的电影",notes = "")
     private Layui gettop5MovieRank(HttpServletRequest request) {
         List<ViewRank> list ;
         //取list中的前5个

@@ -19,6 +19,4 @@ public class MovieComment implements Serializable {
     private Integer state;
     private Movie movie;
     private User user;
-
-
 }

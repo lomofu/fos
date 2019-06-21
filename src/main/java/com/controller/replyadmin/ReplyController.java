@@ -5,6 +5,10 @@ import com.entity.MovieReply;
 import com.service.ReplyService;
 import com.util.HttpServletRequestUtil;
 import com.vo.VeiwMovieReply;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +22,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/reply")
+@Api(value = "ReplyController|回复控制器")
 public class ReplyController {
     @Autowired
     private ReplyService replyService;
@@ -27,6 +32,8 @@ public class ReplyController {
      */
     @RequestMapping(value = "/replybyuseridcount")
     @ResponseBody
+    @ApiOperation(value = "获取该用户回复总数",notes = "")
+    @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getReplyByUserIdCount(HttpServletRequest request){
         Integer userId=HttpServletRequestUtil.getInt(request,"userid");
         int num=replyService.getRelyByUserIdCount(userId);
@@ -45,6 +52,11 @@ public class ReplyController {
      */
     @RequestMapping(value = "/replybyuserid")
     @ResponseBody
+    @ApiOperation(value = "获取该用户下的所有回复",notes = "进行分页")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer"),
+            @ApiImplicitParam(paramType="path", name = "pagenum", value = "用户ID", required = true, dataType = "Integer")
+    })
     private Layui getReplyByUserId(HttpServletRequest request) {
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         List<VeiwMovieReply> list = new ArrayList<VeiwMovieReply>();
@@ -62,6 +74,8 @@ public class ReplyController {
      */
     @RequestMapping(value = "/replybycommentidcount")
     @ResponseBody
+    @ApiOperation(value = "获取一条影评下的所有回复的总数",notes = "")
+    @ApiImplicitParam(paramType="path", name = "commentid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getReplyByCommentIdCount(HttpServletRequest request){
         Integer commentId=HttpServletRequestUtil.getInt(request,"commentid");
         int num=replyService.getRelyByCommentIdCount(commentId);
@@ -79,6 +93,8 @@ public class ReplyController {
      */
     @RequestMapping(value = "/replybycommentid")
     @ResponseBody
+    @ApiOperation(value = "获取一条影评下的所有回复的信息",notes = "")
+    @ApiImplicitParam(paramType="path", name = "commentid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getReplyByCommentId(HttpServletRequest request){
         Integer commentId=HttpServletRequestUtil.getInt(request,"commentid");
         List<VeiwMovieReply>list=new ArrayList<>();
@@ -99,6 +115,8 @@ public class ReplyController {
      */
     @RequestMapping(value = "/addreply")
     @ResponseBody
+    @ApiOperation(value = "在某个影评下回复",notes = "")
+    @ApiImplicitParam(paramType="body", name = "newPassword", value = "新密码", required = true, dataType = "String")
     private Layui addReply(@RequestBody MovieReply movieReply) {
         movieReply.setCreateTime(new Date());
         movieReply.setState(0);
@@ -119,6 +137,8 @@ public class ReplyController {
      */
     @RequestMapping(value = "/delectreply")
     @ResponseBody
+    @ApiOperation(value = "删除回复",notes = "")
+    @ApiImplicitParam(paramType="body", name = "movieReply", value = "回复", required = true, dataType = "MovieReply")
     private Layui delectreply(@RequestBody MovieReply movieReply) {
         movieReply.setCreateTime(new Date());
         int num = replyService.delectMovieReply(movieReply);

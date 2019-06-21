@@ -4,6 +4,10 @@ import com.dto.Layui;
 import com.entity.Push;
 import com.service.PushService;
 import com.util.HttpServletRequestUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +22,15 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/push")
+@Api(value = "PushController|关注控制器")
 public class pushController {
     @Autowired
     private PushService pushService;
 
     @RequestMapping(value = "/followid")
     @ResponseBody
+    @ApiOperation(value = "进行推送",notes = "通过userid获取followid")
+    @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getFollowId(HttpServletRequest request) {
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         List list = new ArrayList();
@@ -37,6 +44,8 @@ public class pushController {
 
     @RequestMapping(value = "/follow")
     @ResponseBody
+    @ApiOperation(value = "获取用户的关注列表",notes = "通过userid获取关注用户信息")
+    @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer")
     private Layui getFollow(HttpServletRequest request) {
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         List list = new ArrayList();
@@ -51,6 +60,11 @@ public class pushController {
 
     @RequestMapping(value = "/isfollow")
     @ResponseBody
+    @ApiOperation(value = "关注判断",notes = "通过userid和followid查询后判断该用户是否已经被关注")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="path", name = "userid", value = "用户ID", required = true, dataType = "Integer"),
+            @ApiImplicitParam(paramType="path", name = "followid", value = "用户ID", required = true, dataType = "Integer")
+    })
     private Layui isFollow(HttpServletRequest request) {
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         Integer followId = HttpServletRequestUtil.getInt(request, "followid");
@@ -65,6 +79,8 @@ public class pushController {
 
     @RequestMapping(value = "/addfollow", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "添加关注",notes = "")
+    @ApiImplicitParam(paramType="body", name = "push", value = "关注", required = true, dataType = "Push")
     private Layui addFollow(@RequestBody Push push) {
         push.setCreateTime(new Date());
         int num = pushService.addFollow(push);
@@ -78,6 +94,8 @@ public class pushController {
 
     @RequestMapping(value = "/deletefollow", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "取消关注",notes = "")
+    @ApiImplicitParam(paramType="body", name = "push", value = "关注", required = true, dataType = "Push")
     private Layui deleteFollow(@RequestBody Push push) {
         int num = pushService.deleteFollow(push);
         if (num > 0) {

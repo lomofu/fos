@@ -7,6 +7,10 @@ import com.util.HttpServletRequestUtil;
 import com.util.JedisUtils;
 import com.util.SpringMD5;
 import com.validator.ValidatorFactory;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +22,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
+@Api(value = "Usercontroller|用户控制器")
 public class userController {
     @Autowired
     private UserService userService;
@@ -35,7 +40,12 @@ public class userController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    private Layui loginUser(HttpServletRequest request, @RequestBody User user)  {
+    @ApiOperation(value = "登陆",notes = "")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType="query", name = "request", value = "请求", required = true, dataType = "HttpServletRequest"),
+            @ApiImplicitParam(paramType="body", name = "user", value = "用户", required = true, dataType = "User")
+    })
+     private Layui loginUser(HttpServletRequest request, @RequestBody User user)  {
       return userService.login(user,request);
     }
 
@@ -48,6 +58,8 @@ public class userController {
      */
     @RequestMapping(value = "/islogin", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "登陆状态判断",notes = "")
+    @ApiImplicitParam(paramType="path", name = "request", value = "请求", required = true, dataType = "HttpServletRequest")
     private Layui isLogin(HttpSession session, HttpServletRequest request) throws Exception {
         String usertoken = HttpServletRequestUtil.getTokenFromRedis(request);
         if (usertoken != null) {
@@ -69,6 +81,8 @@ public class userController {
      */
     @RequestMapping(value = "/quit", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation(value = "退出登陆",notes = "")
+    @ApiImplicitParam(paramType="path", name = "request", value = "请求", required = true, dataType = "HttpServletRequest")
     private Layui loginOut(HttpSession session) {
         User user=(User) session.getAttribute("user");
         JedisUtils.deleteToken(String.valueOf(user.getUserId()));
@@ -85,6 +99,8 @@ public class userController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "用户注册",notes = "前后端都进行校验")
+    @ApiImplicitParam(paramType="path", name = "request", value = "请求", required = true, dataType = "HttpServletRequest")
     private Layui addUser(HttpServletRequest request) throws Exception {
         User user = HttpServletRequestUtil.JsonToClass(request);
         CommonsMultipartFile userImg = HttpServletRequestUtil.getUserImg(request);
@@ -113,6 +129,8 @@ public class userController {
      */
     @RequestMapping(value = "/updateuserinfo", method = {RequestMethod.POST})
     @ResponseBody
+    @ApiOperation(value = "更新用户信息",notes = "")
+    @ApiImplicitParam(paramType="body", name = "user", value = "用户", required = true, dataType = "User")
     private Layui updateUser(@RequestBody User user, HttpSession session) {
         if (user != null) {
             userService.updateUserInfo(user);
@@ -134,6 +152,8 @@ public class userController {
      */
     @RequestMapping(value = "/updatepassword", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "修改用户密码",notes = "")
+    @ApiImplicitParam(paramType="body", name = "user", value = "用户", required = true, dataType = "User")
     private Layui updatePassword(@RequestBody User user, HttpSession session) {
         if (user != null) {
             user.setPassword(SpringMD5.passwordMD5(user.getPassword()));
@@ -157,6 +177,8 @@ public class userController {
      */
     @RequestMapping(value = "/updateuserimg", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation(value = "修改用户头像",notes = "")
+    @ApiImplicitParam(paramType="query", name = "multipartFile", value = "上传文件", required = true, dataType = "CommonsMultipartFile")
     private Layui updateUserImg(@RequestParam(value = "file", required = false) CommonsMultipartFile multipartFile, HttpSession session) throws IOException {
         User user = (User) session.getAttribute("user");
         if (multipartFile != null && multipartFile.getSize() > 0 && user != null) {
