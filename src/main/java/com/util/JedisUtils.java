@@ -8,7 +8,7 @@ public class JedisUtils {
     private static Jedis jedis;
     //初始化
     private static void init() {
-        JedisShardInfo shardInfo = new JedisShardInfo("redis://localhost:6379/9");
+        JedisShardInfo shardInfo = new JedisShardInfo("redis://47.107.32.107:6379/9");
         shardInfo.setPassword("root");//这里是密码
         jedis = new Jedis(shardInfo);
         jedis.connect();
