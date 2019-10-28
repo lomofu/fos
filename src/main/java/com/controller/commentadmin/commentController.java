@@ -45,7 +45,7 @@ public class commentController {
         Integer userId = HttpServletRequestUtil.getInt(request, "userid");
         int num=commentService.getAllCommentCountByUserId(userId);
         if (num>0){
-            return Layui.success("用户影评总数查询成功！",num);
+            return Layui.success("用户影评查询成功！",num);
         }else {
             return Layui.fail("用户影评总数为0!");
         }
