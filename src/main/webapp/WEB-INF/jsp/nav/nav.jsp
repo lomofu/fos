@@ -24,7 +24,7 @@
         </dl>
     </li>
 
-    <li class="layui-nav-item"><a href="${pageContext.request.contextPath}/infolist.jsp">资讯</a></li>
+    <li class="layui-nav-item"><a href="${pageContext.request.contextPath}/infolist.jsp">热点</a></li>
 
     <li class="layui-nav-item"><a href="${pageContext.request.contextPath}/movielist.jsp">电影库</a></li>
 
