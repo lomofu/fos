@@ -50,7 +50,7 @@
         <dl class="layui-nav-child">
             <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/centre">个人中心</a></dd>
             <dd><a style="cursor: pointer" href="${pageContext.request.contextPath}/page/userinfo">修改信息</a></dd>
-            <dd><a id="quit" style="cursor: pointer">退出登录</a></dd>
+            <dd><a id="quit" style="cursor: pointer">退出账号</a></dd>
         </dl>
     </li>
 
